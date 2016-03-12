@@ -1,0 +1,245 @@
+
+#+TITLE: Controlling your environment
+#+AUTHOR: \\ \vspace{0.1cm} Olivier Richard, Michael Mercier, Cristian Ruiz, Pierre Neyron \\ \vspace{0.1cm} INRIA Grenoble, France \vspace{0.1cm}
+#+DATE: April 7, 2016 -- Reproducible Research Webinar
+
+#+OPTIONS: H:2
+#+BEAMER_COLOR_THEME:
+#+BEAMER_FONT_THEME:
+#+BEAMER_HEADER:
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+BEAMER_INNER_THEME:
+#+BEAMER_OUTER_THEME:
+#+BEAMER_THEME: default
+#+LATEX_CLASS: beamer
+
+
+#+OPTIONS:   H:2 toc:nil
+
+#+LATEX_HEADER: \def\inriaproject{Inria}
+#+LATEX_HEADER: \def\tutelle{RR Webinar}
+
+
+#+LATEX_HEADER: \usepackage{multirow}
+#+LaTeX_HEADER: \usepackage{minted}
+#+LaTeX_HEADER: \usepackage{fontspec}
+#+LaTeX_HEADER: \usepackage{graphicx}
+#+LaTeX_HEADER: \usepackage{subcaption}
+#+latex_header: \usepackage{./theme/beamerthemeCristian}
+#+LaTeX_HEADER: \usepackage{color}
+#+latex_header: \newminted{ruby}{fontsize=\scriptsize}
+#+latex_header: \usepackage[absolute,overlay]{textpos}
+#+latex_header: \setlength{\TPHorizModule}{\paperwidth}
+#+latex_header: \setlength{\TPVertModule}{\paperheight}
+#+latex_header: \textblockorigin{0mm}{0mm}
+#+LATEX_HEADER: \usepackage{natbib}
+#+LATEX_HEADER: \usepackage{bibentry}
+#+LATEX_HEADER: \usepackage{dirtree}
+#+LATEX_HEADER: \newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+#+LATEX_HEADER: \newcommand{\bottomcite}[1]{\fbox{\vbox{\footnotesize #1}}}
+#+LATEX_HEADER: \nobibliography*
+#+BIND: org-latex-title-command ""
+
+
+
+#+BEGIN_LaTeX
+
+\sloppy
+\frame{
+  \thispagestyle{empty}
+  \titlepage
+  \begin{center}
+    \includegraphics[height=1.2cm]{logos/inr_logo_sans_sign_coul.png}
+    \hspace{0.5cm}
+  \insertlogo{\includegraphics[height=1.2cm]{logos/grid5000.png}}
+   \hspace{0.5cm}
+
+  \end{center}
+
+}
+
+#+END_LaTex
+
+#+LaTeX: \tableofcontents
+
+
+* setup								   :noexport:
+
+** Download beamer theme and logos
+
+#+BEGIN_SRC sh
+ mkdir theme
+ wget https://raw.githubusercontent.com/camilo1729/latex-tools/master/beamer_theme/beamerthemeCristian.sty
+ mv beamerthemeCristian.sty  theme/
+ wget https://github.com/camilo1729/latex-tools/blob/master/logos/grid5000.png
+ wget https://github.com/camilo1729/latex-tools/blob/master/logos/inr_logo_sans_sign_coul.png
+ mkdir logos
+ mv *.png logos
+#+END_SRC
+
+
+* Why is it necessary?
+
+** Interest in the experimental workflow
+      - For myself
+      - For other people
+      - To be able to scale my experiments. Use more machines.
+
+** Barriers to replicate a given experiment
+
+Unresolved dependencies.
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+  \includegraphics[scale=0.25]{figures/Dependency.png}
+  \label{fig:s}
+\end{figure}
+#+END_LaTeX
+
+Compilation errors.
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+  \includegraphics[scale=0.25]{figures/Compilation_error.png}
+  \label{fig:s}
+\end{figure}
+
+  \bottomcite{Collberg, Christian \textit{et Al.},
+     \href{http://reproducibility.cs.arizona.edu/v2/RepeatabilityTR.pdf}{\textit{Measuring Reproducibility in Computer Systems Research}},
+    \url{http://reproducibility.cs.arizona.edu/}\qquad 2014,2015}
+#+END_LaTeX
+
+Only 24 % of experimental setups of papers submitted ACM conferences and journals can be built.
+
+
+* What is an environment?
+**      l'ensemble des outils
+**       Hardware;
+	- Indispensable quand on mesure des performances...
+	- À lister (capture des informations pas si simple, il existe
+          des outils generiques comme =dmidecode= ou propriétaires ?(bios, nvidia), reference API de G5K )
+	- Difficile à partager et à reproduire
+	- Par contre l'utilisation de Grid'5000 peut aider...
+** Software
+	- Very succinct (minimal description/README)
+	- Partial (lib)
+	- Full (OS + lib)
+* Utiliser un environnement contraint
+      Dépendances relativement faibles. Un environnement
+      spécialisé/contrôlé/versionné par quelqu'un d'autre:
+      - Activepapers
+      - notebook ipython/jupyter
+      - SageMathCloud ? :(
+      - Images par défaut de G5K
+
+      Partage: facile
+      Portabilité:
+      Contrôle: faible
+* Capturing an environment
+      - Bosser dans une VM et faire un snapshot
+      - Avoir un outil qui tracke
+	- [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011) [[https://vida-nyu.github.io/reprozip/][ReproZip]] (Freire et al., 2013), [[http://reproducible.io/][CARE]]
+          (Janin et al., 2014), l'outil de Thain
+	- See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
+      - Extraction de la partie "utile" d'un environnement afin de
+	déployer.
+
+      Partage/portabilité: plus compliqué...
+
+      Contrôle: moyen (possibilité de louper des choses..., entropie
+      importante car rien n'incite à faire le ménage et on peut se
+      retrouver avec un paquet de trucs inutiles)
+
+      Lisibilité: un gros bundle binaire pas simple à comprendre
+      "reverse engineering"
+
+* Building the entire environment
+
+** reconstructabiliy.
+
+The simple fact of compiling a software used in an experiment is not always possible.
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+  \includegraphics[scale=0.35]{figures/Compilation_error.png}
+  \label{fig:s}
+\end{figure}
+#+END_LaTeX
+
+** Reconstructability
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.6]{figures/Environment_creation.pdf}
+  \caption{Creation process of an experimental setup.}
+  \label{fig:environment_creation}
+\end{figure}
+#+END_LaTeX
+
+** Reconstrucability
+#+BEGIN_LaTeX
+An experimental setup \(E'\) is reconstructable if the following three facts hold:
+\begin{itemize}
+\item Experimenters have access to the original base experimental setup \(E\).
+\item Experimenters know exactly the sequence of actions \\* \(\langle A_{1}, A_{2}, A_{3}, ..., A_{n}\rangle \) that produced \(E'\).
+\item {\bf Experimenters are able to change some action \(A_{i}\) and successfully re-construct an experimental setup \(E''\)}.
+\end{itemize}
+#+END_LaTeX
+
+
+** Reconstrucability
+#+BEGIN_LaTeX
+
+It can be expressed as \(E' = f(E,\langle A_{i} \rangle ) \)
+where \( f \) applies \(\langle A_{i} \rangle \) to \(E\) to
+derive the experimental setup \(E'\).
+
+
+Few cases where this hypothesis does not hold:
+\begin{itemize}
+  \item An action \(A_{i}\) is composed of sub-tasks that are executed concurrently making the process not deterministic.
+        For example: \texttt{Makefile} \texttt{-j}.
+  \item (\emph{Debian 8}) is validated based on timestamps.
+\end{itemize}
+
+Additionally problems:
+\begin{itemize}
+\item Accessing the same base setup \(E\).
+\item Software used is not available anymore.
+\end{itemize}
+
+#+END_LaTeX
+
+
+** notes							   :noexport:
+I can introduce the definition of reconstructability
+      Quelles bonnes propriétés sont elles recherchée?
+
+      Quelles sont les étapes:
+      1. Partir de 0
+      2. S'assurer qu'on peut reconstruire à chaque instant
+      3. Distribuer
+
+      Note: çà veut dire quoi partir de 0 ?
+      1. Partir d'une image préexistante considérée comme stable. Avec
+         l'effort des reproducible build de debian, c'est pas mal
+         (mentionner aussi debian snapshot)
+	 - Script, Outils des distributions, VM et container, docker file, vagrant
+	 - Nix / Guix
+	 - Kameleon
+      2. Construire complètement from scratch (même l'OS)
+	 - Kameleon
+
+* Comment utiliser un environnement?
+      C'est transverse, comme "comment distribuer" donc à expliquer au
+      fur et à mesure
+      - VM, container, chroot, bundle python, hdf5 + \dots, \dots
+      Faire un petit tableau récapitulatif
+* Demo
+      1. Reprozip (capture) (les autres ayant l'air plus ou moins maintenus)
+      2. Docker
+	 - Explication des avantages/inconvénients
+      3. Kameleon / example Batsim ?
+	 - Success story: un an après, ça marche encore!
