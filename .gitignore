@@ -1,0 +1,13 @@
+*.pdf
+*.vrb
+*.pyg
+*.nav
+*.snm
+*.aux
+*.toc
+*.log
+*.bbl
+*latexmk
+*.blg
+*.out
+*.fls
