@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="573.20312"
+   height="194.10767"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="types_of_environments.svg">
+  <defs
+     id="defs4">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4256">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         d="m 104.02535,653.52122 109.72207,0 0,14.28572 -109.72207,0 z"
+         id="path4258"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4260">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         d="m 542.70928,532.79423 109.72207,0 0,14.28572 -109.72207,0 z"
+         id="path4262"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="372.42194"
+     inkscape:cy="52.632807"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="984"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-83.671875,-464.0625)">
+    <path
+       style="fill:#ffdd55;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       clip-path="url(#clipPath4260)"
+       d="m 546.33929,533.9693 105.35714,0 0,25 -105.35714,0 z"
+       id="rect2985-0-6-2-2" />
+    <rect
+       style="fill:#808080;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2985"
+       width="105.35714"
+       height="25"
+       x="123.21429"
+       y="598.79077" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(13.928571,-55.714286)"><flowRegion
+         id="flowRegion3757"><rect
+           id="rect3759"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761">Hardware</flowPara></flowRoot>    <rect
+       style="fill:#5a2ca0;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2985-0"
+       width="105.35714"
+       height="25"
+       x="123.03571"
+       y="565.57648" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#dbdee3;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(46.96428,-88.571446)"><flowRegion
+         id="flowRegion3757-7"><rect
+           id="rect3759-1"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#dbdee3;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9">OS</flowPara></flowRoot>    <rect
+       style="fill:#ffdd55;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2985-0-6"
+       width="105.35714"
+       height="25"
+       x="122.32143"
+       y="533.07642" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(16.250001,-121.78575)"><flowRegion
+         id="flowRegion3757-7-8"><rect
+           id="rect3759-1-7"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6">Bin Lib</flowPara></flowRoot>    <rect
+       style="fill:#2a7fff;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3823"
+       width="46.785713"
+       height="44.642857"
+       x="122.14286"
+       y="482.71933" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3825"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+         id="flowRegion3827"><rect
+           id="rect3829"
+           width="121.78571"
+           height="48.92857"
+           x="292.5"
+           y="561.29077" /></flowRegion><flowPara
+         id="flowPara3831" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9-7"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(15.271831,-162.12275)"><flowRegion
+         id="flowRegion3757-7-8-2"><rect
+           id="rect3759-1-7-5"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6-8">App</flowPara></flowRoot>    <rect
+       style="fill:#5a2ca0;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2985-0-8"
+       width="105.35714"
+       height="25"
+       x="268.125"
+       y="565.93365" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-7"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#dbdee3;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(192.05357,-88.214313)"><flowRegion
+         id="flowRegion3757-7-5"><rect
+           id="rect3759-1-2"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#dbdee3;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-1">OS</flowPara></flowRoot>    <rect
+       style="fill:#ffdd55;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2985-0-6-0"
+       width="105.35714"
+       height="25"
+       x="267.41071"
+       y="533.43359" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9-0"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(161.33929,-121.42861)"><flowRegion
+         id="flowRegion3757-7-8-8"><rect
+           id="rect3759-1-7-3"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6-6">Bin Lib</flowPara></flowRoot>    <rect
+       style="fill:#2a7fff;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3823-6"
+       width="46.785713"
+       height="44.642857"
+       x="267.23215"
+       y="483.07645" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9-7-2"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(160.36112,-161.76561)"><flowRegion
+         id="flowRegion3757-7-8-2-2"><rect
+           id="rect3759-1-7-5-7"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6-8-6">App</flowPara></flowRoot>    <rect
+       style="fill:#ffdd55;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2985-0-6-2"
+       width="105.35714"
+       height="25"
+       x="404.91071"
+       y="534.14783" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9-9"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(298.83929,-120.71432)"><flowRegion
+         id="flowRegion3757-7-8-88"><rect
+           id="rect3759-1-7-0"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6-7">Bin Lib</flowPara></flowRoot>    <rect
+       style="fill:#2a7fff;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3823-0"
+       width="46.785713"
+       height="44.642857"
+       x="404.73215"
+       y="483.79077" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9-7-5"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(297.86112,-161.05132)"><flowRegion
+         id="flowRegion3757-7-8-2-7"><rect
+           id="rect3759-1-7-5-1"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6-8-4">App</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9-9-3"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(438.68393,-120.72699)"
+       clip-path="url(#clipPath4256)"><flowRegion
+         id="flowRegion3757-7-8-88-6"><rect
+           id="rect3759-1-7-0-4"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6-7-5">Bin Lib</flowPara></flowRoot>    <rect
+       style="fill:#2a7fff;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3823-0-6"
+       width="46.785713"
+       height="44.642857"
+       x="546.16071"
+       y="483.61224" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-9-7-5-9"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(439.28969,-161.22986)"><flowRegion
+         id="flowRegion3757-7-8-2-7-2"><rect
+           id="rect3759-1-7-5-1-3"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-6-8-4-1">App</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4006"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-35,-43.571428)"><flowRegion
+         id="flowRegion4008"><rect
+           id="rect4010"
+           width="249.28574"
+           height="148.57146"
+           x="118.57143"
+           y="667.36218"
+           style="font-size:20px" /></flowRegion><flowPara
+         id="flowPara4012"
+         style="font-size:14px">VM </flowPara><flowPara
+         id="flowPara4014"
+         style="font-size:14px">Image disk + Testbed</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4006-4"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(157.16839,-69.784619)"><flowRegion
+         id="flowRegion4008-2"><rect
+           id="rect4010-7"
+           width="249.28574"
+           height="148.57146"
+           x="118.57143"
+           y="667.36218"
+           style="font-size:20px" /></flowRegion><flowPara
+         id="flowPara4014-0"
+         style="font-size:14px">Image disk</flowPara><flowPara
+         style="font-size:14px"
+         id="flowPara4048">QCOW disk</flowPara><flowPara
+         style="font-size:14px"
+         id="flowPara4050">VDI </flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4006-4-7"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(283.68247,-104.00609)"><flowRegion
+         id="flowRegion4008-2-9"><rect
+           id="rect4010-7-6"
+           width="249.28574"
+           height="148.57146"
+           x="118.57143"
+           y="667.36218"
+           style="font-size:20px" /></flowRegion><flowPara
+         style="font-size:14px"
+         id="flowPara4050-8">Tarball for container</flowPara><flowPara
+         style="font-size:14px"
+         id="flowPara4089">LXC and docker</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4006-4-5"
+       style="font-size:20px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(441.53962,-101.86323)"><flowRegion
+         id="flowRegion4008-2-4"><rect
+           id="rect4010-7-8"
+           width="249.28574"
+           height="148.57146"
+           x="118.57143"
+           y="667.36218"
+           style="font-size:20px" /></flowRegion><flowPara
+         style="font-size:14px"
+         id="flowPara4050-1">CDE </flowPara><flowPara
+         style="font-size:14px"
+         id="flowPara4112">Reprozip </flowPara></flowRoot>    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4116"
+       width="128.57144"
+       height="171.42856"
+       x="115"
+       y="464.50504"
+       ry="1.4285715"
+       rx="1.4285715" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4121"
+       width="115.71429"
+       height="127.85714"
+       x="263.57144"
+       y="468.79074"
+       ry="1.4285715"
+       rx="1.4285715" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4123"
+       width="114.28571"
+       height="90"
+       x="401.42856"
+       y="472.36218"
+       ry="1.4285715"
+       rx="1.4285715" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:0.87032968;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4125"
+       width="115.02967"
+       height="85.029671"
+       x="539.43677"
+       y="475.24783"
+       ry="1.4285715"
+       rx="1.4285715" />
+  </g>
+</svg>
