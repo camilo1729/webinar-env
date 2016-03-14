@@ -1,7 +1,7 @@
 
 #+TITLE: Controlling your environment
-#+AUTHOR: \\ \vspace{0.1cm} Olivier Richard, Michael Mercier, Cristian Ruiz, Pierre Neyron \\ \vspace{0.1cm} INRIA Grenoble, France \vspace{0.1cm}
-#+DATE: April 7, 2016 -- Reproducible Research Webinar
+#+AUTHOR: \\ \vspace{0.1cm} Cristian Ruiz, Michael Mercier\\ \vspace{0.1cm} INRIA - France \vspace{0.1cm}
+#+DATE: April 5, 2016 -- Reproducible Research Webinar
 
 #+OPTIONS: H:2
 #+BEAMER_COLOR_THEME:
@@ -61,7 +61,7 @@
 
 #+END_LaTex
 
-#+LaTeX: \tableofcontents
+
 
 
 * setup								   :noexport:
@@ -78,6 +78,18 @@
  mv *.png logos
 #+END_SRC
 
+
+* Intro
+** People involved
+
+- Arnauld Legrand
+- Cristian Ruiz
+- Michael Mercier
+- Olivier Richard
+- Pierre Neyron
+- Salem Harrache
+** Outline
+#+LaTeX: \tableofcontents
 
 * Why is it necessary?
 
@@ -112,32 +124,93 @@ Compilation errors.
 
 Only 24 % of experimental setups of papers submitted ACM conferences and journals can be built.
 
-
 * What is an environment?
-**      l'ensemble des outils
-**       Hardware;
-	- Indispensable quand on mesure des performances...
-	- À lister (capture des informations pas si simple, il existe
-          des outils generiques comme =dmidecode= ou propriétaires ?(bios, nvidia), reference API de G5K )
-	- Difficile à partager et à reproduire
-	- Par contre l'utilisation de Grid'5000 peut aider...
+** Types of environments
+
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.6]{figures/types_of_environments.pdf}
+\end{figure}
+#+END_LaTeX
+
+
+** Hardware
+- Necessary when we carry out performance measures
+- Tools to capture hardware configuration:
+  - =dmidecode=
+  - hwloc
+  - outils propriétaires ?(bios, nvidia)
+  - reference API de G5K
+
+- Cloudlab[fn:cloudlab] enables to create profiles -> Harware specs + disk image
+
+- Use of baremetal testeds: Grid'5000, Chameleon.
+- Difficile à partager et à reproduire
+
+
+[fn:cloudlab] https://www.cloudlab.us/
+** nodes							   :noexport:
+- Par contre l'utilisation de Grid'5000 peut aider...
+
 ** Software
 	- Very succinct (minimal description/README)
 	- Partial (lib)
-	- Full (OS + lib)
-* Utiliser un environnement contraint
-      Dépendances relativement faibles. Un environnement
-      spécialisé/contrôlé/versionné par quelqu'un d'autre:
-      - Activepapers
-      - notebook ipython/jupyter
-      - SageMathCloud ? :(
-      - Images par défaut de G5K
+	- Full -> Virtual appliance
 
-      Partage: facile
+** Software Appliances
+*** Advantage 							    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+
+keep everything together:
+#+BEGIN_CENTER
+OS + configuration + application
+#+END_CENTER
+
+*** Some facts							    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+- Availability of Testbeds such as Grid'5000, Chameleon, Cloudlab, etc
+- Ubiquity of Cloud computing infrastructures.
+- Virtualization accessible to almost everyone that has a computer with modest requirements.
+
+
+
+* Utiliser un environnement contraint
+** Use of third party environments
+- Weak dependencies
+- Environment build, specialized, controlled, versioned by somebody else:
+
+#+BEGIN_LaTeX
+  \bottomcite{Brammer, Grant R \textit{et Al.},
+     \href{http://www.sciencedirect.com/science/article/pii/S187705091100127X}
+{\textit{Paper M\^ach\'e: Creating Dynamic Reproducible Science.}},
+    \url{International Conference on Computational Science}, ICSS 2011}
+#+END_LaTeX
+
+  - Activepapers
+  - notebook ipython/jupyter
+  - SageMathCloud ? :(
+  - Images par défaut de G5K
+  - Software appliances market place (Testbed)
+
+
+Partage: facile
       Portabilité:
       Contrôle: faible
-* Capturing an environment
+* Capturing an environmen
+** Capturing an environment
       - Bosser dans une VM et faire un snapshot
+#+BEGIN_LaTeX
+  \bottomcite{J. T. Dudley and A. J. Butte,
+     \href{http://www.nature.com/nbt/journal/v28/n11/pdf/nbt1110-1181.pdf}{\textit{In silico research in the era of cloud computing}},
+    \url{Nature Biotechnology}\qquad 2010}
+#+END_LaTeX
+
       - Avoir un outil qui tracke
 	- [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011) [[https://vida-nyu.github.io/reprozip/][ReproZip]] (Freire et al., 2013), [[http://reproducible.io/][CARE]]
           (Janin et al., 2014), l'outil de Thain
@@ -156,7 +229,7 @@ Only 24 % of experimental setups of papers submitted ACM conferences and journal
 
 * Building the entire environment
 
-** reconstructabiliy.
+** Reconstructability
 
 The simple fact of compiling a software used in an experiment is not always possible.
 
@@ -233,13 +306,29 @@ I can introduce the definition of reconstructability
 	 - Kameleon
 
 * Comment utiliser un environnement?
+
+** Distributing software
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.4]{figures/CDE_author_user.pdf}
+\end{figure}
+#+END_LaTeX
+
+
+
+** notes
       C'est transverse, comme "comment distribuer" donc à expliquer au
       fur et à mesure
       - VM, container, chroot, bundle python, hdf5 + \dots, \dots
       Faire un petit tableau récapitulatif
-* Demo
+* Demo time
+** Reprozip
       1. Reprozip (capture) (les autres ayant l'air plus ou moins maintenus)
+** Docker
       2. Docker
 	 - Explication des avantages/inconvénients
+** Kameleon
       3. Kameleon / example Batsim ?
 	 - Success story: un an après, ça marche encore!
