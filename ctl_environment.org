@@ -124,6 +124,12 @@ Compilation errors.
 
 Only 24 % of experimental setups of papers submitted ACM conferences and journals can be built.
 
+** Four technical challenges
+- Dependency Hell
+- Imprecise documentation
+- Code rote
+- Barriers to adoption and reuse -> entry barriers, lack of incentives
+
 * What is an environment?
 ** Types of environments
 
@@ -229,7 +235,7 @@ Partage: facile
 
 * Building the entire environment
 
-** Reconstructability
+** Problem
 
 The simple fact of compiling a software used in an experiment is not always possible.
 
@@ -241,7 +247,7 @@ The simple fact of compiling a software used in an experiment is not always poss
 \end{figure}
 #+END_LaTeX
 
-** Reconstructability
+** Environment generation
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
@@ -327,8 +333,21 @@ I can introduce the definition of reconstructability
 ** Reprozip
       1. Reprozip (capture) (les autres ayant l'air plus ou moins maintenus)
 ** Docker
-      2. Docker
-	 - Explication des avantages/inconvénients
+Docker advantages for reproducible research:
+
+- Integrating into local development environments
+- Modular reuse
+- Portable environments
+- Public repositories for sharing
+- Versioning
+
+#+BEGIN_LaTeX
+  \bottomcite{Carl Boettiger,
+     \href{http://www.carlboettiger.info/assets/files/pubs/10.1145/2723872.2723882.pdf}{\textit{An introduction to Docker for reproducible research}},
+    ACM SIGOPS Operating Systems Review,2015}
+#+END_LaTeX
+
+
 ** Kameleon
       3. Kameleon / example Batsim ?
 	 - Success story: un an après, ça marche encore!
