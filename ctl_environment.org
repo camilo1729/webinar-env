@@ -347,6 +347,30 @@ Docker advantages for reproducible research:
     ACM SIGOPS Operating Systems Review,2015}
 #+END_LaTeX
 
+** Docker advantages
+
+- Portable computation & sharing
+
+#+BEGIN_SRC sh
+ $ docker export container-name > container.tar
+ $ docker push username/r-recommended
+#+END_SRC
+
+- Re-usable modules
+#+BEGIN_SRC sh
+$ docker run -d --name db training/postgres
+$ docker run -d -P --link db:bd training/webapp \
+   python app.py
+#+END_SRC
+
+- Versioning
+
+#+BEGIN_SRC sh
+$ docker history r-base
+$ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
+#+END_SRC
+
+
 
 ** Kameleon
       3. Kameleon / example Batsim ?
