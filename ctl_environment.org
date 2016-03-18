@@ -257,6 +257,14 @@ The simple fact of compiling a software used in an experiment is not always poss
 \end{figure}
 #+END_LaTeX
 
+** VM reproducibility
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.6]{figures/virtual_appliances.pdf}
+\end{figure}
+#+END_LaTeX
+
 ** Environment generation
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -266,6 +274,28 @@ The simple fact of compiling a software used in an experiment is not always poss
   \label{fig:environment_creation}
 \end{figure}
 #+END_LaTeX
+
+** DevOps approach
+
+- You have a pile of crusty code that's hard to install
+
+- It's hard to document how to install it
+
+- Dev = Development, Ops= (System) operation
+
+- Why not develop scripts that reliably install your toolset?
+
+  - Because that sounds hard ?
+
+  - but it's more fun than writing documentation
+
+** Package managers
+
+- We rely heavily on package managers
+- Reproducible builds
+  - Nix
+  - Debian snapshot
+
 
 ** Reconstrucability
 #+BEGIN_LaTeX
@@ -302,14 +332,39 @@ Additionally problems:
 #+END_LaTeX
 
 
+** Improving experimenter productivity
+
+
+- Easiness -> low learning curve
+- Shareability -> enable reuse
+- Support of the build cycle -> debugging capabilities
+- Platform  diversity -> wide range of environments
+- Reconstructability -> reproducibility of the build processes
+
 ** Tools
 
 - Docker
-- Nix
-- Packer + Vagrant
+- Packer + Vagrant:
 - Kameleon
+** Docker
+
+- Portable
+- We start form an image available in a repository
+- We script a series of commands to get the desired environment
+** Packer + Vagrant
+
+- We use packer to build a VM
+- We use Vagrant to spin off the VM and carry out the
+  configuration using either bash or configuration management tools
+
+** Kameleon
+
+- Support the whole building process from the OS building to
+  the application
+- Persistent cache mechanism
+- Text based recipes
+
 ** notes							   :noexport:
-I can introduce the definition of reconstructability
       Quelles bonnes propriétés sont elles recherchée?
 
       Quelles sont les étapes:
@@ -327,8 +382,20 @@ I can introduce the definition of reconstructability
       2. Construire complètement from scratch (même l'OS)
 	 - Kameleon
 
-* Comment utiliser un environnement?
+* Distribute research code
 
+** Update ways of distributing code
+
+- Bundles scripting languages: python, ruby.
+  - Python: conda
+  - Ruby: rvm + bundler
+- Data sets -> Active papers
+- Packages: dpkg,rpm,\dots
+- Chroot: produced using Reprozip, CDE or CARE
+- Container images: LXC, docker
+- Virtual appliances
+- Recipes
+- Recipes + cached data
 
 
 ** notes
