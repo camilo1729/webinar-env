@@ -196,7 +196,7 @@ OS + configuration + application
 
 
 
-* Utiliser un environnement contraint
+* Use a constraint environment
 ** Use of third party environments
 - Weak dependencies
 - Environment build, specialized, controlled, versioned by somebody else:
@@ -210,26 +210,38 @@ OS + configuration + application
 
   - Activepapers
   - notebook ipython/jupyter
-  - SageMathCloud ? :(
-  - Images par défaut de G5K
+  - SageMathCloud
+  - Default Grid'5000 environments
   - Software appliances market place (Testbed)
 
 
 Partage: facile
       Portabilité:
       Contrôle: faible
-* Capturing an environmen
+* Capturing an environment
 ** Capturing an environment
-      - Bosser dans une VM et faire un snapshot
+      - Simple way to capture environment is a @complete copy@ of it
+	- In a classical environment use a backup tool
+	  - A simple backup is not easily usable
+	  - Can be use to generate bootable environment
+	- In a VM or any Copy-on-write environment use the instant
+          snapshot capability
+	  - Faster backup and better sharing
+	  - VM need to be used from the begining (See Constrianed environment)
+	  - Using VM means degraded performances 
+      - Either case @sharing is complicated@
+	- Huge environment images (several Giga Bytes is common)
+
 #+BEGIN_LaTeX
   \bottomcite{J. T. Dudley and A. J. Butte,
      \href{http://www.nature.com/nbt/journal/v28/n11/pdf/nbt1110-1181.pdf}{\textit{In silico research in the era of cloud computing}},
     \url{Nature Biotechnology}\qquad 2010}
 #+END_LaTeX
 
-      - Avoir un outil qui tracke
-	- [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011) [[https://vida-nyu.github.io/reprozip/][ReproZip]] (Freire et al., 2013), [[http://reproducible.io/][CARE]]
-          (Janin et al., 2014), l'outil de Thain
+      - Use a trcking tool to @capture only what is necessary@
+	- [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
+	- [[https://vida-nyu.github.io/reprozip/][ReproZip]] (Freire et al., 2013)
+	- [[http://reproducible.io/][CARE]] (Janin et al., 2014), l'outil de Thain
 	- See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
       - Extraction de la partie "utile" d'un environnement afin de
 	déployer.
