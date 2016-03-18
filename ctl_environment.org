@@ -289,13 +289,17 @@ The simple fact of compiling a software used in an experiment is not always poss
 
   - but it's more fun than writing documentation
 
-** Package managers
-
+** Software installation and configuration
+*** Package managers
 - We rely heavily on package managers
 - Reproducible builds
   - Nix
   - Debian snapshot
 
+*** Configuration management
+Software Configuration Management encompasses
+the practices and procedures for administering source code,
+producing software development builds, controlling change, and managing software configurations.
 
 ** Reconstrucability
 #+BEGIN_LaTeX
