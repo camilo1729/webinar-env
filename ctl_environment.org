@@ -130,6 +130,16 @@ Only 24 % of experimental setups of papers submitted ACM conferences and journal
 - Code rote
 - Barriers to adoption and reuse -> entry barriers, lack of incentives
 
+** Distributing software
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.4]{figures/CDE_author_user.pdf}
+\end{figure}
+#+END_LaTeX
+
+
 * What is an environment?
 ** Types of environments
 
@@ -292,6 +302,12 @@ Additionally problems:
 #+END_LaTeX
 
 
+** Tools
+
+- Docker
+- Nix
+- Packer + Vagrant
+- Kameleon
 ** notes							   :noexport:
 I can introduce the definition of reconstructability
       Quelles bonnes propriétés sont elles recherchée?
@@ -312,15 +328,6 @@ I can introduce the definition of reconstructability
 	 - Kameleon
 
 * Comment utiliser un environnement?
-
-** Distributing software
-
-#+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-\includegraphics[scale=0.4]{figures/CDE_author_user.pdf}
-\end{figure}
-#+END_LaTeX
 
 
 
