@@ -35,7 +35,6 @@
 #+latex_header: \textblockorigin{0mm}{0mm}
 #+LATEX_HEADER: \usepackage{natbib}
 #+LATEX_HEADER: \usepackage{bibentry}
-#+LATEX_HEADER: \usepackage{dirtree}
 #+LATEX_HEADER: \newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
 #+LATEX_HEADER: \newcommand{\bottomcite}[1]{\fbox{\vbox{\footnotesize #1}}}
 #+LATEX_HEADER: \nobibliography*
@@ -231,7 +230,7 @@ Partage: facile
           snapshot capability
 	  - Faster backup and better sharing
 	  - VM need to be used from the begining (See Constrianed environment)
-	  - Using VM means degraded performances 
+	  - Using VM means degraded performances
       - Either case @sharing is complicated@
 	- Huge environment images (several Giga Bytes is common)
 	- No dedicated place to store them
