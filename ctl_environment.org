@@ -137,6 +137,15 @@ Only 24 % of experimental setups of papers submitted ACM conferences and journal
 \includegraphics[scale=0.4]{figures/CDE_author_user.pdf}
 \end{figure}
 #+END_LaTeX
+** Virtual appliances
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.6]{figures/virtual_appliances.pdf}
+\end{figure}
+#+END_LaTeX
+
 
 
 * What is an environment?
@@ -281,6 +290,27 @@ The simple fact of compiling a software used in an experiment is not always poss
   \label{fig:environment_creation}
 \end{figure}
 #+END_LaTeX
+
+** DevOps approach
+
+- Dev = Development, Ops= (System) operation
+- You have a pile of crusty code that's hard to install
+- It's hard to document how to install it
+- Why not develop scripts that reliably install your toolset?
+  - Because that sounds hard ?
+  - but it's more fun than writing documentation
+
+** Software installation and configuration
+*** Package managers
+- We rely heavily on package managers
+- Reproducible builds
+  - Nix
+  - Debian snapshot
+
+*** Configuration management
+Software Configuration Management encompasses
+the practices and procedures for administering source code,
+producing software development builds, controlling change, and managing software configurations.
 
 ** Reconstrucability
 #+BEGIN_LaTeX
