@@ -36,5 +36,5 @@ You are ready to go
  $ emacs ctl_environment.org
 #+END_SRC
 
-Once you are in emacs use the sequence 'C-c C-e' for open the exporter menu and press 'l b'.
+Once you are in emacs use the sequence =C-c C-e= for open the exporter menu and press =l b=.
 This will generate the .tex file.
