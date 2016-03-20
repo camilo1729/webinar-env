@@ -275,7 +275,7 @@ Partage: facile
       - Simple way to capture environment is a @complete copy@ of it
 	- In a classical environment use a backup tool
 	  - A simple backup is not easily usable
-	  - Can be use to generate bootable environment
+	  - Can be used to generate bootable environment
 	- In a VM or any Copy-on-write environment use the instant
           snapshot capability
 	  - Faster backup and better sharing
