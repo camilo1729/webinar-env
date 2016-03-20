@@ -15,15 +15,26 @@ Then, download the beamer theme:
 
 You can build a Docker image for compiling out of the box:
 
-
 #+BEGIN_SRC sh
+ $ cd webinar-env/
  $ docker build -t webinar .
 #+END_SRC
 
-This will take several minutes, given that it will install in the container
-several latex packages. The resulting container will be big ~ 2GB.
+This will take several minutes, given that it will install several latex packages.
+The resulting container will be big ~ 2GB.
 For running the container and editing the presentation:
 
 #+BEGIN_SRC sh
- $ docker run -i -t -v /root/webinar-env:/presentation webinar /bin/bash
+ $ docker run -i -t -v $PATH_TO_REPO:/presentation webinar /bin/bash
 #+END_SRC
+
+You will found the directory '/presentation' where the contents of this repository will be mounted.
+You are ready to go
+
+#+BEGIN_SRC sh
+ $ cd /presentation
+ $ emacs ctl_environment.org
+#+END_SRC
+
+Once you are in emacs use the sequence 'C-c C-e' for open the exporter menu and press 'l b'.
+This will generate the .tex file.
