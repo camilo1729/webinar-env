@@ -17,7 +17,7 @@ You can build a Docker image for compiling out of the box:
 
 
 #+BEGIN_SRC sh
- $ docker build -t webinar_environment .
+ $ docker build -t webinar .
 #+END_SRC
 
 This will take several minutes, given that it will install in the container
