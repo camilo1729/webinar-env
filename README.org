@@ -1,0 +1,40 @@
+This repository contains the slides for the second webinar: Controlling your environment.
+
+First clone the repository:
+
+#+BEGIN_SRC sh
+ $ git clone https://github.com/camilo1729/webinar-env.git
+#+END_SRC
+
+Then, download the beamer theme:
+
+#+BEGIN_SRC sh
+ $ cd webinar-env/
+ $ bash download_theme.sh
+#+END_SRC
+
+You can build a Docker image for compiling out of the box:
+
+#+BEGIN_SRC sh
+ $ cd webinar-env/
+ $ docker build -t webinar .
+#+END_SRC
+
+This will take several minutes, given that it will install several latex packages.
+The resulting container will be big ~ 2GB.
+For running the container and editing the presentation:
+
+#+BEGIN_SRC sh
+ $ docker run -i -t -v $PATH_TO_REPO:/presentation webinar /bin/bash
+#+END_SRC
+
+You will found the directory '/presentation' where the contents of this repository will be mounted.
+You are ready to go
+
+#+BEGIN_SRC sh
+ $ cd /presentation
+ $ emacs ctl_environment.org
+#+END_SRC
+
+Once you are in emacs use the sequence =C-c C-e= for open the exporter menu and press =l b=.
+This will generate the .tex file.

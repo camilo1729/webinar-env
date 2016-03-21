@@ -35,7 +35,6 @@
 #+latex_header: \textblockorigin{0mm}{0mm}
 #+LATEX_HEADER: \usepackage{natbib}
 #+LATEX_HEADER: \usepackage{bibentry}
-#+LATEX_HEADER: \usepackage{dirtree}
 #+LATEX_HEADER: \newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
 #+LATEX_HEADER: \newcommand{\bottomcite}[1]{\fbox{\vbox{\footnotesize #1}}}
 #+LATEX_HEADER: \nobibliography*
@@ -92,11 +91,23 @@
 #+LaTeX: \tableofcontents
 
 * Why is it necessary?
+** Problem statement
+-  Reproducible research (we saw a lot in the first webinar)
 
-** Interest in the experimental workflow
-      - For myself
-      - For other people
-      - To be able to scale my experiments. Use more machines.
+-  Code developed for one research project cannot successfully
+   executed or extended by subsequent researchers.
+
+\vspace{1cm}
+
+"/The path from having a piece of software running on the programmer's own machine
+to getting it running on someone else's machine is fraught with potential pitfalls/"
+
+#+BEGIN_LaTeX
+  \bottomcite{Philip J. Guo and Dawson Engler,
+     \href{http://www.pgbovine.net/publications/CDE-create-portable-Linux-packages-short-paper_USENIX-2011.pdf}
+    {\textit{CDE: Using System Call Interposition to Automatically Create Portable Software Packages}},
+    USENIX LISA Conference,2011}
+#+END_LaTeX
 
 ** Barriers to replicate a given experiment
 
@@ -122,13 +133,34 @@ Compilation errors.
     \url{http://reproducibility.cs.arizona.edu/}\qquad 2014,2015}
 #+END_LaTeX
 
-Only 24 % of experimental setups of papers submitted ACM conferences and journals can be built.
+Less than 50% of experimental setups of papers submitted ACM conferences and journals can be built.
 
 ** Four technical challenges
 - Dependency Hell
 - Imprecise documentation
-- Code rote
-- Barriers to adoption and reuse -> entry barriers, lack of incentives
+- Code rote: software dependencies are not static, they are constantly receiving updates
+- Barriers to adoption and reuse: existing technological solutions require certain skills
+
+#+BEGIN_LaTeX
+  \bottomcite{Carl Boettiger,
+     \href{http://www.carlboettiger.info/assets/files/pubs/10.1145/2723872.2723882.pdf}{\textit{An introduction to Docker for reproducible research}},
+    ACM SIGOPS Operating Systems Review,2015}
+#+END_LaTeX
+
+** More challenges
+
+- Efforts are not rewarded by the current academic research and funding environment
+- Software vendors tend to protect their markets through proprietary formats and interfaces
+- Investigators naturally tend to want to own and control their research tools
+- Even the most generalized software will not be able to meet the needs of every researcher in a field
+- The need to derive and publish results as quickly as possible precludes the often slower standards-based development path
+
+#+BEGIN_LaTeX
+  \bottomcite{J. T. Dudley and A. J. Butte,
+     \href{http://www.nature.com/nbt/journal/v28/n11/pdf/nbt1110-1181.pdf}{\textit{In silico research in the era of cloud computing}},
+    \url{Nature Biotechnology}\qquad 2010}
+#+END_LaTeX
+
 
 ** Distributing software
 
@@ -138,6 +170,23 @@ Only 24 % of experimental setups of papers submitted ACM conferences and journal
 \includegraphics[scale=0.4]{figures/CDE_author_user.pdf}
 \end{figure}
 #+END_LaTeX
+
+** Disseminating science software
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.7]{figures/virtual_appliances.pdf}
+\end{figure}
+#+END_LaTeX
+
+
+
+
+** Why should I do that ?
+- For myself
+- For other people
+- To be able to scale my experiments. Use more machines.
 
 
 * What is an environment?
@@ -226,12 +275,12 @@ Partage: facile
       - Simple way to capture environment is a @complete copy@ of it
 	- In a classical environment use a backup tool
 	  - A simple backup is not easily usable
-	  - Can be use to generate bootable environment
+	  - Can be used to generate bootable environment
 	- In a VM or any Copy-on-write environment use the instant
           snapshot capability
 	  - Faster backup and better sharing
 	  - VM need to be used from the begining (See Constrianed environment)
-	  - Using VM means degraded performances 
+	  - Using VM means degraded performances
       - Either case @sharing is complicated@
 	- Huge environment images (several Giga Bytes is common)
 	- Need a dedicated place to store them (à la market place)
@@ -261,18 +310,6 @@ Partage: facile
 
 * Building the entire environment
 
-** Problem
-
-The simple fact of compiling a software used in an experiment is not always possible.
-
-#+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-  \includegraphics[scale=0.35]{figures/Compilation_error.png}
-  \label{fig:s}
-\end{figure}
-#+END_LaTeX
-
 ** Environment generation
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -282,6 +319,27 @@ The simple fact of compiling a software used in an experiment is not always poss
   \label{fig:environment_creation}
 \end{figure}
 #+END_LaTeX
+
+** DevOps approach
+
+- Dev = Development, Ops= (System) operation
+- You have a pile of crusty code that's hard to install
+- It's hard to document how to install it
+- Why not develop scripts that reliably install your toolset?
+  - Because that sounds hard ?
+  - but it's more fun than writing documentation
+
+** Software installation and configuration
+*** Package managers
+- We rely heavily on package managers
+- Reproducible builds
+  - Nix
+  - Debian snapshot
+
+*** Configuration management
+Software Configuration Management encompasses
+the practices and procedures for administering source code,
+producing software development builds, controlling change, and managing software configurations.
 
 ** Reconstrucability
 #+BEGIN_LaTeX
