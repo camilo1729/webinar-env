@@ -208,12 +208,12 @@ OS + configuration + application
     \url{International Conference on Computational Science}, ICSS 2011}
 #+END_LaTeX
 
-  - Activepapers
+  - Activepapers (Beta)
     - Python or JVM based language
-  - Jupyter
-    - Julia, Python, R, Haskell, Ruby...
-    - 40 languages (partly) supported
   - SageMathCloud
+    - Use Jupyter
+      - Julia, Python, R, Haskell, Ruby...
+      - 40 languages (partly) supported
   - Default Grid'5000 environments
   - Software appliances market place (Testbed)
 
@@ -234,7 +234,7 @@ Partage: facile
 	  - Using VM means degraded performances 
       - Either case @sharing is complicated@
 	- Huge environment images (several Giga Bytes is common)
-	- No dedicated place to store them
+	- Need a dedicated place to store them (à la market place)
 
 #+BEGIN_LaTeX
   \bottomcite{J. T. Dudley and A. J. Butte,
