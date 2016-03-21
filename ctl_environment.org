@@ -95,20 +95,20 @@
 
   Reproducible research: What does it mean?
 
-  Need a reminder: See the [[http://newstream.imag.fr/2016-03-07_Reproducible-Research_Arnaud-legrand.mp4][first webinar]])
+  Need a reminder: See the [[http://newstream.imag.fr/2016-03-07_Reproducible-Research_Arnaud-legrand.mp4][first webinar]]
 
 #+BEGIN_LaTeX
 \begin{block}{Definition}
-     For anyone to be able to fully reproduce a scientific results from
-     experiments to paper
+ A way to encapsulate all aspects of our in silico analysis in a manner that 
+would facilitate independent replication by another scientist
 \end{block}
 #+END_LaTeX
 
-  *Reproducibility is necessary to have a real scientific results*
+  *Reproducibility is a cornerstone of scientific method*
 
 ** Problem statement
-   Experiment replication is not an easy if you do not care of from the
-   begining:
+   Experiment replication is not an easy task if you do not have it in mind from the
+   beginning:
 \vspace{0.2cm}
 
 "/The path from having a piece of software running on the programmer's own machine
@@ -123,11 +123,11 @@ to getting it running on someone else's machine is fraught with potential pitfal
 
 For reproducible research the scientist provides for both experiment and
    analysis:
-  - All the artefacts (input/outputs files)
+  - All the artifacts (input/outputs files)
   - The source code
   - Documentation on how to compile, install and run
 
-Still, Several problems may prevent someone to rerun an experiment
+Still, several problems may prevent someone to rerun an experiment
 
 ** Dependencies and compilation problems
 
@@ -201,7 +201,7 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \includegraphics[scale=0.7]{figures/virtual_appliances.pdf}
 \end{figure}
 #+END_LaTeX
-
+   
 ** The solution is: Controlling your environment
 
 The solution is to *control your environment*
@@ -212,22 +212,20 @@ You have several options:
    - Build your environment
 
 *** Constraint for simplicity, complexity for freedom
-    Each of them have different level of contraint and flexibility:
+    Each of them have different level of constraint and flexibility:
     - The more constraint your environment is, the more simple it is too
     - Freedom comes with responsibility
 
 ** Why should I take care of my experiment environment
 For myself:
-  - For being able to reproduce my own experiment later
-  - To remember how I have done my experiment
-  - To be able to scale my experiment on other machines
+  - Be able to reproduce my own experiment later
+  - Be able to scale my experiment on other machines
   - Facilitate experiment extensions and modifications
   - Be a better scientist by doing better science :)
 
 For other people: my students, my colleagues, my peers, \dots
-  - Allow them to reproduce my experiment and corroborate (or not) my
-    results
-  - Allow them to modify my experiment to do their own
+  - Allow them to reproduce my experiment and corroborate (or not) my results
+  - Allow them to base their research on my research
 
 For everybody:
   - Improve knowledge sharing
@@ -238,7 +236,7 @@ For everybody:
 ** Environment definition
 #+BEGIN_LaTeX
 \begin{block}{Definition}
-   In ou case:
+   In our case:
    An environment is a set of tools and materials that permit a complete
    reproducibility of a part or the whole experiment process.
 \end{block}
@@ -265,7 +263,7 @@ Tools to capture hardware configuration:
   - Testbeds hardware description API (Grid'5000, Chameleon)
 
 *** The hardware is not shareable
-    As it is no shareable the hardware  environment needs to be documented
+    As it is no shareable the hardware environment needs to be documented
     the more exhaustively possible. Of course it depends on the experiments
     so you should find yourself the suitable description grain.
 
