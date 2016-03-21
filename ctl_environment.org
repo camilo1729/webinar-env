@@ -61,8 +61,6 @@
 #+END_LaTex
 
 
-
-
 * setup								   :noexport:
 
 ** Download beamer theme and logos
@@ -78,7 +76,18 @@
 #+END_SRC
 
 
+
 * Intro
+#+BEGIN_LaTeX
+\AtBeginSection[]
+  {
+     \begin{frame}<beamer>
+     \frametitle{Outline}
+     \tableofcontents[currentsection]
+     \end{frame}
+  }
+#+END_LaTex
+
 ** People involved
 
 - Arnauld Legrand
@@ -87,8 +96,6 @@
 - Olivier Richard
 - Pierre Neyron
 - Salem Harrache
-** Outline
-#+LaTeX: \tableofcontents
 
 * Why is it necessary?
 ** Motivations
@@ -264,8 +271,8 @@ Tools to capture hardware configuration:
 
 *** The hardware is not shareable
     As it is no shareable the hardware environment needs to be documented
-    the more exhaustively possible. Of course it depends on the experiments
-    so you should find yourself the suitable description grain.
+    as exhaustively as possible. Of course it depends on how the results 
+    of an experiment are affected by the underlying hardware.
 
 ** Software
 
