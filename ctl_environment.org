@@ -94,6 +94,7 @@
 ** Motivations
 
   Reproducible research: What does it mean?
+
   Need a reminder: See the [[http://newstream.imag.fr/2016-03-07_Reproducible-Research_Arnaud-legrand.mp4][first webinar]])
 
 #+BEGIN_LaTeX
@@ -103,12 +104,12 @@
 \end{block}
 #+END_LaTeX
 
-  Reproducibility is necessary to have a real scientific result
+  *Reproducibility is necessary to have a real scientific results*
 
 ** Problem statement
    Experiment replication is not an easy if you do not care of from the
    begining:
-\vspace{0.5cm}
+\vspace{0.2cm}
 
 "/The path from having a piece of software running on the programmer's own machine
 to getting it running on someone else's machine is fraught with potential pitfalls/"
@@ -122,9 +123,8 @@ to getting it running on someone else's machine is fraught with potential pitfal
 
 For reproducible research the scientist provides for both experiment and
    analysis:
-  - All the experiment artefacts:
-    - input/outputs files
-  - All experiments and analysis code
+  - All the artefacts (input/outputs files)
+  - The source code
   - Documentation on how to compile, install and run
 
 Still, Several problems may prevent someone to rerun an experiment
@@ -202,16 +202,16 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \end{figure}
 #+END_LaTeX
 
-** The solution is: Control your environment
+** The solution is: Controlling your environment
 
-The solution is *Control your environment*
+The solution is to *control your environment*
 
 You have several options:
    - Use a constrained environment
    - Capture your environment
    - Build your environment
 
-*** Constraint or freedom
+*** Constraint for simplicity, complexity for freedom
     Each of them have different level of contraint and flexibility:
     - The more constraint your environment is, the more simple it is too
     - Freedom comes with responsibility
@@ -260,6 +260,7 @@ Necessary when we carry out performance measures
 Tools to capture hardware configuration:
   - =dmidecode=
   - hwloc (=lstopo=)
+  - ls* tools (lsblk, lshw, lspci, lsmod,\dots)
   - proprietary tools (bios, nvidia,\dots)
   - Testbeds hardware description API (Grid'5000, Chameleon)
 
