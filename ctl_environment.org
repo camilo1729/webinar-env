@@ -490,14 +490,6 @@ Additionally problems:
 
 
 
-** How software is installed and configured?
-
-- Configuration management tools: 
-  Software Configuration Management encompasses
-  the practices and procedures for administering source code,
-  producing software development builds, controlling change, and managing software configurations
-
-
 ** DevOps approach
 
 - Dev = Development, Ops= (System) operation
@@ -506,6 +498,19 @@ Additionally problems:
 - Why not develop scripts that reliably install your toolset?
   - Because that sounds hard ?
   - but it's more fun than writing documentation
+
+** Putting everything together
+
+- Create recipes 
+
+- In form of scripts: easy to write
+
+- Configuration management tools: 
+  Software Configuration Management encompasses
+  the practices and procedures for administering source code,
+  producing software development builds, controlling change, and managing software configurations
+
+
 
 ** Tools
 
