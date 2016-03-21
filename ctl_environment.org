@@ -310,36 +310,17 @@ Partage: facile
 
 * Building the entire environment
 
+** Environment generation 
+We want to have more control over the environment
+
 ** Environment generation
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
 \includegraphics[scale=0.6]{figures/Environment_creation.pdf}
-  \caption{Creation process of an experimental setup.}
-  \label{fig:environment_creation}
 \end{figure}
 #+END_LaTeX
 
-** DevOps approach
-
-- Dev = Development, Ops= (System) operation
-- You have a pile of crusty code that's hard to install
-- It's hard to document how to install it
-- Why not develop scripts that reliably install your toolset?
-  - Because that sounds hard ?
-  - but it's more fun than writing documentation
-
-** Software installation and configuration
-*** Package managers
-- We rely heavily on package managers
-- Reproducible builds
-  - Nix
-  - Debian snapshot
-
-*** Configuration management
-Software Configuration Management encompasses
-the practices and procedures for administering source code,
-producing software development builds, controlling change, and managing software configurations.
 
 ** Reconstrucability
 #+BEGIN_LaTeX
@@ -375,6 +356,50 @@ Additionally problems:
 
 #+END_LaTeX
 
+
+** How software is installed and configured?
+
+- Here we will talk about the actions \(A_{i}\)
+
+- Source code compilation: 
+  #+BEGIN_SRC sh
+   $ tar -xzf pdt-3.19.tar.gz
+   $ cd pdtoolkit-3.19/
+   $./configure -prefix=/usr/local/pdt-install
+   $ make clean install
+  #+END_SRC
+- Need to install all dependencies by hand
+- Some skills are required
+
+** How software is installed and configured?
+
+- Package manager:  is a collection of software tools that *automates* the process of *installing*, 
+  *upgrading*, *configuring*, and *removing* computer programs for a computer's operating system in a consistent manner
+
+- Examples in the Linux world: APT, yum, pacman, Nix \dots 
+
+- There exists as well package mangers for programming languages: 
+  Bundler, CPAN, CRAN, EasyInstall, Go Get, Maven, pip, RubyGems, etc
+- Reproducible builds: Nix, Debian snapshot
+
+
+
+** How software is installed and configured?
+
+- Configuration management tools: 
+  Software Configuration Management encompasses
+  the practices and procedures for administering source code,
+  producing software development builds, controlling change, and managing software configurations
+
+
+** DevOps approach
+
+- Dev = Development, Ops= (System) operation
+- You have a pile of crusty code that's hard to install
+- It's hard to document how to install it
+- Why not develop scripts that reliably install your toolset?
+  - Because that sounds hard ?
+  - but it's more fun than writing documentation
 
 ** Tools
 
