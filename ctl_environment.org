@@ -91,13 +91,24 @@
 #+LaTeX: \tableofcontents
 
 * Why is it necessary?
+** Motivations
+
+  Reproducible research: What does it mean?
+  Need a reminder: See the [[http://newstream.imag.fr/2016-03-07_Reproducible-Research_Arnaud-legrand.mp4][first webinar]])
+
+#+BEGIN_LaTeX
+\begin{block}{Definition}
+     For anyone to be able to fully reproduce a scientific results from
+     experiments to paper
+\end{block}
+#+END_LaTeX
+
+  Reproducibility is necessary to have a real scientific result
+
 ** Problem statement
--  Reproducible research (we saw a lot in the first webinar)
-
--  Code developed for one research project cannot successfully
-   executed or extended by subsequent researchers.
-
-\vspace{1cm}
+   Experiment replication is not an easy if you do not care of from the
+   begining:
+\vspace{0.5cm}
 
 "/The path from having a piece of software running on the programmer's own machine
 to getting it running on someone else's machine is fraught with potential pitfalls/"
@@ -109,9 +120,18 @@ to getting it running on someone else's machine is fraught with potential pitfal
     USENIX LISA Conference,2011}
 #+END_LaTeX
 
-** Barriers to replicate a given experiment
+For reproducible research the scientist provides for both experiment and
+   analysis:
+  - All the experiment artefacts:
+    - input/outputs files
+  - All experiments and analysis code
+  - Documentation on how to compile, install and run
 
-Unresolved dependencies.
+Still, Several problems may prevent someone to rerun an experiment
+
+** Dependencies and compilation problems
+
+Unresolved dependencies:
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
@@ -120,7 +140,7 @@ Unresolved dependencies.
 \end{figure}
 #+END_LaTeX
 
-Compilation errors.
+Compilation errors:
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
@@ -135,11 +155,14 @@ Compilation errors.
 
 Less than 50% of experimental setups of papers submitted ACM conferences and journals can be built.
 
-** Four technical challenges
-- Dependency Hell
-- Imprecise documentation
-- Code rote: software dependencies are not static, they are constantly receiving updates
-- Barriers to adoption and reuse: existing technological solutions require certain skills
+** Other technical issues
+- Imprecise documentation: \\
+  "/I have no clue about how to install it, configure it or run it!/"
+
+- Dependency Hell: \\
+  "/I can't install this dependency package without breaking my entire system/"
+- Code rote: \\
+  "/This dependency package version is buggy! What was the version that was used to run the experiment in the first place?!?/"
 
 #+BEGIN_LaTeX
   \bottomcite{Carl Boettiger,
@@ -147,7 +170,7 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
     ACM SIGOPS Operating Systems Review,2015}
 #+END_LaTeX
 
-** More challenges
+** Cultural challenges
 
 - Efforts are not rewarded by the current academic research and funding environment
 - Software vendors tend to protect their markets through proprietary formats and interfaces
@@ -161,8 +184,7 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
     \url{Nature Biotechnology}\qquad 2010}
 #+END_LaTeX
 
-
-** Distributing software
+** Distributing software possibility
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -180,18 +202,97 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \end{figure}
 #+END_LaTeX
 
+** The solution is: Control your environment
 
+The solution is *Control your environment*
 
+You have several options:
+   - Use a constrained environment
+   - Capture your environment
+   - Build your environment
 
-** Why should I do that ?
-- For myself
-- For other people
-- To be able to scale my experiments. Use more machines.
+*** Constraint or freedom
+    Each of them have different level of contraint and flexibility:
+    - The more constraint your environment is, the more simple it is too
+    - Freedom comes with responsibility
 
+** Why should I take care of my experiment environment
+For myself:
+  - For being able to reproduce my own experiment later
+  - To remember how I have done my experiment
+  - To be able to scale my experiment on other machines
+  - Facilitate experiment extensions and modifications
+  - Be a better scientist by doing better science :)
+
+For other people: my students, my colleagues, my peers, \dots
+  - Allow them to reproduce my experiment and corroborate (or not) my
+    results
+  - Allow them to modify my experiment to do their own
+
+For everybody:
+  - Improve knowledge sharing
+  - Increase collaboration possibilities
+  - Do better science!
 
 * What is an environment?
-** Types of environments
+** Environment definition
+#+BEGIN_LaTeX
+\begin{block}{Definition}
+   In ou case:
+   An environment is a set of tools and materials that permit a complete
+   reproducibility of a part or the whole experiment process.
+\end{block}
+#+END_LaTeX
 
+   TODO: Add a schema with an experiment workflow
+
+   Can be numerous or unique depending on the experiment workflow:
+   - Experiment runtime environments
+     - local, on a testbed, on a dedicated server,\dots
+   - Analysis runtime environments
+     - Usually a unique local environment
+
+   Whole environment contains hardware and software information
+
+** Hardware
+Necessary when we carry out performance measures
+
+Tools to capture hardware configuration:
+  - =dmidecode=
+  - hwloc (=lstopo=)
+  - proprietary tools (bios, nvidia,\dots)
+  - Testbeds hardware description API (Grid'5000, Chameleon)
+
+*** The hardware is not shareable
+    As it is no shareable the hardware  environment needs to be documented
+    the more exhaustively possible. Of course it depends on the experiments
+    so you should find yourself the suitable description grain.
+
+** Software
+
+Different level of environment:
+*** Very succinct (usually what is provided, if provided...)                                      :B_definition:
+:PROPERTIES:
+:BEAMER_env: alertblock
+:END:
+A minimal description in mail or a README in a git repository
+
+*** Partial
+:PROPERTIES:
+:BEAMER_env: definition
+:END:
+A bundle of the experiment tool and it dependencies. It is generally limited
+to one language runtime(Pyton, Ruby, Java, \dots)
+*** Full
+:PROPERTIES:
+:BEAMER_env: example
+:END:
+A complete environment backup with the operating system included
+- Virtual machine (VirtualBox, Qemu/KVM, VMware,\dots)
+- Linux container tarball (docker, LXC, rkt,\dots)
+- Kadeploy image tarball (Grid'5000)
+
+** Types of environments
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -199,30 +300,6 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \includegraphics[scale=0.6]{figures/types_of_environments.pdf}
 \end{figure}
 #+END_LaTeX
-
-
-** Hardware
-- Necessary when we carry out performance measures
-- Tools to capture hardware configuration:
-  - =dmidecode=
-  - hwloc
-  - outils propriétaires ?(bios, nvidia)
-  - reference API de G5K
-
-- Cloudlab[fn:cloudlab] enables to create profiles -> Harware specs + disk image
-
-- Use of baremetal testeds: Grid'5000, Chameleon.
-- Difficile à partager et à reproduire
-
-
-[fn:cloudlab] https://www.cloudlab.us/
-** nodes							   :noexport:
-- Par contre l'utilisation de Grid'5000 peut aider...
-
-** Software
-	- Very succinct (minimal description/README)
-	- Partial (lib)
-	- Full -> Virtual appliance
 
 ** Software Appliances
 *** Advantage 							    :B_block:
@@ -247,8 +324,8 @@ OS + configuration + application
 
 * Use a constraint environment
 ** Use of third party environments
-- Weak dependencies
-- Environment build, specialized, controlled, versioned by somebody else:
+
+Environment build, specialized, controlled, versioned by somebody else:
 
 #+BEGIN_LaTeX
   \bottomcite{Brammer, Grant R \textit{et Al.},
@@ -257,14 +334,14 @@ OS + configuration + application
     \url{International Conference on Computational Science}, ICSS 2011}
 #+END_LaTeX
 
-  - Activepapers (Beta)
-    - Python or JVM based language
-  - SageMathCloud
-    - Use Jupyter
-      - Julia, Python, R, Haskell, Ruby...
-      - 40 languages (partly) supported
-  - Default Grid'5000 environments
-  - Software appliances market place (Testbed)
+   - Activepapers (Beta)
+     - Python or JVM based language
+   - SageMathCloud
+     - Use Jupyter
+       - Julia, Python, R, Haskell, Ruby...
+       - 40 languages (partly) supported
+   - Default Grid'5000 environments
+   - Software appliances market place (Testbed)
 
 
 Partage: facile
@@ -272,18 +349,27 @@ Partage: facile
       Contrôle: faible
 * Capturing an environment
 ** Capturing an environment
-      - Simple way to capture environment is a @complete copy@ of it
-	- In a classical environment use a backup tool
-	  - A simple backup is not easily usable
-	  - Can be used to generate bootable environment
-	- In a VM or any Copy-on-write environment use the instant
-          snapshot capability
-	  - Faster backup and better sharing
-	  - VM need to be used from the begining (See Constrianed environment)
-	  - Using VM means degraded performances
-      - Either case @sharing is complicated@
-	- Huge environment images (several Giga Bytes is common)
-	- Need a dedicated place to store them (à la market place)
+   - several approaches for capturing your environment:
+     - export everything (OS + Lib + App)
+     - capture only what is needed (App + dependencies)
+
+** Export everything
+   A simple way to capture environment is to make a *complete copy* of it.
+
+   It depends on what is your local environment:
+   - In a classical environment use a backup tool
+     - A simple backup is not easily usable
+     - Can be used to generate bootable environment
+
+   - In a VM or any Copy-on-write environment use the instant
+       snapshot capability
+     - Faster backup and better sharing
+     - VM need to be used from the begining (See Constrianed environment)
+     - Using VM means degraded performances
+
+   Either case *sharing is complicated*
+     - Huge environment images (several Giga Bytes is common)
+     - Need a dedicated place to store them (à la market place)
 
 #+BEGIN_LaTeX
   \bottomcite{J. T. Dudley and A. J. Butte,
@@ -291,13 +377,27 @@ Partage: facile
     \url{Nature Biotechnology}\qquad 2010}
 #+END_LaTeX
 
-      - Use a tracking tool to @capture only what is necessary@
-	- [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
-	- [[https://vida-nyu.github.io/reprozip/][ReproZip]] (Freire et al., 2013)
-	- [[http://reproducible.io/][CARE]] (Janin et al., 2014), l'outil de Thain
-	- See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
-      - Extraction de la partie "utile" d'un environnement afin de
-	déployer.
+** Capture only what is needed
+   Use a tracking tool to *capture only what is necessary*.
+
+   Instrumenting a run of your experiment to catch every used material:
+      - Binairies/Scripts (experiment.py, Python 2.7)
+      - Configuration files (conf.yaml)
+      - Librairies (libc, numpy, matplotlib)
+      => Create a compress bundle
+
+   Rerun the experiment on another machine:
+      1) Import the provided bundle
+      2) Initialyse the environment (depends on the tools...)
+      3) Rerun the exact same experiment
+
+   Existing tools:
+   - [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
+   - [[https://vida-nyu.github.io/reprozip/][ReproZip]] (Freire et al., 2013)
+   - [[http://reproducible.io/][CARE]] (Janin et al., 2014), l'outil de Thain
+   - See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
+
+** Summary
 
       Partage/portabilité: plus compliqué...
 
