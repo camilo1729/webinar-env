@@ -428,41 +428,6 @@ We want to have more control over the environment
 #+END_LaTeX
 
 
-** Reconstrucability
-#+BEGIN_LaTeX
-An experimental setup \(E'\) is reconstructable if the following three facts hold:
-\begin{itemize}
-\item Experimenters have access to the original base experimental setup \(E\).
-\item Experimenters know exactly the sequence of actions \\* \(\langle A_{1}, A_{2}, A_{3}, ..., A_{n}\rangle \) that produced \(E'\).
-\item {\bf Experimenters are able to change some action \(A_{i}\) and successfully re-construct an experimental setup \(E''\)}.
-\end{itemize}
-#+END_LaTeX
-
-
-** Reconstrucability
-#+BEGIN_LaTeX
-
-It can be expressed as \(E' = f(E,\langle A_{i} \rangle ) \)
-where \( f \) applies \(\langle A_{i} \rangle \) to \(E\) to
-derive the experimental setup \(E'\).
-
-
-Few cases where this hypothesis does not hold:
-\begin{itemize}
-  \item An action \(A_{i}\) is composed of sub-tasks that are executed concurrently making the process not deterministic.
-        For example: \texttt{Makefile} \texttt{-j}.
-  \item (\emph{Debian 8}) is validated based on timestamps.
-\end{itemize}
-
-Additionally problems:
-\begin{itemize}
-\item Accessing the same base setup \(E\).
-\item Software used is not available anymore.
-\end{itemize}
-
-#+END_LaTeX
-
-
 ** How software is installed and configured?
 
 - Here we will talk about the actions \(A_{i}\)
@@ -499,6 +464,7 @@ Additionally problems:
   - Because that sounds hard ?
   - but it's more fun than writing documentation
 
+- Use all the good things that software engineering has created along decades for ensuring isolation and reproductibility
 ** Putting everything together
 
 - Create recipes 
@@ -512,12 +478,103 @@ Additionally problems:
 
 
 
-** Tools
+** Devops response: Docker 
 
-- Docker
-- Nix
-- Packer + Vagrant
-- Kameleon
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.3]{figures/eliminates-matrix-from-hell.png}
+\end{figure}
+#+END_LaTeX
+
+Any application can be easily moved through different environments 
+
+** Devops response: Docker 
+
+- Docker is an open-source engine that automates the deployment
+  of any application as a lightweight, portable, self-sufficient container
+  that will run virtually anywhere
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.1]{figures/docker-vm-container.png}
+\end{figure}
+#+END_LaTeX
+
+- Docker works with images that consume minimal disk space, versioned, archiveable, and shareable
+
+- Docker tries to achieve deterministic builds by isolating your service, 
+  building it from a snapshotted OS and running imperative steps on top of it.
+** Devops response: Vagrant
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.3]{figures/vagrant_explained.pdf}
+\end{figure}
+#+END_LaTeX
+
+- It automates the build of development environment using a base environment called *box* and 
+  a series of text-based instructions
+ 
+** Devops response: Vagrant
+   
+
+- It is possible to use different providers: EC2, Virtualbox, VMware, Docker, etc \dots
+- *Solves in some way the problem of sharing a VM*
+- *VMs are not seen as black boxes anymore*
+- Researchers can automate the process of building and configuring virtual machines
+- Researchers write text-based configuration files that provide instruction to build virtual machines
+- As this files are small researchers can share them easily and track different versions via
+  source-control repositories
+
+** Reproducible builds: a functional package management (Nix)
+
+- Two independent runs of a given build process for a given set of inputs
+  should return the same value
+- Deterministic
+- No dependency hell
+
+
+** Reconstrucability
+#+BEGIN_LaTeX
+An experimental setup \(E'\) is reconstructable if the following three facts hold:
+\begin{itemize}
+\item Experimenters have access to the original base experimental setup \(E\).
+\item Experimenters know exactly the sequence of actions \\* \(\langle A_{1}, A_{2}, A_{3}, ..., A_{n}\rangle \) that produced \(E'\).
+\item {\bf Experimenters are able to change some action \(A_{i}\) and successfully re-construct an experimental setup \(E''\)}.
+\end{itemize}
+#+END_LaTeX
+
+
+** Reconstrucability
+#+BEGIN_LaTeX
+
+It can be expressed as \(E' = f(E,\langle A_{i} \rangle ) \)
+where \( f \) applies \(\langle A_{i} \rangle \) to \(E\) to
+derive the experimental setup \(E'\).
+
+
+Few cases where this hypothesis does not hold:
+\begin{itemize}
+  \item An action \(A_{i}\) is composed of sub-tasks that are executed concurrently making the process not deterministic.
+        For example: \texttt{Makefile} \texttt{-j}
+  \item (\emph{Debian 8}) is validated based on timestamps
+  \item Leaked information from the host: \texttt{hostname},\texttt{/proc/cpuinfo}
+\end{itemize}
+
+Additionally problems:
+\begin{itemize}
+\item Accessing the same base setup \(E\)
+\item {\bf Software used is not available anymore}
+\item {\bf Specific version of packages cannot be installed}
+\end{itemize}
+
+#+END_LaTeX
+
+
+
 ** notes							   :noexport:
 I can introduce the definition of reconstructability
       Quelles bonnes propriétés sont elles recherchée?
