@@ -35,7 +35,7 @@
 #+latex_header: \textblockorigin{0mm}{0mm}
 #+LATEX_HEADER: \usepackage{natbib}
 #+LATEX_HEADER: \usepackage{bibentry}
-#+LATEX_HEADER: \newcommand\Fontvi{\fontsize{6}{7.2}\selectfont}
+#+LATEX_HEADER: \newcommand\Fontvi{\fontsize{6}{6}\selectfont}
 #+LATEX_HEADER: \newcommand{\bottomcite}[1]{\fbox{\vbox{\footnotesize #1}}}
 #+LATEX_HEADER: \nobibliography*
 #+BIND: org-latex-title-command ""
@@ -340,42 +340,69 @@ Environment build, specialized, controlled, versioned by somebody else:
     \url{International Conference on Computational Science}, ICSS 2011}
 #+END_LaTeX
 
-   - Activepapers (Beta)
-     - Python or JVM based language
-   - SageMathCloud
-     - Use Jupyter
-       - Julia, Python, R, Haskell, Ruby...
-       - 40 languages (partly) supported
-   - Default Grid'5000 environments
-   - Software appliances market place (Testbed)
+- Activepapers (Beta)
+  - Python or JVM based language
+- SageMathCloud
+  - Use Jupyter
+    - Julia, Python, R, Haskell, Ruby...
+    - 40 languages (partly) supported
+- Default Grid'5000 environments
+- Software appliances market place (Testbed)
 
+Sharing is easy but you have to stick to what the environment provides
 
-Partage: facile
-      Portabilité:
-      Contrôle: faible
+** Use a virtual environment as base
+
+Start your in a virtual environment *from the beginning*
+- Virtual Machines:
+  - VirtualBox
+  - Qemu/KVM
+  - VMware player
+
+- Linux containers:
+  - Docker
+  - LXC
+  - rkt
+
+*** Advantages
+    :PROPERTIES:
+    :BEAMER_env: example
+    :END:
+  - Your environment is controlled (you start from a clean system)
+  - Easy backup using snapshot capabilities
+
+*** Drawbacks
+  - Not easy to share (except with Vagrant or Docker repository)
+  - *You don't know what is inside the box :(*
+
 * Capturing an environment
 ** Capturing an environment
-   - several approaches for capturing your environment:
-     - export everything (OS + Lib + App)
-     - capture only what is needed (App + dependencies)
+   Several approaches for capturing your environment:
+   - export everything:
+     - OS + Lib + App
+   - capture only what is needed to run on a similar system:
+     - App + dependencies
 
-** Export everything
-   A simple way to capture environment is to make a *complete copy* of it.
+** Copying your experiment environment
+   A simple capture of an environment is a *complete copy* of it.
 
-   It depends on what is your local environment:
-   - In a classical environment use a backup tool
-     - A simple backup is not easily usable
-     - Can be used to generate bootable environment
+   It depends on what is your environment:
+   - In a classical local machine:
+     - Problem: A simple backup bundle is not easily usable by others
+     - Partial solution: Clone your hard drive to a VM (excluding personal data)
 
    - In a VM or any Copy-on-write environment use the instant
        snapshot capability
-     - Faster backup and better sharing
-     - VM need to be used from the begining (See Constrianed environment)
-     - Using VM means degraded performances
+     - Faster and simpler backup
+     - VM need to be used from the beginning (mentioned above)
+
+   - In Grid'5000 use [[https://www.grid5000.fr/mediawiki/index.php/TGZ-G5K][tgz-g5k]]
 
    Either case *sharing is complicated*
-     - Huge environment images (several Giga Bytes is common)
-     - Need a dedicated place to store them (à la market place)
+     - Huge environment images: several Giga Bytes is common
+     - Need a dedicated place to store them (a repository or some market place)
+
+  *You still don't know what is inside the box :(*
 
 #+BEGIN_LaTeX
   \bottomcite{J. T. Dudley and A. J. Butte,
@@ -384,40 +411,52 @@ Partage: facile
 #+END_LaTeX
 
 ** Capture only what is needed
-   Use a tracking tool to *capture only what is necessary*.
+Use a tracking tool to *capture only what is necessary*.
 
-   Instrumenting a run of your experiment to catch every used material:
-      - Binairies/Scripts (experiment.py, Python 2.7)
-      - Configuration files (conf.yaml)
-      - Librairies (libc, numpy, matplotlib)
-      => Create a compress bundle
+Instrumenting a run of your experiment to catch every used material:
+   - Binairies/Scripts (experiment.py, Python 2.7)
+   - Configuration files (conf.yaml)
+   - Librairies (libc, numpy, matplotlib)
+   => Create a compress bundle
 
-   Rerun the experiment on another machine:
-      1) Import the provided bundle
-      2) Initialyse the environment (depends on the tools...)
-      3) Rerun the exact same experiment
+Rerun the experiment on another machine:
+   1) Import the provided bundle
+   2) Initialyse the environment (depends on the tools...)
+   3) Rerun the exact same experiment
 
-   Existing tools:
-   - [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
-   - [[https://vida-nyu.github.io/reprozip/][ReproZip]] (Freire et al., 2013)
-   - [[http://reproducible.io/][CARE]] (Janin et al., 2014), l'outil de Thain
-   - See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
+Capture is not foolproof:
+   - Running with only one set of parameter is not enough
+   - maybe it miss something => you have to add it by hand
 
-** Summary
+Less messy than virtual environment copy
+But still, *it is not easy to modify it* to extend the experiment
 
-      Partage/portabilité: plus compliqué...
 
-      Contrôle: moyen (possibilité de louper des choses..., entropie
-      importante car rien n'incite à faire le ménage et on peut se
-      retrouver avec un paquet de trucs inutiles)
+** Capture tools
 
-      Lisibilité: un gros bundle binaire pas simple à comprendre
-      "reverse engineering"
+Existing tools:
+- [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
+  - not maintained since 2013 but it was the first to bring the idea
+- *[[https://vida-nyu.github.io/reprozip/][ReproZip]]* (Freire et al., 2013)
+  - Well supported
+  - one tool to trace and pack
+  - several tools to unpack and run (install package, chroot, docker,
+    vagrant)
+  - More during the demo :)
+- [[http://reproducible.io/][CARE]] (Janin et al., 2014)
+  - Seems a bit rough! (only a text file as doc)
+  - unmaintained since 2014
+- Parrot
+  - See this interesting paper [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
+  - Limited to the Parrot filesystem...
 
 * Building the entire environment
 
-** Environment generation 
-We want to have more control over the environment
+** Environment generation
+We want to have more control over the environment. We want to know:
+   - How it was built
+   - What does it contains
+   - How can I modify it to extend the experiment
 
 ** Environment generation
 #+BEGIN_LaTeX
