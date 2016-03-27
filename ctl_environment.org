@@ -460,7 +460,8 @@ We want to have more control over the environment. We want to know:
 
 - Here we will talk about the actions \(A_{i}\)
 
-- Source code compilation: 
+- Source code compilation:
+ 
   #+BEGIN_SRC sh
    $ tar -xzf pdt-3.19.tar.gz
    $ cd pdtoolkit-3.19/
@@ -687,6 +688,6 @@ startup. Exporting may require that you copy them in your .emacs.
 
 # Local Variables:
 # eval:    (setq org-latex-listings 'minted)
-# eval:    (setq org-latex-minted-options '(("bgcolor" "Apricot") ("style" "tango") ("numbers" "left") ("numbersep" "5pt")))
+# eval:    (setq org-latex-minted-options '(("bgcolor" "Apricot") ("numbersep" "5pt")))
 # eval:    (setq org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 # End:
