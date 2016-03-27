@@ -48,8 +48,19 @@ figures/%.pdf: figures/%.svg
 figures:  $(PDF_FIGS) $(OVERLAYS)
 
 
+%.tex: %.org
+	emacs -batch --eval "(setq enable-local-eval t)" \
+                     --eval "(setq enable-local-variables t)" \
+                     --eval "(setq org-export-babel-evaluate nil)" \
+                     --eval "(setq org-confirm-babel-evaluate nil)" \
+                 $^  --funcall org-beamer-export-to-latex
+	mv $@ $@.bak
+	echo '\\def\\raggedright{}' > $@
+	echo "\PassOptionsToPackage{svgnames}{xcolor}" >> $@
+	cat $@.bak >> $@
+
 ctl_environment.pdf: figures ctl_environment.tex
-		latexmk -pdf -pdflatex="xelatex -interactive=nonstopmode -shell-escape" -use-make ctl_environment.tex
+		latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode -shell-escape" -use-make ctl_environment.tex
 
 clean:
 	latexmk -CA

@@ -1,9 +1,10 @@
+#+TITLE: Controlling Your Environment
+#+AUTHOR: Cristian Ruiz, Michael Mercier\newline INRIA - France
+#+DATE: April 5, 2016 -- Reproducible Research Webinar \mylogos
+#+STARTUP: beamer overview indent
 
-#+TITLE: Controlling your environment
-#+AUTHOR: \\ \vspace{0.1cm} Cristian Ruiz, Michael Mercier\\ \vspace{0.1cm} INRIA - France \vspace{0.1cm}
-#+DATE: April 5, 2016 -- Reproducible Research Webinar
-
-#+OPTIONS: H:2
+#+OPTIONS: H:2 toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,presentation]
 #+BEAMER_COLOR_THEME:
 #+BEAMER_FONT_THEME:
 #+BEAMER_HEADER:
@@ -14,52 +15,35 @@
 #+BEAMER_THEME: default
 #+LATEX_CLASS: beamer
 
+#+LATEX_HEADER: \PassOptionsToPackage{svgnames}{xcolor}
+#+LATEX_HEADER: \let\AtBeginDocumentSav=\AtBeginDocument
+#+LATEX_HEADER: \def\AtBeginDocument#1{}
+#+LATEX_HEADER: \input{org-babel-style-preembule.tex}
+#+LATEX_HEADER: \let\AtBeginDocument=\AtBeginDocumentSav
+#+LATEX_HEADER: \usepackage{minted}
 
-#+OPTIONS:   H:2 toc:nil
+#+LATEX_HEADER: %\let\tmptableofcontents=\tableofcontents
+#+LATEX_HEADER: %\def\tableofcontents{}
+#+LATEX_HEADER:  \usepackage{color,soul}
+#+LATEX_HEADER:  \definecolor{lightblue}{rgb}{1,.9,.7}
+#+LATEX_HEADER:  \sethlcolor{lightblue}
+#+LATEX_HEADER:  \let\hrefold=\href
+#+LATEX_HEADER:  \renewcommand{\href}[2]{\hrefold{#1}{\SoulColor\hl{#2}}}
+#+LATEX_HEADER: \newcommand{\muuline}[1]{\SoulColor\hl{#1}}
+#+LATEX_HEADER: \makeatletter
+#+LATEX_HEADER: \newcommand\SoulColor{%
+#+LATEX_HEADER:   \let\set@color\beamerorig@set@color
+#+LATEX_HEADER:   \let\reset@color\beamerorig@reset@color}
+#+LATEX_HEADER: \makeatother
 
-#+LATEX_HEADER: \def\inriaproject{Inria}
-#+LATEX_HEADER: \def\tutelle{RR Webinar}
-
-
-#+LATEX_HEADER: \usepackage{multirow}
-#+LaTeX_HEADER: \usepackage{minted}
-#+LaTeX_HEADER: \usepackage{fontspec}
-#+LaTeX_HEADER: \usepackage{graphicx}
-#+LaTeX_HEADER: \usepackage{subcaption}
-#+latex_header: \usepackage{./theme/beamerthemeCristian}
-#+LaTeX_HEADER: \usepackage{color}
-#+latex_header: \newminted{ruby}{fontsize=\scriptsize}
-#+latex_header: \usepackage[absolute,overlay]{textpos}
-#+latex_header: \setlength{\TPHorizModule}{\paperwidth}
-#+latex_header: \setlength{\TPVertModule}{\paperheight}
-#+latex_header: \textblockorigin{0mm}{0mm}
-#+LATEX_HEADER: \usepackage{natbib}
-#+LATEX_HEADER: \usepackage{bibentry}
-#+LATEX_HEADER: \newcommand\Fontvi{\fontsize{6}{6}\selectfont}
-#+LATEX_HEADER: \newcommand{\bottomcite}[1]{\fbox{\vbox{\footnotesize #1}}}
-#+LATEX_HEADER: \nobibliography*
 #+BIND: org-latex-title-command ""
 
 
 
-#+BEGIN_LaTeX
+#+LATEX_HEADER: \def\mylogos{\\\vspace{1cm}\begin{center}\includegraphics[height=1.2cm]{logos/inr_logo_sans_sign_coul.png}\hspace{0.5cm}\insertlogo{\includegraphics[height=1.2cm]{logos/grid5000.png}}\hspace{0.5cm}\end{center}\vspace{-1cm}}
 
-\sloppy
-\frame{
-  \thispagestyle{empty}
-  \titlepage
-  \begin{center}
-    \includegraphics[height=1.2cm]{logos/inr_logo_sans_sign_coul.png}
-    \hspace{0.5cm}
-  \insertlogo{\includegraphics[height=1.2cm]{logos/grid5000.png}}
-   \hspace{0.5cm}
 
-  \end{center}
-
-}
-
-#+END_LaTex
-
+#+LaTeX: \input{org-babel-document-preembule.tex}
 
 * setup								   :noexport:
 
@@ -90,12 +74,15 @@
 
 ** People involved
 
-- Arnauld Legrand
-- Cristian Ruiz
 - Michael Mercier
+- Cristian Ruiz
+- Salem Harrache
+
+
 - Olivier Richard
 - Pierre Neyron
-- Salem Harrache
+- Lucas Nussbaum
+- Arnaud Legrand
 
 * Why is it necessary?
 ** Motivations
@@ -118,8 +105,10 @@ would facilitate independent replication by another scientist
    beginning:
 \vspace{0.2cm}
 
-"/The path from having a piece of software running on the programmer's own machine
-to getting it running on someone else's machine is fraught with potential pitfalls/"
+#+BEGIN_QUOTE
+The path from having a piece of software running on the programmer's own machine
+to getting it running on someone else's machine is fraught with potential pitfalls
+#+END_QUOTE
 
 #+BEGIN_LaTeX
   \bottomcite{Philip J. Guo and Dawson Engler,
@@ -138,7 +127,7 @@ Still, several problems may prevent someone to rerun an experiment
 
 ** Dependencies and compilation problems
 
-Unresolved dependencies:
+*Unresolved dependencies:*
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
@@ -147,7 +136,7 @@ Unresolved dependencies:
 \end{figure}
 #+END_LaTeX
 
-Compilation errors:
+*Compilation errors:*
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
@@ -417,7 +406,7 @@ Instrumenting a run of your experiment to catch every used material:
    - Binairies/Scripts (experiment.py, Python 2.7)
    - Configuration files (conf.yaml)
    - Librairies (libc, numpy, matplotlib)
-   => Create a compress bundle
+   $\leadsto$ Create a compress bundle
 
 Rerun the experiment on another machine:
    1) Import the provided bundle
@@ -426,7 +415,7 @@ Rerun the experiment on another machine:
 
 Capture is not foolproof:
    - Running with only one set of parameter is not enough
-   - maybe it miss something => you have to add it by hand
+   - maybe it miss something $\leadsto$ you have to add it by hand
 
 Less messy than virtual environment copy
 But still, *it is not easy to modify it* to extend the experiment
@@ -688,3 +677,16 @@ $ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
 ** Kameleon
       3. Kameleon / example Batsim ?
 	 - Success story: un an après, ça marche encore!
+
+
+* Emacs Setup                                                      :noexport:                                                                                                   
+This document has local variables in its postembule, which should
+allow org-mode to work seamlessly without any setup. If you're
+uncomfortable using such variables, you can safely ignore them at
+startup. Exporting may require that you copy them in your .emacs.
+
+# Local Variables:
+# eval:    (setq org-latex-listings 'minted)
+# eval:    (setq org-latex-minted-options '(("bgcolor" "Apricot") ("style" "tango") ("numbers" "left") ("numbersep" "5pt")))
+# eval:    (setq org-latex-pdf-process '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+# End:
