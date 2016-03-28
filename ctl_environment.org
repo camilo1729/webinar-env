@@ -125,6 +125,15 @@ For reproducible research the scientist provides for both experiment and
 
 Still, several problems may prevent someone to rerun an experiment
 
+** Is code sufficient? 
+#+BEGIN_QUOTE
+An article about computational science in a scientific publication
+is not the scholarship itself, it is merely advertising of the scholarship.
+The actual scholarship is *the complete software development environment* and 
+the complete set of instruction which generated the figures.
+David Donoho, 1998
+#+END_QUOTE
+  
 ** Dependencies and compilation problems
 
 *Unresolved dependencies:*
