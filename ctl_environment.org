@@ -464,6 +464,7 @@ Existing tools:
 - If you're moving a computation to a new system, 
   it should be simple and straightforward to set up the environment almost identical 
   to that of the original machine
+- Modern open computational science relies on complex software stacks
 - It is necessary to know:
    - How it was built
    - What does it contains
