@@ -101,8 +101,8 @@ would facilitate independent replication by another scientist
   *Reproducibility is a cornerstone of scientific method*
 
 ** Problem statement
-   Experiment replication is not an easy task if you do not have it in mind from the
-   beginning:
+Experiment replication is not an easy task if you do not have it in mind from the
+beginning:
 \vspace{0.2cm}
 
 #+BEGIN_QUOTE
@@ -198,18 +198,18 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \end{figure}
 #+END_LaTeX
    
-** The solution is: Controlling your environment
+** Controlling your environment
 
-The solution is to *control your environment*
+- One way to go is to take care of your experimental environment
 
-You have several options:
+- You have several options:
    - Use a constrained environment
    - Capture your environment
    - Build your environment
 
 *** Constraint for simplicity, complexity for freedom
-    Each of them have different level of constraint and flexibility:
-    - The more constraint your environment is, the more simple it is too
+Each of them have different levels of constraint and flexibility:
+    - The more constrained your environment is, the more simple it is 
     - Freedom comes with responsibility
 
 ** Why should I take care of my experiment environment
@@ -265,7 +265,7 @@ Tools to capture hardware configuration:
 
 ** Software
 
-Different level of environment:
+Different types of environment:
 *** Very succinct (usually what is provided, if provided...)                                      :B_definition:
 :PROPERTIES:
 :BEAMER_env: alertblock
@@ -284,8 +284,12 @@ to one language runtime(Pyton, Ruby, Java, \dots)
 :END:
 A complete environment backup with the operating system included
 - Virtual machine (VirtualBox, Qemu/KVM, VMware,\dots)
-- Linux container tarball (docker, LXC, rkt,\dots)
-- Kadeploy image tarball (Grid'5000)
+- Kadeploy image tarball (Grid'5000) 
+  # It should be disk image, it is too G5K specific
+- Linux container tarball (docker, LXC, rkt,\dots) 
+  # I dont know about this one for me it is not full. 
+  # It does not contain the kernel. It is more like partial 
+
 
 ** Types of environments
 
@@ -335,14 +339,17 @@ Environment build, specialized, controlled, versioned by somebody else:
   - Use Jupyter
     - Julia, Python, R, Haskell, Ruby...
     - 40 languages (partly) supported
-- Default Grid'5000 environments
-- Software appliances market place (Testbed)
+- Default Testbed (Grid'5000, Cloudlab, Chameleon) environments 
+- Software appliances market place (e.g., TURNEKY[fn:turnkey], Cloud Market[fn:amazon]) 
 
 Sharing is easy but you have to stick to what the environment provides
 
-** Use a virtual environment as base
+[fn:turnkey] http://www.turnkeylinux.org
+[fn:amazon] http://www.thecloudmarket.com
 
-Start your in a virtual environment *from the beginning*
+** Use a virtual environment as a base
+
+Start your experimental setup in a virtual environment *from the beginning*
 - Virtual Machines:
   - VirtualBox
   - Qemu/KVM
@@ -375,20 +382,20 @@ Start your in a virtual environment *from the beginning*
 ** Copying your experiment environment
    A simple capture of an environment is a *complete copy* of it.
 
-   It depends on what is your environment:
-   - In a classical local machine:
+   It depends on what your environment is:
+   - On a classical local machine:
      - Problem: A simple backup bundle is not easily usable by others
      - Partial solution: Clone your hard drive to a VM (excluding personal data)
 
-   - In a VM or any Copy-on-write environment use the instant
+   - On a VM or any Copy-on-write environment use the instant
        snapshot capability
      - Faster and simpler backup
-     - VM need to be used from the beginning (mentioned above)
+     - VM need to be used from the beginning (mentioned previously)
 
-   - In Grid'5000 use [[https://www.grid5000.fr/mediawiki/index.php/TGZ-G5K][tgz-g5k]]
+   - On a testbed machine use the provided snapshot mechanism
 
-   Either case *sharing is complicated*
-     - Huge environment images: several Giga Bytes is common
+   In either case *sharing is complicated*
+     - Huge environment images of several Gigabytes are common
      - Need a dedicated place to store them (a repository or some market place)
 
   *You still don't know what is inside the box :(*
@@ -400,25 +407,25 @@ Start your in a virtual environment *from the beginning*
 #+END_LaTeX
 
 ** Capture only what is needed
-Use a tracking tool to *capture only what is necessary*.
+Use a tracking tool to *capture only what is necessary*
 
 Instrumenting a run of your experiment to catch every used material:
-   - Binairies/Scripts (experiment.py, Python 2.7)
+   - Binaries/Scripts (experiment.py, Python 2.7)
    - Configuration files (conf.yaml)
-   - Librairies (libc, numpy, matplotlib)
+   - Libraries (libc, numpy, matplotlib)
    $\leadsto$ Create a compress bundle
 
 Rerun the experiment on another machine:
    1) Import the provided bundle
-   2) Initialyse the environment (depends on the tools...)
+   2) Initialize the environment (depends on the tools...)
    3) Rerun the exact same experiment
 
 Capture is not foolproof:
-   - Running with only one set of parameter is not enough
-   - maybe it miss something $\leadsto$ you have to add it by hand
+   - Running with only one set of parameters is not enough
+   - If something is missing $\leadsto$ you have to add it by hand
 
 Less messy than virtual environment copy
-But still, *it is not easy to modify it* to extend the experiment
+but *it is not easy to modify it* to extend an experiment
 
 
 ** Capture tools
