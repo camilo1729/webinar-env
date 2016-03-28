@@ -442,46 +442,38 @@ Existing tools:
 * Building the entire environment
 
 ** Environment generation
-We want to have more control over the environment. We want to know:
+
+- A major challenge in reproducing computations is installing the prerequisite
+  software environment
+- If you're moving a computation to a new system, 
+  it should be simple and straightforward to set up the environment almost identical 
+  to that of the original machine
+- It is necessary to know:
    - How it was built
    - What does it contains
    - How can I modify it to extend the experiment
 
-** Environment generation
-#+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-\includegraphics[scale=0.6]{figures/Environment_creation.pdf}
-\end{figure}
-#+END_LaTeX
-
 
 ** How software is installed and configured?
 
-- Here we will talk about the actions \(A_{i}\)
-
-- Source code compilation:
+*** Source code compilation:
  
   #+BEGIN_SRC sh
-   $ tar -xzf pdt-3.19.tar.gz
-   $ cd pdtoolkit-3.19/
+   $ tar -xzf pdt-3.19.tar.gz && cd pdtoolkit-3.19/
    $./configure -prefix=/usr/local/pdt-install
    $ make clean install
   #+END_SRC
 - Need to install all dependencies by hand
 - Some skills are required
-
-** How software is installed and configured?
-
-- Package manager:  is a collection of software tools that *automates* the process of *installing*, 
-  *upgrading*, *configuring*, and *removing* computer programs for a computer's operating system in a consistent manner
+*** Package manager:  
+is a collection of software tools that *automates* the process of *installing*, 
+*upgrading*, *configuring*, and *removing* computer programs 
+for a computer's operating system in a consistent manner
 
 - Examples in the Linux world: APT, yum, pacman, Nix \dots 
 
 - There exists as well package mangers for programming languages: 
   Bundler, CPAN, CRAN, EasyInstall, Go Get, Maven, pip, RubyGems, etc
-- Reproducible builds: Nix, Debian snapshot
-
 
 
 ** DevOps approach
@@ -494,20 +486,18 @@ We want to have more control over the environment. We want to know:
   - but it's more fun than writing documentation
 
 - Use all the good things that software engineering has created along decades for ensuring isolation and reproductibility
-** Putting everything together
+** Creating recipes: text based description
 
-- Create recipes 
-
-- In form of scripts: easy to write
-
+- README
+- Shell scripts 
 - Configuration management tools: 
-  Software Configuration Management encompasses
-  the practices and procedures for administering source code,
-  producing software development builds, controlling change, and managing software configurations
+  automate software configuration and installation
+  - Software stacks can be easily transportable
+  - Some CM tools: Puppet, Salt, Ansible
+  - A lot of work have to be done to write recipes \frowny 
 
 
-
-** Devops response: Docker 
+** DevOps response: Docker 
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -518,7 +508,7 @@ We want to have more control over the environment. We want to know:
 
 Any application can be easily moved through different environments 
 
-** Devops response: Docker 
+** DevOps response: Docker 
 
 - Docker is an open-source engine that automates the deployment
   of any application as a lightweight, portable, self-sufficient container
@@ -535,7 +525,7 @@ Any application can be easily moved through different environments
 
 - Docker tries to achieve deterministic builds by isolating your service, 
   building it from a snapshotted OS and running imperative steps on top of it.
-** Devops response: Vagrant
+** DevOps response: Vagrant
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -547,23 +537,42 @@ Any application can be easily moved through different environments
 - It automates the build of development environment using a base environment called *box* and 
   a series of text-based instructions
  
-** Devops response: Vagrant
+** DevOps response: Vagrant
    
-
-- It is possible to use different providers: EC2, Virtualbox, VMware, Docker, etc \dots
-- *Solves in some way the problem of sharing a VM*
+- Researchers write text-based configuration files that provide instruction to build virtual machines
+- *Solves in some way the problem of sharing a VM* as these files are small 
+  researchers can share them easily and track different versions via
+  source-control repositories
 - *VMs are not seen as black boxes anymore*
 - Researchers can automate the process of building and configuring virtual machines
-- Researchers write text-based configuration files that provide instruction to build virtual machines
-- As this files are small researchers can share them easily and track different versions via
-  source-control repositories
+- It is possible to use different providers: EC2, Virtualbox, VMware, Docker, etc \dots
 
 ** Reproducible builds: a functional package management (Nix)
 
+- Functional hash-based immutable package management
 - Two independent runs of a given build process for a given set of inputs
   should return the same value
+- Isolated build
 - Deterministic
 - No dependency hell
+
+** Reproducible builds: Nix workflow
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.7]{figures/Nix_workflow.pdf}
+\end{figure}
+#+END_LaTeX
+
+** Environment generation
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.6]{figures/Environment_creation.pdf}
+\end{figure}
+#+END_LaTeX
+
 
 
 ** Reconstrucability
@@ -604,6 +613,30 @@ Additionally problems:
 
 
 
+** Dealing with software availability (Debian Snapshot)
+- It's an archive that allows access to old packages based on dates and version numbers
+- It provides a valuable resource for tracking down when regressions were introduced, 
+  or for providing a specific environment that a particular application may require to run
+- Only concerns software that is packaged \frowny 
+
+** Kameleon: Reconstructable appliance generator 
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.6]{figures/Kameleon_explained.pdf}
+\end{figure}
+#+END_LaTeX
+** Kameleon Features
+- Structured language based on few constructs and 
+  which relies on shell commands make it easy to use
+- The hierarchical structure of recipes and the extend 
+  mechanism allow shareability. 
+- Kameleon supports the build process by providing debugging mechanisms such as interactive shell sessions, 
+  break-points and checkpointing. 
+- Allows the easy integration of providers using the same language for the recipes. 
+- *Persistent cache makes possible reconstructability*
+
 ** notes							   :noexport:
 I can introduce the definition of reconstructability
       Quelles bonnes propriétés sont elles recherchée?
@@ -623,7 +656,8 @@ I can introduce the definition of reconstructability
       2. Construire complètement from scratch (même l'OS)
 	 - Kameleon
 
-* Comment utiliser un environnement?
+
+* Comment utiliser un environnement?                               :noexport:
 
 
 
