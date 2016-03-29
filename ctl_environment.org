@@ -458,14 +458,13 @@ Existing tools:
 * Building the entire environment
 
 ** Environment generation
-
-- A major challenge in reproducing computations is installing the prerequisite
-  software environment
 - If you're moving a computation to a new system, 
   it should be simple and straightforward to set up the environment almost identical 
   to that of the original machine
+- A major challenge in reproducing computations is installing the prerequisite
+  software environment
 - Modern open computational science relies on complex software stacks
-- It is necessary to know:
+- So, it is necessary to know:
    - How it was built
    - What does it contains
    - How can I modify it to extend the experiment
@@ -566,9 +565,8 @@ Any application can be easily moved through different environments
 
 ** Reproducible builds: a functional package management (Nix)
 
+- The principle: *two independent runs of a given build process for a given set of inputs should return the same value*
 - Functional hash-based immutable package management
-- Two independent runs of a given build process for a given set of inputs
-  should return the same value
 - Isolated build
 - Deterministic
 - No dependency hell
@@ -633,10 +631,10 @@ Additionally problems:
 ** Dealing with software availability (Debian Snapshot)
 - It's an archive that allows access to old packages based on dates and version numbers
 - It provides a valuable resource for tracking down when regressions were introduced, 
-  or for providing a specific environment that a particular application may require to run
+  or *for providing a specific environment that a particular application may require to run*
 - Only concerns software that is packaged \frowny 
 
-** Kameleon: Reconstructable appliance generator 
+** Kameleon: Reconstructable Appliance Generator 
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -645,10 +643,10 @@ Additionally problems:
 \end{figure}
 #+END_LaTeX
 ** Kameleon Features
-- Structured language based on few constructs and 
-  which relies on shell commands make it easy to use
-- The hierarchical structure of recipes and the extend 
-  mechanism allow shareability. 
+- Easy to use  $\leadsto$ structured language based on few constructs and 
+  which relies on shell commands 
+- Allows shareability thanks to the hierarchical structure of recipes and the extend 
+  mechanism 
 - Kameleon supports the build process by providing debugging mechanisms such as interactive shell sessions, 
   break-points and checkpointing. 
 - Allows the easy integration of providers using the same language for the recipes. 
