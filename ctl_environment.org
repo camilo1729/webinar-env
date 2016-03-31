@@ -682,8 +682,6 @@ I can introduce the definition of reconstructability
       - VM, container, chroot, bundle python, hdf5 + \dots, \dots
       Faire un petit tableau récapitulatif
 * Demo time
-** Reprozip
-      1. Reprozip (capture) (les autres ayant l'air plus ou moins maintenus)
 ** Docker
 Docker advantages for reproducible research:
 
@@ -724,12 +722,12 @@ $ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
 
 
 
-** Kameleon
-      3. Kameleon / example Batsim ?
-	 - Success story: un an après, ça marche encore!
+** A complete use case
+
+The Batsim use case: TODO add link
 
 
-* Emacs Setup                                                      :noexport:                                                                                                   
+* Emacs Setup                                                      :noexport:
 This document has local variables in its postembule, which should
 allow org-mode to work seamlessly without any setup. If you're
 uncomfortable using such variables, you can safely ignore them at

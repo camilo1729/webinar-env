@@ -1,0 +1,94 @@
+#+TITLE: Complete Use Case Demo
+#+AUTHOR: Michael Mercier\newline INRIA - France
+#+DATE: April 5, 2016 -- Reproducible Research Webinar \mylogos
+
+* The use case: Batsim
+
+This a description of the use case that I was facing for my last paper:
+
+We have a simulator that we built (Batsim) which is simulating job scheduling
+in a cluster. It communicate with different schedulers in implemented by
+different people and in different languages. I want an environment to
+develop my simulator and run my experiments that is shareable with the
+different people that have made the different parts and basically
+to any people that want to create new scheduler. Of course the main purpose
+is the experiment reproducibility, but this is highlighting the fact that
+improve reproducibility also improve the way you are working with people.
+
+** Build the base environment
+
+First I build my own environment using Kameleon. Here is a sample of the recipe
+that install the scheduler of a colleague:
+#+BEGIN_SRC yaml
+
+- install dependencies:
+  - exec_in: |
+      apt-get -y --force-yes install \
+      liblog-log4perl-perl \
+      libjson-perl \
+      liblist-moreutils-perl \
+      libfile-slurp-perl \
+      2>&1
+- get_it:
+  - exec_in: |
+      cd $$simctn_dir
+      git clone https://github.com/wagnerf42/batch-simulator.git
+  - exec_in: |
+      cd $$simctn_dir/batch-simulator
+      git checkout 12df12a
+      cd ProcessorRange
+      perl Makefile.PL
+      make
+      make install
+      cd ..
+      cp log4perl.conf.template log4perl.conf
+
+#+END_SRC
+
+It is a good example of the complexity of rebuilding some research code: You
+need the right dependencies, you need to fix the git version so the next
+upgrade will not break your own code, and you need to know how to build,
+install and configure the tool.
+
+The whole kameleon recipes are available on the [[http://gforge.inria.fr/scm/?group_id=7711][inria forge]].
+As this process is a bit too long for a demo we will use the generated images
+directly. But it is recommended to do it by yourself before the webinar so you
+will have the image ready for the rest of the tutorial.
+
+For the people that want to skip this step you can download the tarball or pull
+it from the Docker Hub.
+
+TODO link to the docker image + docker pull command
+
+For the brave and the curious, to build the image using Kameleon, first you
+need to install it using the [[http://kameleon.imag.fr/installation.html][official documentation]].
+
+Than install the recipe dependencies TODO
+
+...
+
+** Run 
+
+For this demo we will follow these steps:
+1. We will trace an experiment and pack it
+2. We will copy the package to an other environment
+3. Re-run the experiment
+4. Check that the results are the same
+
+* Trace an experiment
+
+To be sure that =reprozip= is working properly we will
+Reprozip is twofold:
+   - =reprozip= for tracing and packing (needed for 1.)
+   - =reprounzip= for unpacking and re-running (needed for 3.)
+
+
+First install reprozip: See [[http://reprozip.readthedocs.org/en/latest/install.html][install documentation]]
+
+On Debian-based system do:
+#+BEGIN_SRC sh
+ sudo apt-get install python-dev libsqlite3-dev
+ sudo pip install reprozip
+#+END_SRC
+
+
