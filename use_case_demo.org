@@ -7,18 +7,19 @@
 This a description of the use case that I was facing for my last paper:
 
 We have a simulator that we built (Batsim) which is simulating job scheduling
-in a cluster. It communicate with different schedulers in implemented by
-different people and in different languages. I want an environment to
-develop my simulator and run my experiments that is shareable with the
-different people that have made the different parts and basically
-to any people that want to create new scheduler. Of course the main purpose
-is the experiment reproducibility, but this is highlighting the fact that
-improve reproducibility also improve the way you are working with people.
+in a cluster. It communicates with different schedulers implemented by
+several people and in various languages. I needed an environment to
+develop my simulator and run my experiments that I could share with the
+other developers of the different components and with basically
+any other people that would like to create and evaluate a new
+scheduler. Of course the main purpose
+is the experiment reproducibility, but this highlights the fact that
+improving reproducibility also improves the way you work with people.
 
 ** Build the base environment
 
 First I build my own environment using Kameleon. Here is a sample of the recipe
-that install the scheduler of a colleague:
+that installs the scheduler of a colleague:
 #+BEGIN_SRC yaml
 
 - install dependencies:
@@ -63,7 +64,7 @@ TODO link to the docker image + docker pull command
 For the brave and the curious, to build the image using Kameleon, first you
 need to install it using the [[http://kameleon.imag.fr/installation.html][official documentation]].
 
-Than install the recipe dependencies TODO
+Then install the recipe dependencies TODO
 
 ...
 
