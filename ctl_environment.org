@@ -52,8 +52,10 @@
 
 - Michael Mercier (Inria/Atos)
 - Cristian Ruiz (Inria)
-\medskip
+Grid5000, \structure{Kameleon}, Expo, \dots
+\bigskip\bigskip
 
+Thanks for the feedback of:
 - Pierre Neyron (CNRS)
 - Arnaud Legrand (CNRS)
 - Olivier Richard (UGA)
@@ -89,9 +91,8 @@
 
 ** Motivations
 
-  Reproducible research: What does it mean?
-
-  Need a reminder: See the [[http://newstream.imag.fr/2016-03-07_Reproducible-Research_Arnaud-legrand.mp4][first webinar]]
+*Reproducible research*: What does it mean? Watch the [[http://newstream.imag.fr/2016-03-07_Reproducible-Research_Arnaud-legrand.mp4][first webinar]] if
+you need a reminder.\medskip
 
 #+BEGIN_LaTeX
 \begin{block}{Definition}
@@ -100,7 +101,9 @@ would facilitate independent replication by another scientist
 \end{block}
 #+END_LaTeX
 
+#+BEGIN_CENTER
   *Reproducibility is a cornerstone of scientific method*
+#+END_CENTER
 
 ** Is code sufficient?
 #+BEGIN_QUOTE
@@ -108,11 +111,11 @@ An article about computational science in a scientific publication
 is not the scholarship itself, it is merely advertising of the scholarship.
 The actual scholarship is *the complete software development environment* and
 the complete set of instruction which generated the figures.
-David Donoho, 1998
+\flushright{-- David Donoho, 1998}
 #+END_QUOTE
 
 - *Making it available* is a great first step
-- Making sure others can rerun it is an other move
+- Making sure *others can rerun* it is an other move
 
 ** Problem statement
 Experiment replication is not an easy task if you do not have it in mind from the
@@ -130,9 +133,10 @@ to getting it running on someone else's machine is fraught with potential pitfal
     {\textit{CDE: Using System Call Interposition to Automatically Create Portable Software Packages}},
     USENIX LISA Conference,2011}
 #+END_LaTeX
+\bigskip
 
-For reproducible research the scientist provides for both experiment and
-   analysis:
+In reproducible research, scientists should car both about the
+experiments and the analysis:
   - All the artifacts (input/outputs files)
   - The source code
   - Documentation on how to compile, install and run
@@ -141,38 +145,39 @@ Still, several problems may prevent someone to rerun an experiment
 
 
 ** Dependencies and compilation problems
-
-*Unresolved dependencies:*
-#+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-  \includegraphics[scale=0.25]{figures/Dependency.png}
-  \label{fig:s}
-\end{figure}
-#+END_LaTeX
-
-*Compilation errors:*
-#+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-  \includegraphics[scale=0.25]{figures/Compilation_error.png}
-  \label{fig:s}
-\end{figure}
+- Unresolved dependencies :: \quad
+  #+BEGIN_LaTeX
+  \begin{center}
+    \includegraphics[scale=0.25]{figures/Dependency.png}
+  \end{center}
+  #+END_LaTeX
+- Compilation errors :: \quad
+  #+BEGIN_LaTeX
+  \begin{center}
+    \includegraphics[scale=0.25]{figures/Compilation_error.png}
+  \end{center}
 
   \bottomcite{Collberg, Christian \textit{et Al.},
-     \href{http://reproducibility.cs.arizona.edu/v2/RepeatabilityTR.pdf}{\textit{Measuring Reproducibility in Computer Systems Research}},
-    \url{http://reproducibility.cs.arizona.edu/}\qquad 2014,2015}
-#+END_LaTeX
+     \href{http://reproducibility.cs.arizona.edu/v2/RepeatabilityTR.pdf}{\textit{Measuring Reproducibility in Computer Systems Research}},\\
+     \url{http://reproducibility.cs.arizona.edu/}\qquad 2014,2015}
+  #+END_LaTeX
 
-Less than 50% of experimental setups of papers submitted ACM conferences and journals can be built.
+     Less than 50% of experimental setups of papers submitted ACM
+     conferences and journals could be built
 
 ** Other technical issues
-- Imprecise documentation: \\
+
+
+- Portability issues :: E.g., BOINC had to rely on homogeneous
+     redundancy to protect against numerical instabilities (OS,
+     hardware, ...).
+
+- Imprecise documentation ::
   "/I have no clue about how to install it, configure it or run it!/"
 
-- Dependency Hell: \\
+- Dependency Hell ::
   "/I can't install this dependency package without breaking my entire system/"
-- Code rote: \\
+- Code rote ::
   "/This dependency package version is buggy! What was the version that was used to run the experiment in the first place?!?/"
 
 #+BEGIN_LaTeX
@@ -183,16 +188,16 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 
 ** Cultural challenges
 
-- Efforts are not rewarded by the current academic research and funding environment
-- Software vendors tend to protect their markets through proprietary formats and interfaces
-- Investigators naturally tend to want to own and control their research tools
-- Even the most generalized software will not be able to meet the needs of every researcher in a field
-- The need to derive and publish results as quickly as possible precludes the often slower standards-based development path
+- Efforts are *not rewarded* by the current academic research and funding environment
+- Software vendors tend to protect their markets through *proprietary* formats and interfaces
+- Investigators naturally tend to want to own and *control* their research tools
+- Even the most generalized software will not be able to meet the *specific needs* of every researcher in a field
+- The need to derive and *publish* results *as quickly as possible* precludes the often slower standards-based development path
 
 #+BEGIN_LaTeX
   \bottomcite{J. T. Dudley and A. J. Butte,
      \href{http://www.nature.com/nbt/journal/v28/n11/pdf/nbt1110-1181.pdf}{\textit{In silico research in the era of cloud computing}},
-    \url{Nature Biotechnology}\qquad 2010}
+     Nature Biotechnology, 2010}
 #+END_LaTeX
 
 ** Disseminating science software
@@ -207,16 +212,15 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 ** Disseminating science software
 
 #+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-\includegraphics[scale=0.7]{figures/virtual_appliances.pdf}
-\end{figure}
+\begin{center}
+  \includegraphics[scale=0.7]{figures/virtual_appliances.pdf}
+\end{center}
 #+END_LaTeX
 
-- Raw data and code: relies on the published paper for documentation
-- Extensive documentation: it could require certain skills
-- Adopt a controlled environment -> scientific workflow
-- Use virtual machines to capture and publish code, data and experimental environment
+- *Raw data and code*: rely on the published paper for documentation
+- *Extensive documentation*: it may still require certain skills
+- Adopt a *controlled environment*: e.g., rely on a scientific workflow
+- Use *virtual machines* to capture and publish code, data and experimental environment
 
 ** Everywhere there is code, you need an environment
 
@@ -227,18 +231,19 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \end{figure}
 #+END_LaTeX
 
-** Why should I take care of my experiment environment
-For myself:
+** Why should I take care of my experiment environment?
+_For myself_:
   - Be able to reproduce my own experiment later
-  - Be able to scale my experiment on other machines
-  - Facilitate experiment extensions and modifications
-  - Be a better scientist by doing better science :)
+  - Improve my *productivity* (when preparing articles, PhD, rebuttals, \dots)
+  - Be able to *scale* my experiment on other machines
+  - *Facilitate* experiment extensions and modifications
+  - Be a better scientist by doing better science $\winkey$
 
-For other people: my students, my colleagues, my peers, \dots
-  - Allow them to reproduce my experiment and corroborate (or not) my results
-  - Allow them to base their research on my research
+_For other people_: my students, my colleagues, my peers, \dots
+  - Allow them to reproduce my experiment and *corroborate* (or not) my results
+  - Allow them to base their research on my research and *extend*
 
-For everybody:
+_For everyone else_:
   - Improve knowledge sharing
   - Increase collaboration possibilities
   - *Do better science!*
@@ -247,11 +252,11 @@ For everybody:
 
 One way to go is to take care of your experimental environment
 
-There is two approaches:
-- preserving the mess by capturing environment already setup
-- encourage cleanliness with several options:
-   - Use a constrained environment
-   - Build your environment
+There are mainly _two approaches_:
+- *Preserving the mess* by capturing the already set up environment
+- *Encourage cleanliness* with several options:
+   - Using a constrained environment
+   - Building your own environment
 
  See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
 
@@ -353,7 +358,7 @@ Provide isolation with the host
 \end{figure}
 #+END_LaTeX
 
-* First Approach: Use a Constrained Environment
+* First approach: use a Constrained environment
 ** Use of third party environments
 
 Environment build, specialized, controlled, versioned by somebody else:
@@ -385,7 +390,7 @@ Start your experimental setup in a controlled environment *from the beginning*
   Nothing is tracking the changes in this environment\\
   *You don't know what is inside the box* $\frowny$
 
-* Second Approach: Capturing an Environment
+* Second approach: Capturing an environment
 ** Capturing an environment
    Several approaches for capturing your environment:
    - export everything:
@@ -461,7 +466,7 @@ Existing tools:
 - Parrot
   - Limited to the Parrot filesystem...
 
-* Third Approach: Building a Complete Environment
+* Third approach: Building a complete environment
 ** Environment generation (some facts)
 - If you're moving a computation to a new system,
   it should be simple and straightforward to set up the environment almost identical
