@@ -74,7 +74,7 @@
 
 
 
-* Why is it necessary?
+* Why should we care?
 #+BEGIN_LaTeX
 \let\tableofcontents=\tmptableofcontents
 \AtBeginSection[]
@@ -353,7 +353,7 @@ Provide isolation with the host
 \end{figure}
 #+END_LaTeX
 
-* Use a constraint environment
+* First Approach: Use a Constrained Environment
 ** Use of third party environments
 
 Environment build, specialized, controlled, versioned by somebody else:
@@ -383,9 +383,9 @@ Start your experimental setup in a controlled environment *from the beginning*
 
 *** Drawbacks
   Nothing is tracking the changes in this environment\\
-  *You don't know what is inside the box :(*
+  *You don't know what is inside the box* $\frowny$
 
-* Capturing an environment
+* Second Approach: Capturing an Environment
 ** Capturing an environment
    Several approaches for capturing your environment:
    - export everything:
@@ -454,15 +454,14 @@ Existing tools:
   - one tool to trace and pack
   - several tools to unpack and run (install package, chroot, docker,
     vagrant)
-  - More during the demo :)
+  - More during the demo $\smiley$
 - [[http://reproducible.io/][CARE]] (Janin et al., 2014)
   - Only for experts
   - unmaintained since 2014
 - Parrot
   - Limited to the Parrot filesystem...
 
-* Building the entire environment
-
+* Third Approach: Building a Complete Environment
 ** Environment generation (some facts)
 - If you're moving a computation to a new system,
   it should be simple and straightforward to set up the environment almost identical
