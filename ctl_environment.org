@@ -735,20 +735,9 @@ $ docker history r-base
 $ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
 #+END_SRC
 
+** A complete use case: Batsim
 
-
-<<<<<<< HEAD
-** A complete use case
-=======
-** Reprozip
-      1. Reprozip (capture) (les autres ayant l'air plus ou moins maintenus)
-
-** Kameleon
-      3. Kameleon / example Batsim ?
-	 - Success story: un an après, ça marche encore!
->>>>>>> more additions
-
-The Batsim use case: TODO add link
+TODO: Add link to the demo
 
 
 * Emacs Setup                                                      :noexport:
