@@ -632,6 +632,7 @@ Few cases where this hypothesis \alert{does not hold}:
   \item An action \(A_{i}\) is composed of sub-tasks that are executed concurrently making the process not deterministic.
         For example: \texttt{Makefile} \texttt{-j}
   \item (\emph{Debian 8}) is validated based on timestamps
+  \item The compiler may purposedly non-deterministic (e.g., \emph{stack-smashing protector} canaries)
   \item Leaked information from the host: \texttt{hostname}, \texttt{/proc/cpuinfo}
 \end{itemize}
 #+END_LaTeX
