@@ -209,19 +209,14 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \end{figure}
 #+END_LaTeX
 
-** Controlling your environment
+** Everywhere there is code, you need an environment
 
-- One way to go is to take care of your experimental environment
-
-- You have several options:
-   - Use a constrained environment
-   - Capture your environment
-   - Build your environment
-
-*** Constraint for simplicity, complexity for freedom
-Each of them have different levels of constraint and flexibility:
-    - The more constrained your environment is, the more simple it is
-    - Freedom comes with responsibility
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.9]{figures/experiment_workflow.pdf}
+\end{figure}
+#+END_LaTeX
 
 ** Why should I take care of my experiment environment
 For myself:
@@ -239,14 +234,19 @@ For everybody:
   - Increase collaboration possibilities
   - *Do better science!*
 
-** Everywhere there is code, you need an environment
+** Controlling your environment
 
-#+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-\includegraphics[scale=0.9]{figures/experiment_workflow.pdf}
-\end{figure}
-#+END_LaTeX
+- One way to go is to take care of your experimental environment
+
+- You have several options:
+   - Use a constrained environment
+   - Capture your environment
+   - Build your environment
+
+*** Constraint for simplicity, complexity for freedom
+Each of them have different levels of constraint and flexibility:
+    - The more constrained your environment is, the more simple it is
+    - Freedom comes with responsibility
 
 * What is an environment?
 ** Environment definition
