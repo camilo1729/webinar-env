@@ -385,10 +385,11 @@ Start your experimental setup in a controlled environment *from the beginning*
 - Software appliances market place (e.g., TURNKEY[fn:turnkey], Cloud Market[fn:amazon])
 
 *This encourage cleanliness*:\\
-  Your environment is controlled (you start from a clean system)
+  Your environment is controlled _(you start from a clean system)_
 
 *** Drawbacks
-  Nothing is tracking the changes in this environment\\
+  Nothing is responsible for tracking the modifications applied in
+  this environment\\
   *You don't know what is inside the box* $\frowny$
 
 * Second approach: Capturing an environment
