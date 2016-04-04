@@ -1,3 +1,4 @@
+
 #+TITLE: Controlling Your Environment
 #+AUTHOR: Cristian Ruiz, Michael Mercier\newline INRIA - France
 #+DATE: April 5, 2016 -- Reproducible Research Webinar \mylogos
@@ -93,12 +94,21 @@
 
 #+BEGIN_LaTeX
 \begin{block}{Definition}
- A way to encapsulate all aspects of our in silico analysis in a manner that 
+ A way to encapsulate all aspects of our in silico analysis in a manner that
 would facilitate independent replication by another scientist
 \end{block}
 #+END_LaTeX
 
   *Reproducibility is a cornerstone of scientific method*
+
+** Is code sufficient?
+#+BEGIN_QUOTE
+An article about computational science in a scientific publication
+is not the scholarship itself, it is merely advertising of the scholarship.
+The actual scholarship is *the complete software development environment* and
+the complete set of instruction which generated the figures.
+David Donoho, 1998
+#+END_QUOTE
 
 ** Problem statement
 Experiment replication is not an easy task if you do not have it in mind from the
@@ -125,15 +135,7 @@ For reproducible research the scientist provides for both experiment and
 
 Still, several problems may prevent someone to rerun an experiment
 
-** Is code sufficient? 
-#+BEGIN_QUOTE
-An article about computational science in a scientific publication
-is not the scholarship itself, it is merely advertising of the scholarship.
-The actual scholarship is *the complete software development environment* and 
-the complete set of instruction which generated the figures.
-David Donoho, 1998
-#+END_QUOTE
-  
+
 ** Dependencies and compilation problems
 
 *Unresolved dependencies:*
@@ -189,7 +191,7 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
     \url{Nature Biotechnology}\qquad 2010}
 #+END_LaTeX
 
-** Distributing software possibility
+** Disseminating science software
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -206,7 +208,7 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \includegraphics[scale=0.7]{figures/virtual_appliances.pdf}
 \end{figure}
 #+END_LaTeX
-   
+
 ** Controlling your environment
 
 - One way to go is to take care of your experimental environment
@@ -218,7 +220,7 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 
 *** Constraint for simplicity, complexity for freedom
 Each of them have different levels of constraint and flexibility:
-    - The more constrained your environment is, the more simple it is 
+    - The more constrained your environment is, the more simple it is
     - Freedom comes with responsibility
 
 ** Why should I take care of my experiment environment
@@ -235,7 +237,7 @@ For other people: my students, my colleagues, my peers, \dots
 For everybody:
   - Improve knowledge sharing
   - Increase collaboration possibilities
-  - Do better science!
+  - *Do better science!*
 
 * What is an environment?
 ** Environment definition
@@ -269,7 +271,7 @@ Tools to capture hardware configuration:
 
 *** The hardware is not shareable
     As it is no shareable the hardware environment needs to be documented
-    as exhaustively as possible. Of course it depends on how the results 
+    as exhaustively as possible. Of course it depends on how the results
     of an experiment are affected by the underlying hardware.
 
 ** Software
@@ -293,11 +295,11 @@ to one language runtime(Pyton, Ruby, Java, \dots)
 :END:
 A complete environment backup with the operating system included
 - Virtual machine (VirtualBox, Qemu/KVM, VMware,\dots)
-- Kadeploy image tarball (Grid'5000) 
+- Kadeploy image tarball (Grid'5000)
   # It should be disk image, it is too G5K specific
-- Linux container tarball (docker, LXC, rkt,\dots) 
-  # I dont know about this one for me it is not full. 
-  # It does not contain the kernel. It is more like partial 
+- Linux container tarball (docker, LXC, rkt,\dots)
+  # I dont know about this one for me it is not full.
+  # It does not contain the kernel. It is more like partial
 
 
 ** Types of environments
@@ -348,8 +350,8 @@ Environment build, specialized, controlled, versioned by somebody else:
   - Use Jupyter
     - Julia, Python, R, Haskell, Ruby...
     - 40 languages (partly) supported
-- Default Testbed (Grid'5000, Cloudlab, Chameleon) environments 
-- Software appliances market place (e.g., TURNEKY[fn:turnkey], Cloud Market[fn:amazon]) 
+- Default Testbed (Grid'5000, Cloudlab, Chameleon) environments
+- Software appliances market place (e.g., TURNEKY[fn:turnkey], Cloud Market[fn:amazon])
 
 Sharing is easy but you have to stick to what the environment provides
 
@@ -457,23 +459,23 @@ Existing tools:
 
 * Building the entire environment
 
-** Environment generation
-- If you're moving a computation to a new system, 
-  it should be simple and straightforward to set up the environment almost identical 
+** Environment generation (some facts)
+- If you're moving a computation to a new system,
+  it should be simple and straightforward to set up the environment almost identical
   to that of the original machine
 - A major challenge in reproducing computations is installing the prerequisite
   software environment
 - Modern open computational science relies on complex software stacks
 - So, it is necessary to know:
-   - How it was built
-   - What does it contains
-   - How can I modify it to extend the experiment
+   - How it was built?
+   - What does it contains?
+   - How can I modify it to extend the experiment?
 
 
 ** How software is installed and configured?
 
 *** Source code compilation:
- 
+
   #+BEGIN_SRC sh
    $ tar -xzf pdt-3.19.tar.gz && cd pdtoolkit-3.19/
    $./configure -prefix=/usr/local/pdt-install
@@ -481,21 +483,21 @@ Existing tools:
   #+END_SRC
 - Need to install all dependencies by hand
 - Some skills are required
-*** Package manager:  
-is a collection of software tools that *automates* the process of *installing*, 
-*upgrading*, *configuring*, and *removing* computer programs 
+*** Package manager:
+is a collection of software tools that *automates* the process of *installing*,
+*upgrading*, *configuring*, and *removing* computer programs
 for a computer's operating system in a consistent manner
 
-- Examples in the Linux world: APT, yum, pacman, Nix \dots 
+- Examples in the Linux world: APT, yum, pacman, Nix \dots
 
-- There exists as well package mangers for programming languages: 
+- There exists as well package mangers for programming languages:
   Bundler, CPAN, CRAN, EasyInstall, Go Get, Maven, pip, RubyGems, etc
 
 
 ** DevOps approach
 
 - Dev = Development, Ops= (System) operation
-- You have a pile of crusty code that's hard to install
+- *You have a pile of crusty code that's hard to install*
 - It's hard to document how to install it
 - Why not develop scripts that reliably install your toolset?
   - Because that sounds hard ?
@@ -505,15 +507,15 @@ for a computer's operating system in a consistent manner
 ** Creating recipes: text based description
 
 - README
-- Shell scripts 
-- Configuration management tools: 
+- Shell scripts
+- Configuration management tools:
   automate software configuration and installation
   - Software stacks can be easily transportable
   - Some CM tools: Puppet, Salt, Ansible
-  - A lot of work have to be done to write recipes \frowny 
+  - A lot of work have to be done to write recipes \frowny
 
 
-** DevOps response: Docker 
+** DevOps response: Docker
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -522,9 +524,9 @@ for a computer's operating system in a consistent manner
 \end{figure}
 #+END_LaTeX
 
-Any application can be easily moved through different environments 
+Any application can be easily moved through different environments
 
-** DevOps response: Docker 
+** DevOps response: Docker
 
 - Docker is an open-source engine that automates the deployment
   of any application as a lightweight, portable, self-sufficient container
@@ -539,24 +541,24 @@ Any application can be easily moved through different environments
 
 - Docker works with images that consume minimal disk space, versioned, archiveable, and shareable
 
-- Docker tries to achieve deterministic builds by isolating your service, 
+- Docker tries to achieve deterministic builds by isolating your service,
   building it from a snapshotted OS and running imperative steps on top of it.
 ** DevOps response: Vagrant
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
-\includegraphics[scale=0.3]{figures/vagrant_explained.pdf}
+\includegraphics[scale=0.4]{figures/vagrant_explained.pdf}
 \end{figure}
 #+END_LaTeX
 
-- It automates the build of development environment using a base environment called *box* and 
+- It automates the build of development environment using a base environment called *box* and
   a series of text-based instructions
- 
+
 ** DevOps response: Vagrant
-   
+
 - Researchers write text-based configuration files that provide instruction to build virtual machines
-- *Solves in some way the problem of sharing a VM* as these files are small 
+- *Solves in some way the problem of sharing a VM* as these files are small
   researchers can share them easily and track different versions via
   source-control repositories
 - *VMs are not seen as black boxes anymore*
@@ -564,6 +566,12 @@ Any application can be easily moved through different environments
 - It is possible to use different providers: EC2, Virtualbox, VMware, Docker, etc \dots
 
 ** Reproducible builds: a functional package management (Nix)
+
+- *Apply functional model to packaging*
+#+BEGIN_QUOTE
+Package is an output of a function that is deterministic (it depends only
+on a function inputs, without any side effects)
+#+END_QUOTE
 
 - The principle: *two independent runs of a given build process for a given set of inputs should return the same value*
 - Functional hash-based immutable package management
@@ -630,11 +638,11 @@ Additionally problems:
 
 ** Dealing with software availability (Debian Snapshot)
 - It's an archive that allows access to old packages based on dates and version numbers
-- It provides a valuable resource for tracking down when regressions were introduced, 
+- It provides a valuable resource for tracking down when regressions were introduced,
   or *for providing a specific environment that a particular application may require to run*
-- Only concerns software that is packaged \frowny 
+- Only concerns software that is packaged \frowny
 
-** Kameleon: Reconstructable Appliance Generator 
+** Kameleon: Reconstructable Appliance Generator
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -643,13 +651,13 @@ Additionally problems:
 \end{figure}
 #+END_LaTeX
 ** Kameleon Features
-- Easy to use  $\leadsto$ structured language based on few constructs and 
-  which relies on shell commands 
-- Allows shareability thanks to the hierarchical structure of recipes and the extend 
-  mechanism 
-- Kameleon supports the build process by providing debugging mechanisms such as interactive shell sessions, 
-  break-points and checkpointing. 
-- Allows the easy integration of providers using the same language for the recipes. 
+- Easy to use  $\leadsto$ structured language based on few constructs and
+  which relies on shell commands
+- Allows shareability thanks to the hierarchical structure of recipes and the extend
+  mechanism
+- Kameleon supports the build process by providing debugging mechanisms such as interactive shell sessions,
+  break-points and checkpointing.
+- Allows the easy integration of providers using the same language for the recipes.
 - *Persistent cache makes possible reconstructability*
 
 ** notes							   :noexport:
@@ -722,7 +730,16 @@ $ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
 
 
 
+<<<<<<< HEAD
 ** A complete use case
+=======
+** Reprozip
+      1. Reprozip (capture) (les autres ayant l'air plus ou moins maintenus)
+
+** Kameleon
+      3. Kameleon / example Batsim ?
+	 - Success story: un an après, ça marche encore!
+>>>>>>> more additions
 
 The Batsim use case: TODO add link
 
