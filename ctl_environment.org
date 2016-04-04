@@ -473,18 +473,18 @@ Existing tools:
 - If you're moving a computation to a new system,
   it should be simple and straightforward to set up the environment almost identical
   to that of the original machine
-- A major challenge in reproducing computations is installing the prerequisite
-  software environment
+- A major challenge in reproducing computations is *installing the
+  prerequisite software environment* $\frowny$
 - Modern open computational science relies on complex software stacks
 - So, it is necessary to know:
-   - How it was built?
+   - How was it built?
    - What does it contains?
    - How can I modify it to extend the experiment?
 
 
-** How software is installed and configured?
+** How is software installed and configured?
 
-*** Source code compilation:
+*** Source code compilation
 
   #+BEGIN_SRC sh
    $ tar -xzf pdt-3.19.tar.gz && cd pdtoolkit-3.19/
@@ -493,27 +493,28 @@ Existing tools:
   #+END_SRC
 - Need to install all dependencies by hand
 - Some skills are required
-*** Package manager:
-is a collection of software tools that *automates* the process of *installing*,
-*upgrading*, *configuring*, and *removing* computer programs
-for a computer's operating system in a consistent manner
+*** Package manager
+A PM is a collection of software tools that *automates* the process of
+*installing*, *upgrading*, *configuring*, and *removing* computer programs for
+a computer's operating system in a consistent manner
 
 - Examples in the Linux world: APT, yum, pacman, Nix \dots
 
-- There exists as well package mangers for programming languages:
-  Bundler, CPAN, CRAN, EasyInstall, Go Get, Maven, pip, RubyGems, etc
+- There also exists package managers for programming languages:
+  Bundler, CPAN, CRAN, EasyInstall, Go Get, Maven, pip, RubyGems, \dots
 
 
-** DevOps approach
+** The DevOps Approach
 
 - Dev = Development, Ops= (System) operation
 - *You have a pile of crusty code that's hard to install*
-- It's hard to document how to install it
+- And documenting how to install it is almost as hard! $\smiley$
 - Why not develop scripts that reliably install your toolset?
-  - Because that sounds hard ?
-  - but it's more fun than writing documentation
+  - Because that sounds hard ? $\winkey$
+  - But it's more fun than writing documentation!
 
-- Use all the good things that software engineering has created along decades for ensuring isolation and reproductibility
+Use all the good things that software engineering has created along
+decades for ensuring *isolation* and *reproducibility*
 ** Creating recipes: text based description
 
 - README
@@ -522,10 +523,10 @@ for a computer's operating system in a consistent manner
   automate software configuration and installation
   - Software stacks can be easily transportable
   - Some CM tools: Puppet, Salt, Ansible
-  - A lot of work have to be done to write recipes $\frowny$
+  - A lot of work has to be done to write recipes $\frowny$
 
 
-** DevOps response: Docker
+** DevOps response: Docker for deployment
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -536,7 +537,7 @@ for a computer's operating system in a consistent manner
 
 Any application can be easily moved through different environments
 
-** DevOps response: Docker
+** DevOps response: Docker for deployment
 
 - Docker is an open-source engine that automates the deployment
   of any application as a lightweight, portable, self-sufficient container
@@ -549,11 +550,12 @@ Any application can be easily moved through different environments
 \end{figure}
 #+END_LaTeX
 
-- Docker works with images that consume minimal disk space, versioned, archiveable, and shareable
+- Docker works with images that consume minimal disk space, are
+  versioned, archiveable, and shareable
 
 - Docker tries to achieve deterministic builds by isolating your service,
   building it from a snapshotted OS and running imperative steps on top of it.
-** DevOps response: Vagrant
+** DevOps response: Vagrant for building
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -565,22 +567,22 @@ Any application can be easily moved through different environments
 - It automates the build of development environment using a base environment called *box* and
   a series of text-based instructions
 
-** DevOps response: Vagrant
+** DevOps response: Vagrant for building
 
 - Researchers write text-based configuration files that provide instruction to build virtual machines
-- *Solves in some way the problem of sharing a VM* as these files are small
-  researchers can share them easily and track different versions via
+- *Somehow solves way the problem of sharing a VM*. Since these files are small,
+  researchers can easily share them and track different versions via
   source-control repositories
 - *VMs are not seen as black boxes anymore*
 - Researchers can automate the process of building and configuring virtual machines
 - It is possible to use different providers: EC2, Virtualbox, VMware, Docker, etc \dots
 
-** Reproducible builds: a functional package management (Nix)
+** Reproducible builds: a functional package management\hspace{.3em}(Nix)\hspace{-5em}
 
 - *Apply functional model to packaging*
 #+BEGIN_QUOTE
-Package is an output of a function that is deterministic (it depends only
-on a function inputs, without any side effects)
+A package is the output of a function that is deterministic (it
+depends only on a function inputs, without any side effects)
 #+END_QUOTE
 
 - The principle: *two independent runs of a given build process for a given set of inputs should return the same value*
@@ -609,15 +611,13 @@ on a function inputs, without any side effects)
 
 
 ** Reconstrucability
-#+BEGIN_LaTeX
-An experimental setup \(E'\) is reconstructable if the following three facts hold:
-\begin{itemize}
-\item Experimenters have access to the original base experimental setup \(E\).
-\item Experimenters know exactly the sequence of actions \\* \(\langle A_{1}, A_{2}, A_{3}, ..., A_{n}\rangle \) that produced \(E'\).
-\item {\bf Experimenters are able to change some action \(A_{i}\) and successfully re-construct an experimental setup \(E''\)}.
-\end{itemize}
-#+END_LaTeX
-
+An experimental setup $E'$ is *reconstructable* if the following three
+facts hold:
+1. Experimenters have access to the original base experimental setup \(E\).
+2. Experimenters know exactly the sequence of actions \(\langle A_{1}, A_{2}, A_{3},
+   ..., A_{n}\rangle \) that produced \(E'\).
+3. \bf Experimenters are able to change some action \(A_{i}\) and
+   successfully re-construct an experimental setup \(E''\)
 
 ** Reconstrucability
 #+BEGIN_LaTeX
@@ -627,29 +627,28 @@ where \( f \) applies \(\langle A_{i} \rangle \) to \(E\) to
 derive the experimental setup \(E'\).
 
 
-Few cases where this hypothesis does not hold:
+Few cases where this hypothesis \alert{does not hold}:
 \begin{itemize}
   \item An action \(A_{i}\) is composed of sub-tasks that are executed concurrently making the process not deterministic.
         For example: \texttt{Makefile} \texttt{-j}
   \item (\emph{Debian 8}) is validated based on timestamps
-  \item Leaked information from the host: \texttt{hostname},\texttt{/proc/cpuinfo}
+  \item Leaked information from the host: \texttt{hostname}, \texttt{/proc/cpuinfo}
 \end{itemize}
-
-Additionally problems:
-\begin{itemize}
-\item Accessing the same base setup \(E\)
-\item {\bf Software used is not available anymore}
-\item {\bf Specific version of packages cannot be installed}
-\end{itemize}
-
 #+END_LaTeX
 
+_Additional problems_:
+- Accessing the same base setup \(E\)
+- \bgroup\bf Software used is not available anymore\egroup
+- \bgroup\bf Specific version of packages cannot be installed\egroup
 
 
 ** Dealing with software availability (Debian Snapshot)
-- It's an archive that allows access to old packages based on dates and version numbers
-- It provides a valuable resource for tracking down when regressions were introduced,
-  or *for providing a specific environment that a particular application may require to run*
+The Debian community is quite active on the reproducibility front.
+- It's an archive that allows to access old packages based on dates
+  and version numbers
+- It provides a valuable resource for tracking down when regressions
+  were introduced, or *for providing a specific environment that a
+  particular application may require to run*
 - Only concerns software that is packaged $\frowny$
 
 ** Kameleon: Reconstructable Appliance Generator
@@ -661,25 +660,16 @@ Additionally problems:
 \end{figure}
 #+END_LaTeX
 ** Kameleon Features
-- Easy to use  $\leadsto$ structured language based on few constructs and
+- Easy to use  $\leadsto$ *structured language* based on few constructs and
   which relies on shell commands
-- Allows shareability thanks to the hierarchical structure of recipes and the extend
-  mechanism
-- Kameleon supports the build process by providing debugging mechanisms such as interactive shell sessions,
-  break-points and checkpointing.
-- Allows the easy integration of providers using the same language for the recipes.
-- *Persistent cache makes possible reconstructability*
-
-* Conclusion
-** Conclusion
-Reproducibility is easier when you have it in mind from the beginning
-
-- Choose your tools :: Reproducibility brings some complexity but
-     more and more tools to manage this complexity for you
-- Provide environments :: Whatever the environment quality you
-     provide, it is better than no environment at all $\winkey$
-- Better if you provide the recipe :: Provide experiment environment
-     is good, provide the recipe to build this environment is better
+- Allows shareability thanks to the hierarchical structure of *recipes*
+  and the *extend mechanism*
+- Kameleon supports the build process by providing debugging
+  mechanisms such as *interactive shell sessions*, *break-points* and
+  *checkpointing*
+- Allows the easy integration of providers using the same language for
+  the recipes
+- *Persistent cache* makes  *reconstructability* a reality
 
 * Demo time
 ** Docker
@@ -723,6 +713,17 @@ $ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
 ** A complete use case: Batsim
 
 TODO: Add link to the demo
+
+* Conclusion
+** Conclusion
+Reproducibility is easier when you have it in mind from the beginning
+
+- Choose your tools :: Reproducibility brings some complexity but
+     more and more tools to manage this complexity for you
+- Provide environments :: Whatever the environment quality you
+     provide, it is better than no environment at all $\winkey$
+- Better if you provide the recipe :: Providing experiment environment
+     is good. Providing the recipe to build this environment is better!
 
 
 * Emacs Setup                                                      :noexport:
