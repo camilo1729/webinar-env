@@ -414,7 +414,7 @@ Start your experimental setup in a controlled environment *from the beginning*
      - Huge environment images of several Gigabytes are common
      - Need a dedicated place to store them (a repository or some market place)
 
-  *You still don't know what is inside the box :(*
+  *You still don't know what is inside the box* $\frowny$
 
 #+BEGIN_LaTeX
   \bottomcite{J. T. Dudley and A. J. Butte,
@@ -515,7 +515,7 @@ for a computer's operating system in a consistent manner
   automate software configuration and installation
   - Software stacks can be easily transportable
   - Some CM tools: Puppet, Salt, Ansible
-  - A lot of work have to be done to write recipes \frowny
+  - A lot of work have to be done to write recipes $\frowny$
 
 
 ** DevOps response: Docker
@@ -643,7 +643,7 @@ Additionally problems:
 - It's an archive that allows access to old packages based on dates and version numbers
 - It provides a valuable resource for tracking down when regressions were introduced,
   or *for providing a specific environment that a particular application may require to run*
-- Only concerns software that is packaged \frowny
+- Only concerns software that is packaged $\frowny$
 
 ** Kameleon: Reconstructable Appliance Generator
 
