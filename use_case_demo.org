@@ -54,7 +54,8 @@ while you know your tool but it can take hours to somebody (even you in
 some months) to do it again if it was not documented like this: You can
 see this file like an executable installation documentation of your code.
 
-The whole kameleon recipes are available on the [[http://gforge.inria.fr/scm/?group_id=7711][inria forge]].
+The whole kameleon recipes are available on the
+    [[https://github.com/oar-team/batsim-env-recipes][Github repository]].
 As this process is a bit too long for a demo we will use the generated images
 directly. But it is recommended to do it by yourself before the webinar so you
 will have the image ready for the rest of the tutorial.
@@ -150,9 +151,9 @@ reprozip pack
 The reprozip packing process produce a =experiment.rpz= file that you can
 export from your docker container using the =docker cp= command:
 #+BEGIN_SRC sh
-mkdir repro_expe
-docker cp my-experiment:/root/expe-batsim/experiment.rpz repro_expe
-cd repro_expe
+mkdir $HOME/repro_expe
+docker cp my-experiment:/root/expe-batsim/experiment.rpz $HOME/repro_expe
+cd $HOME/repro_expe
 #+END_SRC
 
 Now you need to install =reprounzip= in order to rerun the experiment. It can
@@ -187,7 +188,10 @@ Our image also contains visualisation tools, so we can see if we actually
 reproduce the same results. So, you can run the following quite complicated
 command and get an interactive view of the two results files:
 #+BEGIN_SRC sh
-docker run -ti --rm -e LANG=C.UTF-8 --name visu -v /home/mercierm/repro_expe:/data -u kameleon -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix oarteam/batsim:latest evalys /data/first_run_job.csv /data/rerun_job.csv 
+docker run -ti --rm -e LANG=C.UTF-8 --name visu \
+   -v $HOME/repro_expe:/data -u kameleon \
+   -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+     oarteam/batsim:latest evalys /data/first_run_job.csv /data/rerun_job.csv
 #+END_SRC
 
 OK it looks like the same but is it really?
