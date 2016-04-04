@@ -1,4 +1,4 @@
-*.pdf
+./*.pdf
 *.vrb
 *.pyg
 *.nav
