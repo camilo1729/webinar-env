@@ -395,10 +395,10 @@ Start your experimental setup in a controlled environment *from the beginning*
 * Second approach: Capturing an environment
 ** Capturing an environment
    Several approaches for capturing your environment:
-   - export everything:
+   - Export *everything*
      - Kernel + Libraries + Application
      - Heavy but safe
-   - capture only what is needed to run on a similar system:
+   - Capture *only what is needed* to run on a similar system
      - Libraries (only dependencies) + App
      - Lightweight but can be partial
 
@@ -406,65 +406,65 @@ Start your experimental setup in a controlled environment *from the beginning*
    A simple capture of an environment is a *complete copy* of it.
 
    It depends on what your environment is:
-   - On a classical local machine:
-     - Problem: A simple backup bundle is not easily usable by others
-     - Partial solution: Clone your hard drive to a VM (excluding personal data)
+   1. On a classical local machine:
+      - Problem: A simple backup bundle is not easily usable by others
+      - Partial solution: Clone your hard drive to a VM (excluding personal data)
 
-   - On a VM or any Copy-on-write environment use the instant
-       snapshot capability
-     - Faster and simpler backup
-     - VM need to be used from the beginning (mentioned previously)
+   2. On a VM or any Copy-on-write environment use the instant
+        snapshot capability
+      - Faster and simpler backup
+      - VM need to be used from the beginning (mentioned previously)
 
-   - On a testbed machine use the provided snapshot mechanism
+   3. On a testbed machine use the provided snapshot mechanism
 
    In either case *sharing is complicated*
      - Huge environment images of several Gigabytes are common
      - Need a dedicated place to store them (a repository or some market place)
 
-  *You still don't know what is inside the box* $\frowny$
+  *You still don't know what is inside the box* $\frowny$ \smallskip
 
 #+BEGIN_LaTeX
   \bottomcite{J. T. Dudley and A. J. Butte,
      \href{http://www.nature.com/nbt/journal/v28/n11/pdf/nbt1110-1181.pdf}{\textit{In silico research in the era of cloud computing}},
-    \url{Nature Biotechnology}\qquad 2010}
+     Nature Biotechnology\qquad 2010}
 #+END_LaTeX
 
 ** Capture only what is needed
-Use a tracking tool to *capture only what is necessary*
+Use a *tracking tool* to *capture only what is necessary*
 
-Instrumenting a run of your experiment to catch every used material:
+- Instrumenting a run of your experiment to catch every used material
    - Binaries/Scripts (experiment.py, Python 2.7)
    - Configuration files (conf.yaml)
    - Libraries (libc, numpy, matplotlib)
-   => Create a compressed bundle
+   Then create a *compressed bundle*
 
-Rerun the experiment on another machine:
+- Rerun the experiment on another machine:
    1) Import the provided bundle
    2) Initialize the environment (depends on the tools...)
    3) Rerun the exact same experiment
 
-Capture is not foolproof:
+*Capture is not foolproof*:
    - Running with only one set of parameters is not enough
-   - More risk to miss something
+   - More risk to miss something $\frowny$
 
-Less messy than virtual environment copy
-but *it is not easy to modify it* to extend an experiment
+Less messy than virtual environment copy $\smiley$
+but *it is not easy to modify it* to extend an experiment $\frowny$
 
 
 ** Capture tools
 
 Existing tools:
 - [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
-  - first to bring the idea
-  - not maintained since 2013
+  - First to bring the idea
+  - Seems not maintained since 2013
 - *[[https://vida-nyu.github.io/reprozip/][ReproZip]]* (Freire et al., 2013)
-  - one tool to trace and pack
-  - several tools to unpack and run (install package, chroot, docker,
+  - One tool to trace and pack
+  - Several tools to unpack and run (install package, chroot, docker,
     vagrant)
   - More during the demo $\smiley$
 - [[http://reproducible.io/][CARE]] (Janin et al., 2014)
   - Only for experts
-  - unmaintained since 2014
+  - Seems unmaintained since 2014
 - Parrot
   - Limited to the Parrot filesystem...
 
