@@ -209,6 +209,11 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 \end{figure}
 #+END_LaTeX
 
+- Raw data and code: relies on the published paper for documentation
+- Extensive documentation: it could require certain skills
+- Adopt a controlled environment -> scientific workflow
+- Use virtual machines to capture and publish code, data and experimental environment
+
 ** Everywhere there is code, you need an environment
 
 #+BEGIN_LaTeX
