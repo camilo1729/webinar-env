@@ -75,15 +75,13 @@
 
 ** People involved
 
-- Michael Mercier
-- Cristian Ruiz
-- Salem Harrache
+- Michael Mercier (Inria/Atos)
+- Cristian Ruiz (Inria)
 
-
-- Olivier Richard
-- Pierre Neyron
-- Lucas Nussbaum
-- Arnaud Legrand
+- Pierre Neyron (CNRS)
+- Arnaud Legrand (CNRS)
+- Olivier Richard (UGA)
+- Lucas Nussbaum (Loria)
 
 * Why is it necessary?
 ** Motivations
@@ -109,6 +107,9 @@ The actual scholarship is *the complete software development environment* and
 the complete set of instruction which generated the figures.
 David Donoho, 1998
 #+END_QUOTE
+
+Making it available" is a great first step. Making sure others can rerun
+it is an other move
 
 ** Problem statement
 Experiment replication is not an easy task if you do not have it in mind from the
@@ -243,10 +244,13 @@ For everybody:
 
 - One way to go is to take care of your experimental environment
 
-- You have several options:
-   - Use a constrained environment
-   - Capture your environment
-   - Build your environment
+There is two approaches:
+   - preserving the mess by capturing environment already setup
+   - encourage cleanliness with several options:
+      - Use a constrained environment
+      - Build your environment
+
+ See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
 
 *** Constraint for simplicity, complexity for freedom
 Each of them have different levels of constraint and flexibility:
@@ -255,10 +259,11 @@ Each of them have different levels of constraint and flexibility:
 
 * What is an environment?
 ** Environment definition
+
 #+BEGIN_LaTeX
 \begin{block}{Definition}
-   In our case:
-   An environment is a set of tools and materials that permit a complete
+   *In our case*:
+   An environment is a set of tools and materials that permits a complete
    reproducibility of a part or the whole experiment process.
 \end{block}
 #+END_LaTeX
@@ -282,7 +287,7 @@ Tools to capture hardware configuration:
   - Testbeds hardware description API (Grid'5000, Chameleon)
 
 *** The hardware is not shareable
-    As it is no shareable the hardware environment needs to be documented
+    As it is not shareable the *hardware environment needs to be documented*
     as exhaustively as possible. Of course it depends on how the results
     of an experiment are affected by the underlying hardware.
 
@@ -293,26 +298,39 @@ Different types of environment:
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
-A minimal description in mail or a README in a git repository
+- minimal description in a mail
+- README in a git repository
+- small documentation
 
 *** Partial
 :PROPERTIES:
 :BEAMER_env: definition
 :END:
-A bundle of the experiment tool and it dependencies. It is generally limited
-to one language runtime(Pyton, Ruby, Java, \dots)
+- bundle of the experiment tool and it dependencies
+- linux container image
 *** Full
 :PROPERTIES:
 :BEAMER_env: example
 :END:
 A complete environment backup with the operating system included
-- Virtual machine (VirtualBox, Qemu/KVM, VMware,\dots)
-- Kadeploy image tarball (Grid'5000)
-  # It should be disk image, it is too G5K specific
-- Linux container tarball (docker, LXC, rkt,\dots)
-  # I dont know about this one for me it is not full.
-  # It does not contain the kernel. It is more like partial
+- Virtual machine
+- A complete system image
 
+** Virtual environments definition
+
+Provide isolation with the host
+
+- A virtual environment can only use a limited part of the resources:
+      - filesystem
+      - memory/cpu/disk/network
+
+- Got his own software stack  => clean dependencies
+
+*What is a container*:\\
+   An isolated part of the system that share the operating system kernel
+
+*What is a virtual machine*:\\
+   A full system image that share the system hardware though an hypervisor
 
 ** Types of environments
 
@@ -323,38 +341,10 @@ A complete environment backup with the operating system included
 \end{figure}
 #+END_LaTeX
 
-** Software Appliances
-*** Advantage 							    :B_block:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :END:
-
-keep everything together:
-#+BEGIN_CENTER
-OS + configuration + application
-#+END_CENTER
-
-*** Some facts							    :B_block:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :END:
-- Availability of Testbeds such as Grid'5000, Chameleon, Cloudlab, etc
-- Ubiquity of Cloud computing infrastructures.
-- Virtualization accessible to almost everyone that has a computer with modest requirements.
-
-
-
 * Use a constraint environment
 ** Use of third party environments
 
 Environment build, specialized, controlled, versioned by somebody else:
-
-#+BEGIN_LaTeX
-  \bottomcite{Brammer, Grant R \textit{et Al.},
-     \href{http://www.sciencedirect.com/science/article/pii/S187705091100127X}
-{\textit{Paper M\^ach\'e: Creating Dynamic Reproducible Science.}},
-    \url{International Conference on Computational Science}, ICSS 2011}
-#+END_LaTeX
 
 - Activepapers (Beta)
   - Python or JVM based language
@@ -363,7 +353,7 @@ Environment build, specialized, controlled, versioned by somebody else:
     - Julia, Python, R, Haskell, Ruby...
     - 40 languages (partly) supported
 - Default Testbed (Grid'5000, Cloudlab, Chameleon) environments
-- Software appliances market place (e.g., TURNEKY[fn:turnkey], Cloud Market[fn:amazon])
+- Software appliances market place (e.g., TURNKEY[fn:turnkey], Cloud Market[fn:amazon])
 
 Sharing is easy but you have to stick to what the environment provides
 
@@ -373,34 +363,23 @@ Sharing is easy but you have to stick to what the environment provides
 ** Use a virtual environment as a base
 
 Start your experimental setup in a virtual environment *from the beginning*
-- Virtual Machines:
-  - VirtualBox
-  - Qemu/KVM
-  - VMware player
 
-- Linux containers:
-  - Docker
-  - LXC
-  - rkt
-
-*** Advantages
-    :PROPERTIES:
-    :BEAMER_env: example
-    :END:
-  - Your environment is controlled (you start from a clean system)
-  - Easy backup using snapshot capabilities
+- This encourage cleanliness: \\
+  Your environment is controlled (you start from a clean system)
 
 *** Drawbacks
-  - Not easy to share (except with Vagrant or Docker repository)
-  - *You don't know what is inside the box :(*
+  Nothing is tracking the changes in this environment
+  => *You don't know what is inside the box :(*
 
 * Capturing an environment
 ** Capturing an environment
    Several approaches for capturing your environment:
    - export everything:
-     - OS + Lib + App
+     - Kernel + Libraries + Application
+     - Heavy but safe
    - capture only what is needed to run on a similar system:
-     - App + dependencies
+     - Libraries (only dependencies) + App
+     - Lightweight but can be partial
 
 ** Copying your experiment environment
    A simple capture of an environment is a *complete copy* of it.
@@ -436,7 +415,7 @@ Instrumenting a run of your experiment to catch every used material:
    - Binaries/Scripts (experiment.py, Python 2.7)
    - Configuration files (conf.yaml)
    - Libraries (libc, numpy, matplotlib)
-   $\leadsto$ Create a compress bundle
+   => Create a compressed bundle
 
 Rerun the experiment on another machine:
    1) Import the provided bundle
@@ -445,7 +424,7 @@ Rerun the experiment on another machine:
 
 Capture is not foolproof:
    - Running with only one set of parameters is not enough
-   - If something is missing $\leadsto$ you have to add it by hand
+   - More risk to miss something
 
 Less messy than virtual environment copy
 but *it is not easy to modify it* to extend an experiment
@@ -455,18 +434,17 @@ but *it is not easy to modify it* to extend an experiment
 
 Existing tools:
 - [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
-  - not maintained since 2013 but it was the first to bring the idea
+  - first to bring the idea
+  - not maintained since 2013
 - *[[https://vida-nyu.github.io/reprozip/][ReproZip]]* (Freire et al., 2013)
-  - Well supported
   - one tool to trace and pack
   - several tools to unpack and run (install package, chroot, docker,
     vagrant)
   - More during the demo :)
 - [[http://reproducible.io/][CARE]] (Janin et al., 2014)
-  - Seems a bit rough! (only a text file as doc)
+  - Only for experts
   - unmaintained since 2014
 - Parrot
-  - See this interesting paper [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
   - Limited to the Parrot filesystem...
 
 * Building the entire environment
@@ -672,35 +650,22 @@ Additionally problems:
 - Allows the easy integration of providers using the same language for the recipes.
 - *Persistent cache makes possible reconstructability*
 
-** notes							   :noexport:
-I can introduce the definition of reconstructability
-      Quelles bonnes propriétés sont elles recherchée?
+* Conclusion
 
-      Quelles sont les étapes:
-      1. Partir de 0
-      2. S'assurer qu'on peut reconstruire à chaque instant
-      3. Distribuer
+Reproducibility is easier when you have it in mind from the beginning
 
-      Note: çà veut dire quoi partir de 0 ?
-      1. Partir d'une image préexistante considérée comme stable. Avec
-         l'effort des reproducible build de debian, c'est pas mal
-         (mentionner aussi debian snapshot)
-	 - Script, Outils des distributions, VM et container, docker file, vagrant
-	 - Nix / Guix
-	 - Kameleon
-      2. Construire complètement from scratch (même l'OS)
-	 - Kameleon
+*Choose your tools*:\\
+Reproducibility brings some complexity but more and more tools to manage this
+  complexity for you
 
+*Provide environments*:\\
+Whatever the environment quality you provide, it is better than no
+  environment at all :)
 
-* Comment utiliser un environnement?                               :noexport:
+*Better if you provide the recipe*
+Provide experiment environment is good, provide the recipe to build this
+  environment is better
 
-
-
-** notes
-      C'est transverse, comme "comment distribuer" donc à expliquer au
-      fur et à mesure
-      - VM, container, chroot, bundle python, hdf5 + \dots, \dots
-      Faire un petit tableau récapitulatif
 * Demo time
 ** Docker
 Docker advantages for reproducible research:
