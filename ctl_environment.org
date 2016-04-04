@@ -725,6 +725,13 @@ Reproducibility is easier when you have it in mind from the beginning
      provide, it is better than no environment at all $\winkey$
 - Better if you provide the recipe :: Providing experiment environment
      is good. Providing the recipe to build this environment is better!
+** Conclusion
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.4]{figures/Conclusion_software_dis.pdf}
+\end{figure}
+#+END_LaTeX
 
 
 * Emacs Setup                                                      :noexport:
