@@ -664,20 +664,15 @@ Additionally problems:
 - *Persistent cache makes possible reconstructability*
 
 * Conclusion
-
+** Conclusion
 Reproducibility is easier when you have it in mind from the beginning
 
-*Choose your tools*:\\
-Reproducibility brings some complexity but more and more tools to manage this
-  complexity for you
-
-*Provide environments*:\\
-Whatever the environment quality you provide, it is better than no
-  environment at all :)
-
-*Better if you provide the recipe*
-Provide experiment environment is good, provide the recipe to build this
-  environment is better
+- Choose your tools :: Reproducibility brings some complexity but
+     more and more tools to manage this complexity for you
+- Provide environments :: Whatever the environment quality you
+     provide, it is better than no environment at all $\winkey$
+- Better if you provide the recipe :: Provide experiment environment
+     is good, provide the recipe to build this environment is better
 
 * Demo time
 ** Docker
