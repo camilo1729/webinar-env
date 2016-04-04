@@ -265,7 +265,7 @@ Each of them have different levels of constraint and flexibility:
 
 #+BEGIN_LaTeX
 \begin{block}{Definition}
-   *In our case*:
+   \alert{In our case}:
    An environment is a set of tools and materials that permits a complete
    reproducibility of a part or the whole experiment process.
 \end{block}
