@@ -269,20 +269,20 @@ Each of them have different levels of constraint and flexibility:
 ** Environment definition
 
 #+BEGIN_LaTeX
-\begin{block}{Definition}
-   \alert{In our case}:
-   An environment is a set of tools and materials that permits a complete
-   reproducibility of a part or the whole experiment process.
-\end{block}
+\begin{block}{Definition (in our case)}
+   An environment is a \uline{set of tools and materials} that 
+   permits a \uline{complete reproducibility} of a \uline{part or of the whole 
+   experiment process}.
+\end{block}\medskip
 #+END_LaTeX
 
    Can be numerous or unique depending on the experiment workflow:
-   - Experiment runtime environments
+   - Experiment environments
      - local, on a testbed, on a dedicated server,\dots
-   - Analysis runtime environments
+   - Analysis environments
      - Usually a unique local environment
 
-   Whole environment contains hardware and software information
+   The whole environment contains both *hardware and software information*
 
 ** Hardware
 Necessary when we carry out performance measures
@@ -296,8 +296,10 @@ Tools to capture hardware configuration:
 
 *** The hardware is not shareable
     As it is not shareable the *hardware environment needs to be documented*
-    as exhaustively as possible. Of course it depends on how the results
-    of an experiment are affected by the underlying hardware.
+    as exhaustively as possible. 
+
+    Of course it depends on how the results
+    of experiments are affected by the underlying hardware.
 
 ** Software
 
@@ -324,21 +326,20 @@ A complete environment backup with the operating system included
 - Virtual machine
 - A complete system image
 
-** Virtual environments definition
+** Virtual environments: important notions
 
-Provide isolation with the host
-
+One of the role of the OS is to provide *isolation* with the host
 - A virtual environment can only use a limited part of the resources:
       - filesystem
       - memory/cpu/disk/network
+- Has his own software stack $\Rightarrow$ clean dependencies
 
-- Got his own software stack  => clean dependencies
 
-*What is a container*:\\
-   An isolated part of the system that share the operating system kernel
-
-*What is a virtual machine*:\\
-   A full system image that share the system hardware though an hypervisor
+By the way:
+- What is a container? ::  An isolated part of the system that shares the
+  operating system kernel
+- What is a virtual machine? :: A full system image that shares the
+     system hardware with your guest OS though an hypervisor
 
 ** VM vs container
 
