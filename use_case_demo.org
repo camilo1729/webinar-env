@@ -91,19 +91,108 @@ For this demo we will follow these steps:
 
 ** Trace an experiment
 
-To be sure that =reprozip= is working properly we will
-Reprozip is twofold:
+Just a word about how =reprozip= is working. Reprozip is twofold:
    - =reprozip= for tracing and packing (needed for 1.)
    - =reprounzip= for unpacking and re-running (needed for 3.)
 
-If you are using the provided environement reprozip is already installed.
+In the provided environment reprozip is already installed. The unzip stage
+will be perform locally so we will have to install it when the time come.
 
-First install reprozip: See [[http://reprozip.readthedocs.org/en/latest/install.html][install documentation]]
-
-On Debian-based system do:
+First *if you built yourself the environment* you need to import the image in
+Docker (it is assumed that docker is already installed on your machine):
 #+BEGIN_SRC sh
- sudo apt-get install python-dev libsqlite3-dev
- sudo pip install reprozip
+docker import build/debian8_batsim/debian8_batsim-cache.tar.gz oarteam/batsim:latest
+#+END_SRC
+If you didn't build the image just import it from Docker Hub, the Docker image public repository:
+#+BEGIN_SRC sh
+docker pull oarteam/batsim:latest
 #+END_SRC
 
+Then look at your docker images, batsim has appeared!
+#+BEGIN_SRC sh
+docker images
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+batsim                        latest              0852ae23ac63        3 minutes ago       478.9 MB
+#+END_SRC
 
+Let's go into the container:
+#+BEGIN_SRC sh
+docker run -ti -e LANG=C.UTF-8 --name my-experiment oarteam/batsim:latest /bin/bash
+#+END_SRC
+
+*Note*: the option =-e= is added here to avoid some error with the python Click library.
+
+Now you should have a working bash in the batsim container :)
+
+As you have seen when downloading (or building) the image, it is kind of big.
+It is because it contains all the tools to modify, rebuild and run the entire
+experiment. Let say that you just want other people to re-run the experiment
+and not modify it: We will trace a minimal experiment using =reprozip= to
+capture only what is necessary to do it.
+
+#+BEGIN_SRC sh
+cd /root/expe-batsim/
+reprozip trace ./experiment.py
+#+END_SRC
+
+You can check generated config file that contains all tthe files that have been
+captured by reprozip during the execution:
+#+BEGIN_SRC sh
+less .reprozip-trace/config.yml
+#+END_SRC
+*Note*: Has the capture process is not error free this file is the place to add
+what is missing.
+
+Then you can pack the experiment environment:
+#+BEGIN_SRC sh
+reprozip pack
+#+END_SRC
+
+** Reproduce the experiment
+
+The reprozip packing process produce a =experiment.rpz= file that you can
+export from your docker container using the =docker cp= command:
+#+BEGIN_SRC sh
+mkdir repro_expe
+docker cp my-experiment:/root/expe-batsim/experiment.rpz repro_expe
+cd repro_expe
+#+END_SRC
+
+Now you need to install =reprounzip= in order to rerun the experiment. It can
+be easily done using the python =pip= installer:
+#+BEGIN_SRC sh
+pip install reprounzip-docker reprounzip
+#+END_SRC
+
+Now reprozip have to setup the environment in the expe folder
+#+BEGIN_SRC sh
+reprounzip docker setup experiment.rpz expe
+#+END_SRC
+
+Then you can rerun the experiment:
+#+BEGIN_SRC sh
+reprounzip docker run expe
+#+END_SRC
+
+** Compare the results
+
+First you need to get the results from the first experiment:
+#+BEGIN_SRC sh
+docker cp my-experiment:/root/expe-batsim/result_exp0test/perl_sched_BASIC_0001000000.0_0000000000.0_000_jobs.csv ./first_run_job.csv
+#+END_SRC
+
+And from the rerun:
+#+BEGIN_SRC sh
+reprounzip docker download expe perl_sched_BASIC_0001000000.0_0000000000.0_000_jobs.csv:rerun_job.csv
+#+END_SRC
+
+Check if the results are the same:
+#+BEGIN_SRC sh
+diff -s first_run_job.csv rerun_job.csv
+Files first_run_job.csv and rerun_job.csv are identical
+#+END_SRC
+
+Great! You have reproduce the same results :)
+
+Do not hesitate to create issues/Pull requests on this repository if you had
+any trouble doing this tutorial.
