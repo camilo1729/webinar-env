@@ -60,9 +60,7 @@ directly. But it is recommended to do it by yourself before the webinar so you
 will have the image ready for the rest of the tutorial.
 
 For the people that want to skip this step you can download the tarball or pull
-it from the Docker Hub.
-
-TODO link to the docker image + docker pull command
+it from the Docker Hub: This will be explain on the following parts.
 
 For the brave and the curious, to build the image using Kameleon, first you
 need to install it using the [[http://kameleon.imag.fr/installation.html][official documentation]].
@@ -72,9 +70,8 @@ using a ``chroot``: It comes with no dependencies but it you need to be root
 on the machine. You can also use VirtualBox using the right ``extend`` in the
 begining of the recipe.
 
-*** Warning
-      Depending on your system and the backend you
-      choosed, you may have to install the recipe building  dependencies.
+*Warning*: Depending on your system and the backend you choosed, you may have
+to install the recipe building  dependencies.
 
 Then run the build:
 #+BEGIN_SRC sh
@@ -101,7 +98,7 @@ will be perform locally so we will have to install it when the time come.
 First *if you built yourself the environment* you need to import the image in
 Docker (it is assumed that docker is already installed on your machine):
 #+BEGIN_SRC sh
-docker import build/debian8_batsim/debian8_batsim-cache.tar.gz oarteam/batsim:latest
+docker import build/debian8_batsim/debian8_batsim.tar.gz oarteam/batsim:latest
 #+END_SRC
 If you didn't build the image just import it from Docker Hub, the Docker image public repository:
 #+BEGIN_SRC sh
@@ -186,7 +183,14 @@ And from the rerun:
 reprounzip docker download expe perl_sched_BASIC_0001000000.0_0000000000.0_000_jobs.csv:rerun_job.csv
 #+END_SRC
 
-Check if the results are the same:
+Our image also contains visualisation tools, so we can see if we actually
+reproduce the same results. So, you can run the following quite complicated
+command and get an interactive view of the two results files:
+#+BEGIN_SRC sh
+docker run -ti --rm -e LANG=C.UTF-8 --name visu -v /home/mercierm/repro_expe:/data -u kameleon -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix oarteam/batsim:latest evalys /data/first_run_job.csv /data/rerun_job.csv 
+#+END_SRC
+
+OK it looks like the same but is it really?
 #+BEGIN_SRC sh
 diff -s first_run_job.csv rerun_job.csv
 Files first_run_job.csv and rerun_job.csv are identical
