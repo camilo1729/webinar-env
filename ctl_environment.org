@@ -218,7 +218,7 @@ Less than 50% of experimental setups of papers submitted ACM conferences and jou
 
 *** Constraint for simplicity, complexity for freedom
 Each of them have different levels of constraint and flexibility:
-    - The more constrained your environment is, the more simple it is 
+    - The more constrained your environment is, the more simple it is
     - Freedom comes with responsibility
 
 ** Why should I take care of my experiment environment
@@ -237,6 +237,15 @@ For everybody:
   - Increase collaboration possibilities
   - Do better science!
 
+** Everywhere there is code, you need an environment
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.9]{figures/experiment_workflow.pdf}
+\end{figure}
+#+END_LaTeX
+
 * What is an environment?
 ** Environment definition
 #+BEGIN_LaTeX
@@ -246,8 +255,6 @@ For everybody:
    reproducibility of a part or the whole experiment process.
 \end{block}
 #+END_LaTeX
-
-   TODO: Add a schema with an experiment workflow
 
    Can be numerous or unique depending on the experiment workflow:
    - Experiment runtime environments

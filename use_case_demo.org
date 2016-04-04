@@ -12,11 +12,11 @@ several people and in various languages. I needed an environment to
 develop my simulator and run my experiments that I could share with the
 other developers of the different components and with basically
 any other people that would like to create and evaluate a new
-scheduler. Of course the main purpose
-is the experiment reproducibility, but this highlights the fact that
-improving reproducibility also improves the way you work with people.
+scheduler. Of course the main purpose is the experiment reproducibility, but
+this highlights the fact that *improving reproducibility also improves the
+way you work with people*.
 
-** Build the base environment
+** Build your base environment using Kameleon
 
 First I build my own environment using Kameleon. Here is a sample of the recipe
 that installs the scheduler of a colleague:
@@ -49,7 +49,10 @@ that installs the scheduler of a colleague:
 It is a good example of the complexity of rebuilding some research code: You
 need the right dependencies, you need to fix the git version so the next
 upgrade will not break your own code, and you need to know how to build,
-install and configure the tool.
+install and configure the tool. These few lines are really easy to write
+while you know your tool but it can take hours to somebody (even you in
+some months) to do it again if it was not documented like this: You can
+see this file like an executable installation documentation of your code.
 
 The whole kameleon recipes are available on the [[http://gforge.inria.fr/scm/?group_id=7711][inria forge]].
 As this process is a bit too long for a demo we will use the generated images
@@ -64,11 +67,21 @@ TODO link to the docker image + docker pull command
 For the brave and the curious, to build the image using Kameleon, first you
 need to install it using the [[http://kameleon.imag.fr/installation.html][official documentation]].
 
-Then install the recipe dependencies TODO
+By default, this recipe is isolating the environment that it is building
+using a ``chroot``: It comes with no dependencies but it you need to be root
+on the machine. You can also use VirtualBox using the right ``extend`` in the
+begining of the recipe.
 
-...
+*** Warning
+      Depending on your system and the backend you
+      choosed, you may have to install the recipe building  dependencies.
 
-** Run 
+Then run the build:
+#+BEGIN_SRC sh
+    kameleon build debian8_batsim.yaml
+#+END_SRC
+
+* Share reproducible experiment using reprozip
 
 For this demo we will follow these steps:
 1. We will trace an experiment and pack it
@@ -76,13 +89,14 @@ For this demo we will follow these steps:
 3. Re-run the experiment
 4. Check that the results are the same
 
-* Trace an experiment
+** Trace an experiment
 
 To be sure that =reprozip= is working properly we will
 Reprozip is twofold:
    - =reprozip= for tracing and packing (needed for 1.)
    - =reprounzip= for unpacking and re-running (needed for 3.)
 
+If you are using the provided environement reprozip is already installed.
 
 First install reprozip: See [[http://reprozip.readthedocs.org/en/latest/install.html][install documentation]]
 
