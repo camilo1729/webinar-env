@@ -23,8 +23,8 @@
 #+LATEX_HEADER: \let\AtBeginDocument=\AtBeginDocumentSav
 #+LATEX_HEADER: \usepackage{minted}
 
-#+LATEX_HEADER: %\let\tmptableofcontents=\tableofcontents
-#+LATEX_HEADER: %\def\tableofcontents{}
+#+LATEX_HEADER: \let\tmptableofcontents=\tableofcontents
+#+LATEX_HEADER: \def\tableofcontents{}
 #+LATEX_HEADER:  \usepackage{color,soul}
 #+LATEX_HEADER:  \definecolor{lightblue}{rgb}{1,.9,.7}
 #+LATEX_HEADER:  \sethlcolor{lightblue}
@@ -43,9 +43,21 @@
 
 #+LATEX_HEADER: \def\mylogos{\\\vspace{1cm}\begin{center}\includegraphics[height=1.2cm]{logos/inr_logo_sans_sign_coul.png}\hspace{0.5cm}\insertlogo{\includegraphics[height=1.2cm]{logos/grid5000.png}}\hspace{0.5cm}\end{center}\vspace{-1cm}}
 
+* 
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
 
-#+LaTeX: \input{org-babel-document-preembule.tex}
+** People involved in preparing this talk
 
+- Michael Mercier (Inria/Atos)
+- Cristian Ruiz (Inria)
+\medskip
+
+- Pierre Neyron (CNRS)
+- Arnaud Legrand (CNRS)
+- Olivier Richard (UGA)
+- Lucas Nussbaum (Loria)
 * setup								   :noexport:
 
 ** Download beamer theme and logos
@@ -62,29 +74,19 @@
 
 
 
-* Intro
+* Why is it necessary?
 #+BEGIN_LaTeX
+\let\tableofcontents=\tmptableofcontents
 \AtBeginSection[]
   {
      \begin{frame}<beamer>
-     \frametitle{Outline}
+     \frametitle{Outline} 
      \tableofcontents[currentsection]
      \end{frame}
   }
-#+END_LaTex
+#+END_LaTeX
+#+LaTeX: \input{org-babel-document-preembule.tex}
 
-** People involved
-
-- Michael Mercier (Inria/Atos)
-- Cristian Ruiz (Inria)
-
-
-- Pierre Neyron (CNRS)
-- Arnaud Legrand (CNRS)
-- Olivier Richard (UGA)
-- Lucas Nussbaum (Loria)
-
-* Why is it necessary?
 ** Motivations
 
   Reproducible research: What does it mean?
