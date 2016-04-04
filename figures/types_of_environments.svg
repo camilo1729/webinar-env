@@ -44,7 +44,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="372.42194"
+     inkscape:cx="373.43209"
      inkscape:cy="52.632807"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -53,8 +53,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1680"
-     inkscape:window-height="984"
+     inkscape:window-width="1920"
+     inkscape:window-height="1014"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1" />
@@ -66,7 +66,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -110,7 +110,7 @@
        xml:space="preserve"
        id="flowRoot3755-5"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#dbdee3;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
-       transform="translate(46.96428,-88.571446)"><flowRegion
+       transform="translate(26.761229,-87.561293)"><flowRegion
          id="flowRegion3757-7"><rect
            id="rect3759-1"
            width="290.35715"
@@ -118,7 +118,7 @@
            x="113.21429"
            y="653.79077"
            style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#dbdee3;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
-         id="flowPara3761-9">OS</flowPara></flowRoot>    <rect
+         id="flowPara3761-9">Kernel</flowPara></flowRoot>    <rect
        style="fill:#ffdd55;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect2985-0-6"
        width="105.35714"
@@ -173,19 +173,7 @@
        height="25"
        x="268.125"
        y="565.93365" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot3755-5-7"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#dbdee3;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
-       transform="translate(192.05357,-88.214313)"><flowRegion
-         id="flowRegion3757-7-5"><rect
-           id="rect3759-1-2"
-           width="290.35715"
-           height="60.714287"
-           x="113.21429"
-           y="653.79077"
-           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#dbdee3;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
-         id="flowPara3761-9-1">OS</flowPara></flowRoot>    <rect
+    <rect
        style="fill:#ffdd55;stroke:#00001c;stroke-width:0.89999998;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect2985-0-6-0"
        width="105.35714"
@@ -391,5 +379,17 @@
        y="475.24783"
        ry="1.4285715"
        rx="1.4285715" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3755-5-7"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#dbdee3;fill-opacity:1;stroke:none;font-family:Courier;-inkscape-font-specification:Courier"
+       transform="translate(170.2482,-87.469044)"><flowRegion
+         id="flowRegion3757-7-4"><rect
+           id="rect3759-1-3"
+           width="290.35715"
+           height="60.714287"
+           x="113.21429"
+           y="653.79077"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#dbdee3;font-family:Courier;-inkscape-font-specification:Courier" /></flowRegion><flowPara
+         id="flowPara3761-9-4">Kernel</flowPara></flowRoot>  </g>
 </svg>
