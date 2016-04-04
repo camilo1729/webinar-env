@@ -78,6 +78,7 @@
 - Michael Mercier (Inria/Atos)
 - Cristian Ruiz (Inria)
 
+
 - Pierre Neyron (CNRS)
 - Arnaud Legrand (CNRS)
 - Olivier Richard (UGA)
@@ -108,8 +109,8 @@ the complete set of instruction which generated the figures.
 David Donoho, 1998
 #+END_QUOTE
 
-Making it available" is a great first step. Making sure others can rerun
-it is an other move
+- *Making it available* is a great first step
+- Making sure others can rerun it is an other move
 
 ** Problem statement
 Experiment replication is not an easy task if you do not have it in mind from the
@@ -242,13 +243,13 @@ For everybody:
 
 ** Controlling your environment
 
-- One way to go is to take care of your experimental environment
+One way to go is to take care of your experimental environment
 
 There is two approaches:
-   - preserving the mess by capturing environment already setup
-   - encourage cleanliness with several options:
-      - Use a constrained environment
-      - Build your environment
+- preserving the mess by capturing environment already setup
+- encourage cleanliness with several options:
+   - Use a constrained environment
+   - Build your environment
 
  See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
 
@@ -332,12 +333,21 @@ Provide isolation with the host
 *What is a virtual machine*:\\
    A full system image that share the system hardware though an hypervisor
 
+** VM vs container
+
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.2]{figures/docker-vm-container.png}
+\end{figure}
+#+END_LaTeX
+
 ** Types of environments
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
-\includegraphics[scale=0.6]{figures/types_of_environments.pdf}
+\includegraphics[scale=0.7]{figures/types_of_environments.pdf}
 \end{figure}
 #+END_LaTeX
 
@@ -352,24 +362,26 @@ Environment build, specialized, controlled, versioned by somebody else:
   - Use Jupyter
     - Julia, Python, R, Haskell, Ruby...
     - 40 languages (partly) supported
-- Default Testbed (Grid'5000, Cloudlab, Chameleon) environments
-- Software appliances market place (e.g., TURNKEY[fn:turnkey], Cloud Market[fn:amazon])
 
 Sharing is easy but you have to stick to what the environment provides
 
 [fn:turnkey] http://www.turnkeylinux.org
 [fn:amazon] http://www.thecloudmarket.com
 
-** Use a virtual environment as a base
+** Use a controlled environment as a base
 
-Start your experimental setup in a virtual environment *from the beginning*
+Start your experimental setup in a controlled environment *from the beginning*
 
-- This encourage cleanliness: \\
+- Clean install system in a virtual environment
+- Default Testbed (Grid'5000, Cloudlab, Chameleon) environments
+- Software appliances market place (e.g., TURNKEY[fn:turnkey], Cloud Market[fn:amazon])
+
+*This encourage cleanliness*:\\
   Your environment is controlled (you start from a clean system)
 
 *** Drawbacks
-  Nothing is tracking the changes in this environment
-  => *You don't know what is inside the box :(*
+  Nothing is tracking the changes in this environment\\
+  *You don't know what is inside the box :(*
 
 * Capturing an environment
 ** Capturing an environment
