@@ -43,7 +43,7 @@
 
 #+LATEX_HEADER: \def\mylogos{\\\vspace{1cm}\begin{center}\includegraphics[height=1.2cm]{logos/inr_logo_sans_sign_coul.png}\hspace{0.5cm}\insertlogo{\includegraphics[height=1.2cm]{logos/grid5000.png}}\hspace{0.5cm}\end{center}\vspace{-1cm}}
 
-* 
+*
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
@@ -82,7 +82,7 @@ Thanks for the feedback of:
 \AtBeginSection[]
   {
      \begin{frame}<beamer>
-     \frametitle{Outline} 
+     \frametitle{Outline}
      \tableofcontents[currentsection]
      \end{frame}
   }
@@ -135,7 +135,7 @@ to getting it running on someone else's machine is fraught with potential pitfal
 #+END_LaTeX
 \bigskip
 
-In reproducible research, scientists should car both about the
+In reproducible research, scientists should care about both the
 experiments and the analysis:
   - All the artifacts (input/outputs files)
   - The source code
@@ -270,8 +270,8 @@ Each of them have different levels of constraint and flexibility:
 
 #+BEGIN_LaTeX
 \begin{block}{Definition (in our case)}
-   An environment is a \uline{set of tools and materials} that 
-   permits a \uline{complete reproducibility} of a \uline{part or of the whole 
+   An environment is a \uline{set of tools and materials} that
+   permits a \uline{complete reproducibility} of a \uline{part or of the whole
    experiment process}.
 \end{block}\medskip
 #+END_LaTeX
@@ -296,7 +296,7 @@ Tools to capture hardware configuration:
 
 *** The hardware is not shareable
     As it is not shareable the *hardware environment needs to be documented*
-    as exhaustively as possible. 
+    as exhaustively as possible.
 
     Of course it depends on how the results
     of experiments are affected by the underlying hardware.
@@ -361,8 +361,13 @@ By the way:
 
 * First approach: use a Constrained environment
 ** Use of third party environments
-
 Environment build, specialized, controlled, versioned by somebody else:
+
+*** thrid party                                                     :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.6
+:END:
+
 
 - Activepapers (Beta)
   - Python or JVM based language
@@ -373,8 +378,16 @@ Environment build, specialized, controlled, versioned by somebody else:
 
 Sharing is easy but you have to stick to what the environment provides
 
-[fn:turnkey] http://www.turnkeylinux.org
-[fn:amazon] http://www.thecloudmarket.com
+*** image                                                           :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.4
+:END:
+#+BEGIN_LaTeX
+\begin{figure}[!h]
+  \center
+\includegraphics[scale=0.15]{figures/SageMath.png}
+\end{figure}
+#+END_LaTeX
 
 ** Use a controlled environment as a base
 
@@ -386,6 +399,9 @@ Start your experimental setup in a controlled environment *from the beginning*
 
 *This encourage cleanliness*:\\
   Your environment is controlled _(you start from a clean system)_
+
+[fn:turnkey] http://www.turnkeylinux.org
+[fn:amazon] http://www.thecloudmarket.com
 
 *** Drawbacks
   Nothing is responsible for tracking the modifications applied in
@@ -542,19 +558,23 @@ Any application can be easily moved through different environments
 - Docker is an open-source engine that automates the deployment
   of any application as a lightweight, portable, self-sufficient container
   that will run virtually anywhere
-
-#+BEGIN_LaTeX
-\begin{figure}[!h]
-  \center
-\includegraphics[scale=0.1]{figures/docker-vm-container.png}
-\end{figure}
-#+END_LaTeX
-
-- Docker works with images that consume minimal disk space, are
-  versioned, archiveable, and shareable
-
 - Docker tries to achieve deterministic builds by isolating your service,
-  building it from a snapshotted OS and running imperative steps on top of it.
+  building it from a snapshotted OS and running imperative steps on top of it
+
+- *Dependcy hell*: Docker works with images that consume minimal disk space, are
+  versioned, archiveable, and shareable (DockerHub) 
+
+- *Dockerfiles*: resolving imprecise documentation
+
+# #+BEGIN_LaTeX
+# \begin{figure}[!h]
+#   \center
+# \includegraphics[scale=0.1]{figures/docker-vm-container.png}
+# \end{figure}
+# #+END_LaTeX
+
+ 
+
 ** DevOps response: Vagrant for building
 
 #+BEGIN_LaTeX
@@ -619,6 +639,13 @@ facts hold:
 3. \bf Experimenters are able to change some action \(A_{i}\) and
    successfully re-construct an experimental setup \(E''\)
 
+#+BEGIN_LaTeX
+\vspace{0.5cm}
+  \bottomcite{Ruiz, Cristian et Al.,
+     \href{http://dl.acm.org/citation.cfm?id=2723883}{\textit{Reconstructable Software Appliances with Kameleon}}
+    ACM SIGOPS Operating Systems Review,2015}
+#+END_LaTeX
+
 ** Reconstrucability
 #+BEGIN_LaTeX
 
@@ -631,7 +658,7 @@ Few cases where this hypothesis \alert{does not hold}:
 \begin{itemize}
   \item An action \(A_{i}\) is composed of sub-tasks that are executed concurrently making the process not deterministic.
         For example: \texttt{Makefile} \texttt{-j}
-  \item (\emph{Debian 8}) is validated based on timestamps
+  \item packages are validated based on timestamps (Debian 8)
   \item The compiler may purposedly non-deterministic (e.g., \emph{stack-smashing protector} canaries)
   \item Leaked information from the host: \texttt{hostname}, \texttt{/proc/cpuinfo}
 \end{itemize}
@@ -640,7 +667,7 @@ Few cases where this hypothesis \alert{does not hold}:
 _Additional problems_:
 - Accessing the same base setup \(E\)
 - \bgroup\bf Software used is not available anymore\egroup
-- \bgroup\bf Specific version of packages cannot be installed\egroup
+
 
 
 ** Dealing with software availability (Debian Snapshot)
