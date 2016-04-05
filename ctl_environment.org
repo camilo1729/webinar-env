@@ -65,6 +65,11 @@ Thanks for the feedback of:
 Here is the pad for interactions:
 #+LaTeX: \href{http://tinyurl.com/RRW-pad2}{http://tinyurl.com/RRW-pad2}
 #+END_CENTER
+
+Material (demo, slides) available on [[https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/index.org][github]]
+1. [[https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/docker-tutorial.org][A Docker Demo]] 
+2. [[https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/use_case_demo.org][A complete use case]] 
+
 * setup								   :noexport:
 
 ** Download beamer theme and logos
@@ -706,8 +711,8 @@ The Debian community is quite active on the reproducibility front.
 
 * Demo time
 *** Docker
-
-A [[https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/docker-tutorial.org][Docker Demo]] (follow the links from https://github.com/alegrand/RR_webinars/)
+It's time for a [[https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/docker-tutorial.org][Docker Demo]] (follow the links from
+https://github.com/alegrand/RR_webinars/)
 
 Docker advantages for reproducible research:
 
@@ -748,8 +753,22 @@ $ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
 
 *** A complete use case: Batsim
 
-- 
-- https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/use_case_demo.org
+Let's demo [[https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/use_case_demo.org][a complete use case]] (follow the links from
+https://github.com/alegrand/RR_webinars/).\medskip
+
+*Use case*: A /not that simple/ simulation
+  - SimGrid (C library) + BatSim (C++) + OAR scheduler (Python) +
+    A new scheduler (perl)
+  - Python script for the glue
+
+*Steps*:
+- Build an environment with Kameleon
+- Capture an experiment with ReproZip
+- Export the corresponding bundle
+- Rerun the experiment on another machine (ReproZip + Docker)
+- Compare the results (csv + python $\leadsto$ graphics) still using
+  the environment
+  
 
 * Conclusion
 *** Conclusion
