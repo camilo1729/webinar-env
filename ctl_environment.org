@@ -379,15 +379,16 @@ Environment build, specialized, controlled, versioned by somebody else:
 :BEAMER_col: 0.6
 :END:
 
-
-- Activepapers (Beta)
-  - Python or JVM based language
 - SageMathCloud
   - Use Jupyter
     - Julia, Python, R, Haskell, Ruby...
     - 40 languages (partly) supported
 
-Sharing is easy but you have to stick to what the environment provides
+Sharing is easy but you have to stick to what the environment provides\\
+
+Constrained but extandable environment:
+- Activepapers (Beta)
+  - Python or JVM based language
 
 **** image                                                         :BMCOL:
 :PROPERTIES:
@@ -405,8 +406,8 @@ Sharing is easy but you have to stick to what the environment provides
 Start your experimental setup in a controlled environment *from the beginning*
 
 - Clean install system in a virtual environment
-- Default Testbed (Grid'5000, Cloudlab, Chameleon) environments
 - Software appliances market place (e.g., TURNKEY[fn:turnkey], Cloud Market[fn:amazon])
+- Default Testbed (Grid'5000, Cloudlab, Chameleon) environments
 
 *This encourage cleanliness*:\\
   Your environment is controlled _(you start from a clean system)_
@@ -437,8 +438,7 @@ Start your experimental setup in a controlled environment *from the beginning*
       - Problem: A simple backup bundle is not easily usable by others
       - Partial solution: Clone your hard drive to a VM (excluding personal data)
 
-   2. On a VM or any Copy-on-write environment use the instant
-        snapshot capability
+   2. On virtual environment use the instant snapshot capability
       - Faster and simpler backup
       - VM need to be used from the beginning (mentioned previously)
 
