@@ -312,30 +312,18 @@ Tools to capture hardware configuration:
     of experiments are affected by the underlying hardware.
 
 *** Software
-
-Different types of environment:
-**** Very succinct (usually what is provided, if provided...) :B_definition:
-:PROPERTIES:
-:BEAMER_env: alertblock
-:END:
-- minimal description in a mail
-- README in a git repository
-- small documentation
-
-**** Partial
-:PROPERTIES:
-:BEAMER_env: definition
-:END:
-- bundle of the experiment tool and it dependencies
-- linux container image
-**** Full
-:PROPERTIES:
-:BEAMER_env: example
-:END:
-A complete environment backup with the operating system included
-- Virtual machine
-- A complete system image
-
+Different approaches:
+- Very succinct :: (usually what is provided, if provided...)
+  - minimal description in a mail
+  - README in a git repository
+  - small documentation
+- Partial :: \quad
+  - bundle of the experiment tool and it dependencies
+  - linux container image
+- Full :: \quad
+  A complete environment backup with the operating system included
+  - Virtual machine
+  - A complete system image
 *** Virtual environments: important notions
 
 The role of a virtual environment is to provide some *isolation* within
