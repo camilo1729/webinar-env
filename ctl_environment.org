@@ -4,7 +4,7 @@
 #+DATE: April 5, 2016 -- Reproducible Research Webinar \mylogos
 #+STARTUP: beamer overview indent
 
-#+OPTIONS: H:2 toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS: H:3 toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,presentation]
 #+BEAMER_COLOR_THEME:
 #+BEAMER_FONT_THEME:
@@ -43,12 +43,12 @@
 
 #+LATEX_HEADER: \def\mylogos{\\\vspace{1cm}\begin{center}\includegraphics[height=1.2cm]{logos/inr_logo_sans_sign_coul.png}\hspace{0.5cm}\insertlogo{\includegraphics[height=1.2cm]{logos/grid5000.png}}\hspace{0.5cm}\end{center}\vspace{-1cm}}
 
-*
+* 
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
 
-** People involved in preparing this talk
+*** People involved in preparing this talk
 
 - Michael Mercier (Inria/Atos)
 - Cristian Ruiz (Inria)
@@ -94,7 +94,7 @@ Here is the pad for interactions:
 #+END_LaTeX
 #+LaTeX: \input{org-babel-document-preembule.tex}
 
-** Motivations
+*** Motivations
 
 *Reproducible research*: What does it mean? Watch the [[http://newstream.imag.fr/2016-03-07_Reproducible-Research_Arnaud-legrand.mp4][first webinar]] if
 you need a reminder.\medskip
@@ -110,7 +110,7 @@ would facilitate independent replication by another scientist
   *Reproducibility is a cornerstone of scientific method*
 #+END_CENTER
 
-** Is code sufficient?
+*** Is code sufficient?
 #+BEGIN_QUOTE
 An article about computational science in a scientific publication
 is not the scholarship itself, it is merely advertising of the scholarship.
@@ -122,7 +122,7 @@ the complete set of instruction which generated the figures.
 - *Making it available* is a great first step
 - Making sure *others can rerun* it is an other move
 
-** Problem statement
+*** Problem statement
 Experiment replication is not an easy task if you do not have it in mind from the
 beginning:
 \vspace{0.2cm}
@@ -149,7 +149,7 @@ experiments and the analysis:
 Still, several problems may prevent someone to rerun an experiment
 
 
-** Dependencies and compilation problems
+*** Dependencies and compilation problems
 - Unresolved dependencies :: \quad
   #+BEGIN_LaTeX
   \begin{center}
@@ -170,7 +170,7 @@ Still, several problems may prevent someone to rerun an experiment
      Less than 50% of experimental setups of papers submitted ACM
      conferences and journals could be built
 
-** Other technical issues
+*** Other technical issues
 
 
 - Portability issues :: E.g., BOINC had to rely on homogeneous
@@ -191,7 +191,7 @@ Still, several problems may prevent someone to rerun an experiment
     ACM SIGOPS Operating Systems Review,2015}
 #+END_LaTeX
 
-** Cultural challenges
+*** Cultural challenges
 
 - Efforts are *not rewarded* by the current academic research and funding environment
 - Software vendors tend to protect their markets through *proprietary* formats and interfaces
@@ -205,7 +205,7 @@ Still, several problems may prevent someone to rerun an experiment
      Nature Biotechnology, 2010}
 #+END_LaTeX
 
-** Disseminating science software
+*** Disseminating science software
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -214,7 +214,7 @@ Still, several problems may prevent someone to rerun an experiment
 \end{figure}
 #+END_LaTeX
 
-** Disseminating science software
+*** Disseminating science software
 
 #+BEGIN_LaTeX
 \begin{center}
@@ -227,7 +227,7 @@ Still, several problems may prevent someone to rerun an experiment
 - Adopt a *controlled environment*: e.g., rely on a scientific workflow
 - Use *virtual machines* to capture and publish code, data and experimental environment
 
-** Everywhere there is code, you need an environment
+*** Everywhere there is code, you need an environment
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -236,7 +236,7 @@ Still, several problems may prevent someone to rerun an experiment
 \end{figure}
 #+END_LaTeX
 
-** Why should I take care of my experiment environment?
+*** Why should I take care of my experiment environment?
 _For myself_:
   - Be able to reproduce my own experiment later
   - Improve my *productivity* (when preparing articles, PhD, rebuttals, \dots)
@@ -253,7 +253,7 @@ _For everyone else_:
   - Increase collaboration possibilities
   - *Do better science!*
 
-** Controlling your environment
+*** Controlling your environment
 
 One way to go is to take care of your experimental environment
 
@@ -265,13 +265,13 @@ There are mainly _two approaches_:
 
  See [[http://ccl.cse.nd.edu/research/papers/techniques-ipres-2015.pdf][Preserve the Mess or Encourage Cleanliness?]] (Thain et al., 2015)
 
-*** Constraint for simplicity, complexity for freedom
+**** Constraint for simplicity, complexity for freedom
 Each of them have different levels of constraint and flexibility:
     - The more constrained your environment is, the more simple it is
     - Freedom comes with responsibility
 
 * What is an environment?
-** Environment definition
+*** Environment definition
 
 #+BEGIN_LaTeX
 \begin{block}{Definition (in our case)}
@@ -289,7 +289,7 @@ Each of them have different levels of constraint and flexibility:
 
    The whole environment contains both *hardware and software information*
 
-** Hardware
+*** Hardware
 Necessary when we carry out performance measures
 
 Tools to capture hardware configuration:
@@ -299,17 +299,17 @@ Tools to capture hardware configuration:
   - proprietary tools (bios, nvidia,\dots)
   - Testbeds hardware description API (Grid'5000, Chameleon)
 
-*** The hardware is not shareable
+**** The hardware is not shareable
     As it is not shareable the *hardware environment needs to be documented*
     as exhaustively as possible.
 
     Of course it depends on how the results
     of experiments are affected by the underlying hardware.
 
-** Software
+*** Software
 
 Different types of environment:
-*** Very succinct (usually what is provided, if provided...)                                      :B_definition:
+**** Very succinct (usually what is provided, if provided...) :B_definition:
 :PROPERTIES:
 :BEAMER_env: alertblock
 :END:
@@ -317,13 +317,13 @@ Different types of environment:
 - README in a git repository
 - small documentation
 
-*** Partial
+**** Partial
 :PROPERTIES:
 :BEAMER_env: definition
 :END:
 - bundle of the experiment tool and it dependencies
 - linux container image
-*** Full
+**** Full
 :PROPERTIES:
 :BEAMER_env: example
 :END:
@@ -331,7 +331,7 @@ A complete environment backup with the operating system included
 - Virtual machine
 - A complete system image
 
-** Virtual environments: important notions
+*** Virtual environments: important notions
 
 One of the role of the OS is to provide *isolation* with the host
 - A virtual environment can only use a limited part of the resources:
@@ -346,7 +346,7 @@ By the way:
 - What is a virtual machine? :: A full system image that shares the
      system hardware with your guest OS though an hypervisor
 
-** VM vs container
+*** VM vs container
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -355,7 +355,7 @@ By the way:
 \end{figure}
 #+END_LaTeX
 
-** Types of environments
+*** Types of environments
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -365,10 +365,10 @@ By the way:
 #+END_LaTeX
 
 * First approach: use a Constrained environment
-** Use of third party environments
+*** Use of third party environments
 Environment build, specialized, controlled, versioned by somebody else:
 
-*** thrid party                                                     :BMCOL:
+**** thrid party                                                   :BMCOL:
 :PROPERTIES:
 :BEAMER_col: 0.6
 :END:
@@ -383,7 +383,7 @@ Environment build, specialized, controlled, versioned by somebody else:
 
 Sharing is easy but you have to stick to what the environment provides
 
-*** image                                                           :BMCOL:
+**** image                                                         :BMCOL:
 :PROPERTIES:
 :BEAMER_col: 0.4
 :END:
@@ -394,7 +394,7 @@ Sharing is easy but you have to stick to what the environment provides
 \end{figure}
 #+END_LaTeX
 
-** Use a controlled environment as a base
+*** Use a controlled environment as a base
 
 Start your experimental setup in a controlled environment *from the beginning*
 
@@ -408,13 +408,13 @@ Start your experimental setup in a controlled environment *from the beginning*
 [fn:turnkey] http://www.turnkeylinux.org
 [fn:amazon] http://www.thecloudmarket.com
 
-*** Drawbacks
+**** Drawbacks
   Nothing is responsible for tracking the modifications applied in
   this environment\\
   *You don't know what is inside the box* $\frowny$
 
 * Second approach: Capturing an environment
-** Capturing an environment
+*** Capturing an environment
    Several approaches for capturing your environment:
    - Export *everything*
      - Kernel + Libraries + Application
@@ -423,7 +423,7 @@ Start your experimental setup in a controlled environment *from the beginning*
      - Libraries (only dependencies) + App
      - Lightweight but can be partial
 
-** Copying your experiment environment
+*** Copying your experiment environment
    A simple capture of an environment is a *complete copy* of it.
 
    It depends on what your environment is:
@@ -450,7 +450,7 @@ Start your experimental setup in a controlled environment *from the beginning*
      Nature Biotechnology\qquad 2010}
 #+END_LaTeX
 
-** Capture only what is needed
+*** Capture only what is needed
 Use a *tracking tool* to *capture only what is necessary*
 
 - Instrumenting a run of your experiment to catch every used material
@@ -472,7 +472,7 @@ Less messy than virtual environment copy $\smiley$
 but *it is not easy to modify it* to extend an experiment $\frowny$
 
 
-** Capture tools
+*** Capture tools
 
 Existing tools:
 - [[http://www.pgbovine.net/cde.html][CDE]] (Guo et al., 2011)
@@ -490,7 +490,7 @@ Existing tools:
   - Limited to the Parrot filesystem...
 
 * Third approach: Building a complete environment
-** Environment generation (some facts)
+*** Environment generation (some facts)
 - If you're moving a computation to a new system,
   it should be simple and straightforward to set up the environment almost identical
   to that of the original machine
@@ -503,9 +503,9 @@ Existing tools:
    - How can I modify it to extend the experiment?
 
 
-** How is software installed and configured?
+*** How is software installed and configured?
 
-*** Source code compilation
+**** Source code compilation
 
   #+BEGIN_SRC sh
    $ tar -xzf pdt-3.19.tar.gz && cd pdtoolkit-3.19/
@@ -514,7 +514,7 @@ Existing tools:
   #+END_SRC
 - Need to install all dependencies by hand
 - Some skills are required
-*** Package manager
+**** Package manager
 A PM is a collection of software tools that *automates* the process of
 *installing*, *upgrading*, *configuring*, and *removing* computer programs for
 a computer's operating system in a consistent manner
@@ -523,9 +523,8 @@ a computer's operating system in a consistent manner
 
 - There also exists package managers for programming languages:
   Bundler, CPAN, CRAN, EasyInstall, Go Get, Maven, pip, RubyGems, \dots
-
-
-** The DevOps Approach
+** Devops: Docker and Vagrant
+*** The DevOps Approach
 
 - Dev = Development, Ops= (System) operation
 - *You have a pile of crusty code that's hard to install*
@@ -536,7 +535,7 @@ a computer's operating system in a consistent manner
 
 Use all the good things that software engineering has created along
 decades for ensuring *isolation* and *reproducibility*
-** Creating recipes: text based description
+*** Creating recipes: text based description
 
 - README
 - Shell scripts
@@ -547,7 +546,7 @@ decades for ensuring *isolation* and *reproducibility*
   - A lot of work has to be done to write recipes $\frowny$
 
 
-** DevOps response: Docker for deployment
+*** DevOps response: Docker for deployment
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -558,7 +557,7 @@ decades for ensuring *isolation* and *reproducibility*
 
 Any application can be easily moved through different environments
 
-** DevOps response: Docker for deployment
+*** DevOps response: Docker for deployment
 
 - Docker is an open-source engine that automates the deployment
   of any application as a lightweight, portable, self-sufficient container
@@ -566,8 +565,8 @@ Any application can be easily moved through different environments
 - Docker tries to achieve deterministic builds by isolating your service,
   building it from a snapshotted OS and running imperative steps on top of it
 
-- *Dependcy hell*: Docker works with images that consume minimal disk space, are
-  versioned, archiveable, and shareable (DockerHub) 
+- *Dependency hell*: Docker works with images that consume minimal disk space, are
+  versioned, archivable, and shareable (DockerHub) 
 
 - *Dockerfiles*: resolving imprecise documentation
 
@@ -578,9 +577,7 @@ Any application can be easily moved through different environments
 # \end{figure}
 # #+END_LaTeX
 
- 
-
-** DevOps response: Vagrant for building
+*** DevOps response: Vagrant for building
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -592,7 +589,7 @@ Any application can be easily moved through different environments
 - It automates the build of development environment using a base environment called *box* and
   a series of text-based instructions
 
-** DevOps response: Vagrant for building
+*** DevOps response: Vagrant for building
 
 - Researchers write text-based configuration files that provide instruction to build virtual machines
 - *Somehow solves way the problem of sharing a VM*. Since these files are small,
@@ -602,7 +599,9 @@ Any application can be easily moved through different environments
 - Researchers can automate the process of building and configuring virtual machines
 - It is possible to use different providers: EC2, Virtualbox, VMware, Docker, etc \dots
 
-** Reproducible builds: a functional package management\hspace{.3em}(Nix)\hspace{-5em}
+
+** Reproducible builds
+*** Reproducible builds: a functional package management\hspace{.3em}(Nix)\hspace{-5em}
 
 - *Apply functional model to packaging*
 #+BEGIN_QUOTE
@@ -616,7 +615,7 @@ depends only on a function inputs, without any side effects)
 - Deterministic
 - No dependency hell
 
-** Reproducible builds: Nix workflow
+*** Reproducible builds: Nix workflow
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -625,7 +624,7 @@ depends only on a function inputs, without any side effects)
 \end{figure}
 #+END_LaTeX
 
-** Environment generation
+*** Environment generation
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
@@ -635,7 +634,7 @@ depends only on a function inputs, without any side effects)
 
 
 
-** Reconstrucability
+*** Reconstrucability
 An experimental setup $E'$ is *reconstructable* if the following three
 facts hold:
 1. Experimenters have access to the original base experimental setup \(E\).
@@ -651,7 +650,7 @@ facts hold:
     ACM SIGOPS Operating Systems Review,2015}
 #+END_LaTeX
 
-** Reconstrucability
+*** Reconstrucability
 #+BEGIN_LaTeX
 
 It can be expressed as \(E' = f(E,\langle A_{i} \rangle ) \)
@@ -675,7 +674,7 @@ _Additional problems_:
 
 
 
-** Dealing with software availability (Debian Snapshot)
+*** Dealing with software availability (Debian Snapshot)
 The Debian community is quite active on the reproducibility front.
 - It's an archive that allows to access old packages based on dates
   and version numbers
@@ -684,7 +683,7 @@ The Debian community is quite active on the reproducibility front.
   particular application may require to run*
 - Only concerns software that is packaged $\frowny$
 
-** Kameleon: Reconstructable Appliance Generator
+*** Kameleon: Reconstructable Appliance Generator
 
 #+BEGIN_LaTeX
 \begin{figure}[!h]
@@ -692,7 +691,7 @@ The Debian community is quite active on the reproducibility front.
 \includegraphics[scale=0.6]{figures/Kameleon_explained.pdf}
 \end{figure}
 #+END_LaTeX
-** Kameleon Features
+*** Kameleon Features
 - Easy to use  $\leadsto$ *structured language* based on few constructs and
   which relies on shell commands
 - Allows shareability thanks to the hierarchical structure of *recipes*
@@ -705,7 +704,10 @@ The Debian community is quite active on the reproducibility front.
 - *Persistent cache* makes  *reconstructability* a reality
 
 * Demo time
-** Docker
+*** Docker
+
+A [[https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/docker-tutorial.org][Docker Demo]] (follow the links from https://github.com/alegrand/RR_webinars/)
+
 Docker advantages for reproducible research:
 
 - Integrating into local development environments
@@ -720,7 +722,7 @@ Docker advantages for reproducible research:
     ACM SIGOPS Operating Systems Review,2015}
 #+END_LaTeX
 
-** Docker advantages
+*** Docker advantages
 
 - Portable computation & sharing
 
@@ -743,12 +745,13 @@ $ docker history r-base
 $ docker tag  d7e5801bb7ac ttimbers/mmp-dyf-skat:latest
 #+END_SRC
 
-** A complete use case: Batsim
+*** A complete use case: Batsim
 
-TODO: Add link to the demo
+- 
+- https://github.com/alegrand/RR_webinars/blob/master/2_controling_your_environment/use_case_demo.org
 
 * Conclusion
-** Conclusion
+*** Conclusion
 Reproducibility is easier when you have it in mind from the beginning
 
 - Choose your tools :: Reproducibility brings some complexity but
@@ -757,7 +760,7 @@ Reproducibility is easier when you have it in mind from the beginning
      provide, it is better than no environment at all $\winkey$
 - Better if you provide the recipe :: Providing experiment environment
      is good. Providing the recipe to build this environment is better!
-** Conclusion
+*** Conclusion
 #+BEGIN_LaTeX
 \begin{figure}[!h]
   \center
