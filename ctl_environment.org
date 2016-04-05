@@ -333,12 +333,13 @@ A complete environment backup with the operating system included
 
 *** Virtual environments: important notions
 
-One of the role of the OS is to provide *isolation* with the host
+The role of a virtual environment is to provide some *isolation* within
+the host\vspace{-1.5em}
 - A virtual environment can only use a limited part of the resources:
       - filesystem
       - memory/cpu/disk/network
 - Has his own software stack $\Rightarrow$ clean dependencies
-
+\medskip
 
 By the way:
 - What is a container? ::  An isolated part of the system that shares the
