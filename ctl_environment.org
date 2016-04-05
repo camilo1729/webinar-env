@@ -60,6 +60,11 @@ Thanks for the feedback of:
 - Arnaud Legrand (CNRS)
 - Olivier Richard (UGA)
 - Lucas Nussbaum (Loria)
+
+#+BEGIN_CENTER
+Here is the pad for interactions:
+#+LaTeX: \href{http://tinyurl.com/RRW-pad2}{http://tinyurl.com/RRW-pad2}
+#+END_CENTER
 * setup								   :noexport:
 
 ** Download beamer theme and logos
