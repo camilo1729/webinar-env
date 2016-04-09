@@ -530,7 +530,7 @@ a computer's operating system in a consistent manner
 - There also exists package managers for programming languages:
   Bundler, CPAN, CRAN, EasyInstall, Go Get, Maven, pip, RubyGems, \dots
 ** Devops: Docker and Vagrant
-*** The DevOps Approach
+*** The DevOps Approach [fn:credit]
 
 - Dev = Development, Ops= (System) operation
 - *You have a pile of crusty code that's hard to install*
@@ -541,6 +541,8 @@ a computer's operating system in a consistent manner
 
 Use all the good things that software engineering has created along
 decades for ensuring *isolation* and *reproducibility*
+
+[fn:credit] Inspiration for this slide taken from "A Common Scientific Compute Environment for Research and Education" presented at SciPy 2014
 *** Creating recipes: text based description
 
 - README
